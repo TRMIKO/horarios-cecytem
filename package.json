@@ -1,0 +1,23 @@
+{
+  "name": "horarios-cecytem",
+  "version": "0.0.1",
+  "description": "crear horarios d forma facil",
+  "main": "index.js",
+  "scripts": {
+    "dev":"electron",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TRMIKO/horarios-cecytem.git"
+  },
+  "author": "equipo rocket",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TRMIKO/horarios-cecytem/issues"
+  },
+  "homepage": "https://github.com/TRMIKO/horarios-cecytem#readme",
+  "dependencies": {
+    "electron": "^1.7.9"
+  }
+}
