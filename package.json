@@ -4,7 +4,7 @@
   "description": "crear horarios d forma facil",
   "main": "index.js",
   "scripts": {
-    "dev": "electron",
+    "dev": "electron app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
