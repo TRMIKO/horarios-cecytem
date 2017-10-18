@@ -1,10 +1,8 @@
-'use strict'
-
 const { app, BrowserWindow } = require('electron')
 
 app.on('ready', () => {
     let win = new BrowserWindow({
-        width: 1000,
+        width: 1024,
         heigth: 900,
         center: true,
         maximizable: false,
