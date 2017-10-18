@@ -7,7 +7,8 @@ app.on('ready', () => {
         center: true,
         maximizable: false,
         show: false,
-        resizable: false
+        resizable: false,
+        title:'CECyTEM'
     })
     
     win.once('ready-to-show', () => {
