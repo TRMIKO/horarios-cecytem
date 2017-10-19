@@ -20,5 +20,5 @@ app.on('ready', () => {
         app.quit()
     })
     
-    win.loadURL(`file:${__dirname}/html/index.html`)
+    win.loadURL(`file:${__dirname}/html/signin.html`)
 })
