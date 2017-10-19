@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="utf-8">
+	 <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Hello Bulma!</title>
     <link rel="stylesheet" href="../css/font-awesome.min.css">
     <link rel="stylesheet" href="../node_modules/bulma/css/bulma.css">
 </head>
-
 <body>
-    <nav class="navbar" role="navigation" aria-label="main navigation">
+<nav class="navbar" role="navigation" aria-label="main navigation">
           <div class="navbar-brand">
             <!-- navbar items, navbar burger... -->
                 <a class="navbar-item" href="https://bulma.io">
@@ -54,13 +52,34 @@
     </nav>
     <div class="tabs">
         <ul>
-          <li class="is-active"><a href="schedule.html">Administar</a></li>
-          <li><a href="createschedule.html">Crear</a></li>
+          <li ><a href="classroom.html">Administar</a></li>
+          <li class="is-active"><a href="createclassroom.html">Crear</a></li>
           
         </ul>
       </div>
-  
-   <h1>horarios</h1>
+        <section>
+      <div class="container">
+         <h3 class="has-text-centered subtitle is-3">Crear Salon</h3>
+         <div class="field">
+            <label class="label">Nombre del Salon</label>
+            <div class="control">
+              <input class="input" type="text" placeholder="Nombre">
+            </div>
+          </div>
+           <div class="field">
+            <label class="label">Capacidad Maxima</label>
+            <div class="control">
+              <input class="input" type="text" placeholder="Capacidad">
+            </div>
+          </div>
+      </div>
+      <div class="columns">
+        <div class="column is-half is-offset-one-quarter ">
+          <a class="button is-primary">Crear</a>
+          <a class="button is-danger">Cancelar</a>
+        </div>
+      </div>
+        
+    </section>
 </body>
-
 </html>
