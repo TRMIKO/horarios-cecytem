@@ -6,6 +6,13 @@
     <title>Hello Bulma!</title>
     <link rel="stylesheet" href="../css/font-awesome.min.css">
     <link rel="stylesheet" href="../node_modules/bulma/css/bulma.css">
+    <style>
+      .accept-cancel{
+        display: flex;
+        justify-content: space-around;
+        margin-top: 40px;
+      }
+    </style>
 </head>
 <body>
 <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -50,31 +57,42 @@
 
             
     </nav>
-    <div class="tabs">
+    <section class="hero is-primary">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Crear Salón
+      </h1>
+      
+    </div>
+  </div>
+  <div class="tabs">
         <ul>
-          <li ><a href="classroom.html">Administar</a></li>
-          <li class="is-active"><a href="createclassroom.html">Crear</a></li>
+          <li class="is-active"><a href="classroom.html">Administar</a></li>
+          <li><a href="createclassroom.html">Crear</a></li>
           
         </ul>
       </div>
+</section>
+<br>
         <section>
       <div class="container">
-         <h3 class="has-text-centered subtitle is-3">Crear Salon</h3>
          <div class="field">
-            <label class="label">Nombre del Salon</label>
+            <label class="label">Nombre Salon</label>
             <div class="control">
               <input class="input" type="text" placeholder="Nombre">
             </div>
           </div>
-           <div class="field">
-            <label class="label">Capacidad Maxima</label>
+         <div class="field">
+            <label class="label">Descripción del Salon</label>
             <div class="control">
-              <input class="input" type="text" placeholder="Capacidad">
+              <input class="input" type="text" placeholder="Nombre">
             </div>
           </div>
+           
       </div>
       <div class="columns">
-        <div class="column is-half is-offset-one-quarter ">
+        <div class="accept-cancel column is-half is-offset-one-quarter ">
           <a class="button is-primary">Crear</a>
           <a class="button is-danger">Cancelar</a>
         </div>
