@@ -21,7 +21,7 @@
 
                 <a class="navbar-item" href="https://bulma.io">
                   <img src="../images/letras.jpg" alt="Bulma: a modern CSS framework based on Flexbox" >
-                </a> 
+                </a>
                 <a class="navbar-item" href="#">
                     Inicio
                 </a>
@@ -40,10 +40,10 @@
           </div>
           <div class="navbar-end">
             <!-- navbar items, navbar burger... -->
-                
+
                  <div class="navbar-item">
                     <div class="field is-grouped">
-                      
+
                           <p class="control">
                             <a class="button is-danger" href="https://github.com/jgthms/bulma/releases/download/0.6.0/bulma-0.6.0.zip">
                               <span class="icon">
@@ -56,9 +56,9 @@
                 </div>
           </div>
 
-            
+
     </nav>
-    
+
    <section class="hero is-primary">
   <div class="hero-body">
     <div class="container">
@@ -68,14 +68,14 @@
       <h2 class="subtitle">
         Administrador
       </h2>
-      
+
     </div>
   </div>
-  
+
 </section>
     <section>
       <div class="container">
-         
+
       </div>
     </section>
       <div class="container salones">
@@ -85,13 +85,13 @@
     <span class="icon is-small is-left">
       <i class="fa fa-info-circle"></i>
     </span>
-    
+
   </p>
 </div>
         <article class="message is-primary">
               <div class="message-header">
                 <p>Activos</p>
-               
+
               </div>
               <div class="message-body">
                 <table class="table table is-fullwidth table is-hoverable">
@@ -139,7 +139,7 @@
                           <td>item2</td>
                           <td>item3</td>
                           <td>item4</td>
-                        </tr>    
+                        </tr>
                   </tbody>
                 </table>
               </div>
@@ -149,7 +149,7 @@
         <article class="message is-danger">
               <div class="message-header">
                 <p>Inactivos</p>
-               
+
               </div>
               <div class="message-body">
                 <table class="table table is-fullwidth table is-hoverable">
@@ -215,10 +215,48 @@
               </div>
             </article>
           </div>
-          
-      
 
-   
+
+
+
 </body>
-
+<script type="text/javascript">
+  var mysql = require('mysql');
+  var connection = mysql.createConnection({
+   host: 'localhost',
+   user: 'root',
+   password: 'L3n0v=-mysql',
+   database: 'CECYTEM',
+   port: 3306
+  });
+  connection.connect(function(error){
+   if(error){
+      throw error;
+   }else{
+      console.log('Conexion correcta.');
+   }
+  });
+  var query = connection.query('INSERT INTO TBL_USER VALUES(?)', [1], function(error, result){
+   if(error){
+      throw error;
+   }else{
+      console.log(result);
+   }
+ }
+  );
+  var query2 = connection.query('SELECT * FROM TBL_USER', function(error, result){
+      if(error){
+         throw error;
+      }else{
+         var resultado = result;
+         if(resultado.length > 0){
+            console.log(resultado);
+         }else{
+            console.log('Registro no encontrado');
+         }
+      }
+   }
+);
+  connection.end();
+</script>
 </html>
