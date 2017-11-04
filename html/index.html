@@ -225,7 +225,7 @@
   var connection = mysql.createConnection({
    host: 'localhost',
    user: 'root',
-   password: 'L3n0v=-mysql',
+   password: '123',
    database: 'CECYTEM',
    port: 3306
   });
@@ -236,21 +236,21 @@
       console.log('Conexion correcta.');
    }
   });
-  var query = connection.query('INSERT INTO TBL_USER VALUES(?)', [1], function(error, result){
-   if(error){
-      throw error;
-   }else{
-      console.log(result);
-   }
- }
-  );
-  var query2 = connection.query('SELECT * FROM TBL_USER', function(error, result){
+  /*var query = connection.query('INSERT INTO TEST VALUES(?,?)', [1,"ARTURO"], function(error, result){
+       if(error){
+          throw error;
+       }else{
+          console.log(result);
+       }
+    }
+  );*/
+  var query2 = connection.query('SELECT * FROM TEST', function(error, result){
       if(error){
          throw error;
       }else{
          var resultado = result;
          if(resultado.length > 0){
-            console.log(resultado);
+            console.log(resultado[0]['NOMBRE']);
          }else{
             console.log('Registro no encontrado');
          }
