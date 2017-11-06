@@ -26,7 +26,7 @@
         <div class="column is-half is-offset-one-quarter">
             <div class="field">
                 <p class="control has-icons-left has-icons-right">
-                    <input class="input" type="email" placeholder="Usuario">
+                    <input class="input" type="email" placeholder="Correo" id="email">
                     <span class="icon is-small is-left">
                         <i class="fa fa-user"></i>
                     </span>
@@ -37,7 +37,7 @@
             </div>
             <div class="field">
                 <p class="control has-icons-left">
-                    <input class="input" type="password" placeholder="Contraseña">
+                    <input class="input" type="password" placeholder="Contraseña" id="password">
                     <span class="icon is-small is-left">
                         <i class="fa fa-lock"></i>
                     </span>
@@ -45,7 +45,7 @@
             </div>
             <div class="field">
                 <p class="control separar">
-                    <a class="button is-link" href="index.html">
+                    <a class="button is-link" href="#" onclick="Verificar()">
                         Entrar
                     </a>
                     <a class="button is-warning">
@@ -55,6 +55,45 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        function Verificar () {
+            var mysql = require('mysql');
+            var mail = document.getElementById("email").value;
+            var pass = document.getElementById("password").value;
+            var connection = mysql.createConnection({
+                host: 'localhost',
+                user: 'root',
+                password: 'DeathRocker',
+                database: 'CECYTEM',
+                port: 3306
+            });
+            connection.connect(function(error){
+                if(error){
+                    throw error;
+                }else{
+                    console.log('Conexion correcta.');
+                }
+            });
+  
+            var query2 = connection.query('SELECT VCH_CORREO, VCH_PASS FROM TBL_USER' , function(error, result, mail, pass){
+                if(error){
+                    throw error;
+                }else{
+                    var resultado = result;
+                    if( mail===resultado[0]['VCH_CORREO'] && pass===resultado[0]['VCH_PASS'] ){
+                        location.href = "index.html";
+                        console.log(resultado[0]['VCH_CORREO']);
+                        console.log(resultado[0]['VCH_PASS']);
+                    }else{
+                        alert("Usuario no encontrado");
+                        console.log(resultado[0]['VCH_CORREO']);
+                        console.log(resultado[0]['VCH_PASS']);
+                    }
+                }
+            });
+            connection.end();
+            }
+    </script>
 </body>
 
 </html>

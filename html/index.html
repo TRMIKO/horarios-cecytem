@@ -225,7 +225,7 @@
   var connection = mysql.createConnection({
    host: 'localhost',
    user: 'root',
-   password: '123',
+   password: 'DeathRocker',
    database: 'CECYTEM',
    port: 3306
   });
@@ -250,6 +250,7 @@
       }else{
          var resultado = result;
          if(resultado.length > 0){
+            console.log(resultado[0]['USUARIO']);
             console.log(resultado[0]['NOMBRE']);
          }else{
             console.log('Registro no encontrado');
