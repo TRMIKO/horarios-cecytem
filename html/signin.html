@@ -73,20 +73,32 @@
                 }
             });
   
-            var query2 = connection.query('SELECT VCH_CORREO, VCH_PASS FROM TBL_USER' , function(error, result){
+            var query2 = connection.query('SELECT VCH_CORREO, VCH_PASS, INT_USER FROM TBL_USER' , function(error, result){
                 if(error){
                     throw error;
                 }else{
                     var resultado = result;
                     var mail = document.getElementById("email").value;
                     var pass = document.getElementById("password").value;
-                    alert("antes del log");
-                    console.log(resultado[0]['VCH_CORREO']);
-                        console.log(resultado[0]['VCH_PASS']);
-                        console.log(resultado[0]['INT_USER']);
                     if( mail===resultado[0]['VCH_CORREO'] && pass===resultado[0]['VCH_PASS'] ){
-                        var querySesion = connection.query('UPDATE TBL_USER SET ENM_STATUS = "ACTIVO" WHERE ENM_STATUS = "INACTIVO" AND INT_USER = ' + resultado[0]['INT_USER'] );
-                        alert("Logrado");
+                        var mysql2 = require('mysql');
+                        var connection2 = mysql2.createConnection({
+                            host: 'localhost',
+                            user: 'root',
+                            password: 'DeathRocker',
+                            database: 'CECYTEM',
+                            port: 3306
+                        });
+                        connection2.connect(function(error){
+                            if(error){
+                                throw error;
+                            }else{
+                                console.log('Conexion correcta.');
+                            }
+                        });
+                        var querySesion = connection2.query('UPDATE TBL_USER SET ENM_STATUS = "ACTIVO" WHERE ENM_STATUS = "INACTIVO" AND INT_USER = (?)', [resultado[0]['INT_USER']] );
+                        alert("Entrando.");
+                        connection2.end();
                         location.href = "index.html";
                     }else{
                         alert("El usuario o la contraseña no coinciden. Intente de nuevo.");
