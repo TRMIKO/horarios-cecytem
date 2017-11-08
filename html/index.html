@@ -42,10 +42,10 @@
             <!-- navbar items, navbar burger... -->
 
                  <div class="navbar-item">
-                    <div class="field is-grouped">
+                    <div class="field is-grouped" onclick="salir()">
 
                           <p class="control">
-                            <a class="button is-danger" href="https://github.com/jgthms/bulma/releases/download/0.6.0/bulma-0.6.0.zip">
+                            <a class="button is-danger" href="#">
                               <span class="icon">
                                 <i class="fa fa-ban"></i>
                               </span>
@@ -221,43 +221,41 @@
 
 </body>
 <script type="text/javascript">
-  var mysql = require('mysql');
-  var connection = mysql.createConnection({
-   host: 'localhost',
-   user: 'root',
-   password: 'DeathRocker',
-   database: 'CECYTEM',
-   port: 3306
-  });
-  connection.connect(function(error){
-   if(error){
-      throw error;
-   }else{
-      console.log('Conexion correcta.');
-   }
-  });
-  /*var query = connection.query('INSERT INTO TEST VALUES(?,?)', [1,"ARTURO"], function(error, result){
+  function salir () {
+      var mysql = require('mysql');
+      var connection = mysql.createConnection({
+       host: 'localhost',
+       user: 'root',
+       password: 'DeathRocker',
+       database: 'CECYTEM',
+       port: 3306
+      });
+      connection.connect(function(error){
        if(error){
           throw error;
        }else{
-          console.log(result);
+          console.log('Conexion correcta.');
        }
-    }
-  );*/
-  var query2 = connection.query('SELECT * FROM TEST', function(error, result){
-      if(error){
-         throw error;
-      }else{
-         var resultado = result;
-         if(resultado.length > 0){
-            console.log(resultado[0]['USUARIO']);
-            console.log(resultado[0]['NOMBRE']);
-         }else{
-            console.log('Registro no encontrado');
-         }
-      }
-   }
-);
-  connection.end();
+      });
+      /*var query = connection.query('INSERT INTO TEST VALUES(?,?)', [1,"ARTURO"], function(error, result){
+           if(error){
+              throw error;
+           }else{
+              console.log(result);
+           }
+        }
+      );*/
+      var query2 = connection.query('UPDATE TBL_USER SET ENM_STATUS = "INACTIVO" WHERE ENM_STATUS = "ACTIVO"', function(error, result){
+          if(error){
+             throw error;
+          }else{
+              var resultado = result;
+              alert("saliendo");
+             alert("Adiós"  );
+              location.href = "signin.html";
+          }
+       });
+      connection.end();
+  }
 </script>
 </html>
