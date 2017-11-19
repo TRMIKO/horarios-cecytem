@@ -245,7 +245,7 @@
            }
         }
       );*/
-      var query2 = connection.query('UPDATE TBL_USER SET ENM_STATUS = "INACTIVO" WHERE ENM_STATUS = "ACTIVO"', function(error, result){
+     /* var query2 = connection.query('UPDATE TBL_USER SET ENM_STATUS = "INACTIVO" WHERE ENM_STATUS = "ACTIVO"', function(error, result){
           if(error){
              throw error;
           }else{
@@ -254,7 +254,7 @@
               alert("Adiós");
               location.href = "signin.html";
           }
-       });
+       });*/
       connection.end();
   }
 </script>
