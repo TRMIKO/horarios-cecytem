@@ -75,29 +75,59 @@
       </div>
 </section>
 <br>
-        <section>
+        <section id="app">
       <div class="container">
+
          <div class="field">
             <label class="label">Nombre Salon</label>
             <div class="control">
-              <input class="input" type="text" placeholder="Nombre">
+              <input v-model="nombre" class="input" type="text" placeholder="Nombre">
             </div>
           </div>
-         <div class="field">
-            <label class="label">Descripción del Salon</label>
-            <div class="control">
-              <input class="input" type="text" placeholder="Nombre">
-            </div>
-          </div>
+         
            
       </div>
       <div class="columns">
         <div class="accept-cancel column is-half is-offset-one-quarter ">
-          <a class="button is-dark">Crear</a>
-          <a class="button is-danger">Cancelar</a>
+          <a v-on:click="create" class="button is-dark">Crear</a>
+          <a class="button is-danger" href="index.html">Cancelar</a>
         </div>
       </div>
         
     </section>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+      var app = new Vue({
+        el: '#app',
+        data: {
+          nombre:''
+         
+        }, methods: {
+          create: function () {
+       
+            var mysql = require('mysql')
+            var connection = mysql.createConnection({
+                host: 'localhost',
+                user: 'root',
+                password: '123',
+                database: 'CECYTEM',
+                port: 3306
+            })
+            var query2 = connection.query('INSERT INTO TBL_SALON VALUES(NULL,?) ', [this.nombre] , function(error, result){
+                if(error){
+                    throw error
+                }else{
+                    console.log("exito")
+                }
+            });
+           
+            connection.end();
+       
+          }
+        }
+
+
+      })
+    </script>
 </body>
 </html>

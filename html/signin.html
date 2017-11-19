@@ -61,7 +61,7 @@
             var connection = mysql.createConnection({
                 host: 'localhost',
                 user: 'root',
-                password: 'DeathRocker',
+                password: '123',
                 database: 'CECYTEM',
                 port: 3306
             });
@@ -83,7 +83,7 @@
                     var pass = document.getElementById("password").value;
                     if( result.length>0 && pass===result[0]['VCH_PASS'] && mail===result[0]['VCH_CORREO'] ) {
                         if( result[0]['ENM_PERMISOS']==="ADMIN" ) {
-                                //location.href="index.html";
+                                location.href="index.html";
                                 alert("admin");
                            }
                         if( result[0]['ENM_PERMISOS']==="USER" ) {

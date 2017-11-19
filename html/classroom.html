@@ -1,249 +1,245 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Salones</title>
-    <link rel="stylesheet" href="../css/font-awesome.min.css">
-    <link rel="stylesheet" href="../node_modules/bulma/css/bulma.css">
-</head>
-
-<body>
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-          <div class="navbar-brand">
-            <!-- navbar items, navbar burger... -->
-                <a class="navbar-item" href="https://bulma.io">
-                  <img src="../images/letras.jpg" alt="Bulma: a modern CSS framework based on Flexbox" >
-                </a> 
-                <a class="navbar-item" href="index.html">
-                    Inicio
-                </a>
-                <a class="navbar-item" href="schedule.html">
-                    Horarios
-                </a>
-                <a class="navbar-item" href="teacher.html">
-                    Profesores
-                </a>
-                <a class="navbar-item" href="subject.html">
-                    Materias
-                </a>
-                <a class="navbar-item" href="classroom.html">
-                    Salones
-                </a>
-          </div>
-          <div class="navbar-end">
-            <!-- navbar items, navbar burger... -->
-                
-                 <div class="navbar-item">
-                    <div class="field is-grouped">
-                      
-                          <p class="control">
-                            <a class="button is-dark" href="https://github.com/jgthms/bulma/releases/download/0.6.0/bulma-0.6.0.zip">
-                              <span class="icon">
-                                <i class="fa fa-ban"></i>
-                              </span>
-                              <span>Salir</span>
-                            </a>
-                          </p>
-                      </div>
-                </div>
-          </div>
-
-            
-    </nav>
-    <section class="hero is-info">
-  <div class="hero-body">
-    <div class="container">
-      <h1 class="title">
-        Administrar Salones
-      </h1>
-      
-    </div>
-  </div>
-  <div class="tabs is-boxed">
-        <ul>
-          <li class="is-active"><a href="classroom.html">Administar</a></li>
-          <li><a href="createclassroom.html">Crear</a></li>
-          
-        </ul>
-      </div>
-</section>
-    <br>
-    <div class="container">
-
-      <div class="field">
-  <p class="control has-icons-left has-icons-right">
-    <input class="input" type="email" placeholder="Buscar">
-    <span class="icon is-small is-left">
-      <i class="fa fa-info-circle"></i>
-    </span>
-    
-  </p>
-</div>
-<br>
-<div class="control has-icons-left">
-  <div class="select">
-    <select>
-      <option selected>Periodo</option>
-      <option>2017-1</option>
-      <option>2017-2</option>
-    </select>
-  </div>
-
-  <span  class="icon is-left">
-    <i class="fa fa-envelope"></i>
-  </span>
-</div>
-<br>
-      <table class="table table is-fullwidth table is-hoverable">
-    <thead>
-      <tr>
-        <th>Id</th>
-        <th>Descripción</th>
-        <th>Eliminar</th>
-        <th>PDF</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th>1</th>
-        <td>202</td>
-        <td>
-          <span class="button is-danger">
-                                      <span class="icon is-small">
-                                        <i class="fa fa-ban"></i>
-                                      </span>
-                                    </span>
-        </td>
-       <td><span class="button ">
-                                      <span class="icon is-small">
-                                        <i class="fa fa-file-pdf-o"></i>
-                                      </span>
-                                    </span></td>
-      </tr>
-      <tr>
-        <th>2</th>
-        <td>201</td>
-        <td>
-          <span class="button is-danger">
-                                      <span class="icon is-small">
-                                        <i class="fa fa-ban"></i>
-                                      </span>
-                                    </span>
-        </td>
-        <td><span class="button ">
-                                      <span class="icon is-small">
-                                        <i class="fa fa-file-pdf-o"></i>
-                                      </span>
-                                    </span></td>
-      </tr>
-      <tr>
-        <th>3</th>
-        <td>203</td>
-        <td>
-          <span class="button is-danger">
-                                      <span class="icon is-small">
-                                        <i class="fa fa-ban"></i>
-                                      </span>
-                                    </span>
-        </td>
-        <td><span class="button ">
-                                      <span class="icon is-small">
-                                        <i class="fa fa-file-pdf-o"></i>
-                                      </span>
-                                    </span></td>
-      </tr>
-      <tr>
-        <th>4</th>
-        <td>204</td>
-        <td>
-          <a class="button is-danger">
-            <span class="icon">
-              <i class="fa fa-ban"></i>
-            </span>
-            <span>eliminar</span>
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <th>5</th>
-        <td>205</td>
-        <td>
-          <a class="button is-danger">
-            <span class="icon">
-              <i class="fa fa-ban"></i>
-            </span>
-            <span>eliminar</span>
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <th>6</th>
-        <td>2016</td>
-        <td>
-          <a class="button is-danger">
-            <span class="icon">
-              <i class="fa fa-ban"></i>
-            </span>
-            <span>eliminar</span>
-          </a>
-        </td>
-      </tr>
-       <tr>
-        <th>7</th>
-        <td>2017</td>
-        <td>
-          <a class="button is-danger">
-            <span class="icon">
-              <i class="fa fa-ban"></i>
-            </span>
-            <span>eliminar</span>
-          </a>
-        </td>
-      </tr>
-       <tr>
-        <th>8</th>
-        <td>208</td>
-        <td>
-          <a class="button is-danger">
-            <span class="icon">
-              <i class="fa fa-ban"></i>
-            </span>
-            <span>eliminar</span>
-          </a>
-        </td>
-      </tr>
-       <tr>
-        <th>9</th>
-        <td>209</td>
-        <td>
-          <a class="button is-danger">
-            <span class="icon">
-              <i class="fa fa-ban"></i>
-            </span>
-            <span>eliminar</span>
-          </a>
-        </td>
-      </tr>
-       <tr>
-        <th>10</th>
-        <td>210</td>
-        <td>
-          <a class="button is-danger">
-            <span class="icon">
-              <i class="fa fa-ban"></i>
-            </span>
-            <span>eliminar</span>
-          </a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-    </div>
-  </section>
-  
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Salones</title>
+      <link rel="stylesheet" href="../css/font-awesome.min.css">
+      <link rel="stylesheet" href="../node_modules/bulma/css/bulma.css">
+   </head>
+   <body>
    
-</body>
+     
+      <nav class="navbar" role="navigation" aria-label="main navigation">
+         <div class="navbar-brand">
+            <!-- navbar items, navbar burger... -->
+            <a class="navbar-item" href="https://bulma.io">
+            <img src="../images/letras.jpg" alt="Bulma: a modern CSS framework based on Flexbox" >
+            </a> 
+            <a class="navbar-item" href="index.html">
+            Inicio
+            </a>
+            <a class="navbar-item" href="schedule.html">
+            Horarios
+            </a>
+            <a class="navbar-item" href="teacher.html">
+            Profesores
+            </a>
+            <a class="navbar-item" href="subject.html">
+            Materias
+            </a>
+            <a class="navbar-item" href="classroom.html">
+            Salones
+            </a>
+         </div>
+         <div class="navbar-end">
+            <!-- navbar items, navbar burger... -->
+            <div class="navbar-item">
+               <div class="field is-grouped">
+                  <p class="control">
+                     <a class="button is-dark" href="https://github.com/jgthms/bulma/releases/download/0.6.0/bulma-0.6.0.zip">
+                     <span class="icon">
+                     <i class="fa fa-ban"></i>
+                     </span>
+                     <span>Salir</span>
+                     </a>
+                  </p>
+               </div>
+            </div>
+         </div>
+      </nav>
+      <section class="hero is-info">
+         <div class="hero-body">
+            <div class="container">
+               <h1 class="title">
+                  Administrar Salones
+               </h1>
+            </div>
+         </div>
+         <div class="tabs is-boxed">
+            <ul>
+               <li class="is-active"><a href="classroom.html">Administar</a></li>
+               <li><a href="createclassroom.html">Crear</a></li>
+            </ul>
+         </div>
+      </section>
+      <br>
+      <section id="app">
+        <div class="container">
+         <div class="field">
+            <p class="control has-icons-left has-icons-right">
+               <input class="input" type="email" placeholder="Buscar">
+               <span class="icon is-small is-left">
+               <i class="fa fa-info-circle"></i>
+               </span>
+            </p>
+         </div>
+         
+         <br>
+        
+         <table class="table table is-fullwidth table is-hoverable">
+            <thead>
+               <tr>
+                  <th>Id</th>
+                  <th>Descripción</th>
+                  <th>Eliminar</th>
+                  <th>PDF</th>
+               </tr>
+            </thead>
+            <tbody id="content">
+               
+              
+            </tbody>
+         </table>
+      </div>
+       <div id="delete" class="modal" >
+          <div class="modal-background"></div>
+          <div class="modal-card">
+            <header class="modal-card-head">
+              <p class="modal-card-title" id="text">Eliminar salón </p>
+              <button class="delete" aria-label="close" v-on:click="close()"></button>
+            </header>
+            <section class="modal-card-body">
+              <h2>Seguro que desea eliminar?</h2>
+            </section>
+            <footer class="modal-card-foot">
+              <button id="delete-btn" class="button is-success">Eliminar</button>
+              <button  class="button" >Cancelar</button>
+            </footer>
+          </div>
+        </div>
+      </section>
+      <script src="../node_modules/vue/dist/vue.js"></script>
+      <script>
+        Vue.component('my-component', {
+          template: '<div>A custom component!</div>',
+          props:['salones']
+        })
+         var app = new Vue({
+            el: '#app',
+            data: {
+              salones:[],
+              msj:'hola'
+            },methods:{
+              close:function(elm){
+                document.getElementById('delete').setAttribute("class", "modal")
+                //document.getElementById('text').removeChild(document.getElementById('text')[0])
+                document.getElementById('delete-btn').removeEventListener("click",function(){
+                                        console.log(element['INT_SALON'])
+                                      })
+                console.log(document.getElementById('text').removeChild(document.getElementById('text').lastChild))
+              },
+              del:function(id){
+                console.log(id)
+              },
+              view:function(){
+                var mysql = require('mysql')
+                var connection = mysql.createConnection({
+                    host: 'localhost',
+                    user: 'root',
+                    password: '123',
+                    database: 'CECYTEM',
+                    port: 3306
+                })
+                var query2 = connection.query('SELECT * FROM TBL_SALON ', function(error, result){
+                    if(error){
+                        throw error
+                    }else{
+                        console.log(result)
 
+
+                         result.forEach(function(element){
+                            let tr=document.createElement('tr')
+
+                                td=document.createElement('td')
+                                td.appendChild(document.createTextNode(element['INT_SALON']))
+                                tr.appendChild(td)
+
+
+                                td=document.createElement('td')
+                                td.appendChild(document.createTextNode(element['VCH_NOMBRE']))
+                                tr.appendChild(td)
+
+                                td=document.createElement('td')
+                                let span=document.createElement('span')
+                                let i=document.createElement('i')
+
+                                i.setAttribute("class", "fa fa-ban")
+                                span.appendChild(i)
+                                span.setAttribute("class", "icon is-small")
+
+                                let span2=document.createElement('span')
+                                    span2.appendChild(span)
+                                    span2.setAttribute("class", "button is-danger")
+                                    span2.addEventListener("click",function(){
+                                      p=document.createElement('p')
+                                      p.appendChild(document.createTextNode(element['VCH_NOMBRE']))
+                                      document.getElementById('delete').setAttribute("class", "is-active modal")
+                                      document.getElementById('text').appendChild(p)
+                                      document.getElementById('delete-btn').addEventListener("click",function(){
+                                        console.log(element['INT_SALON'],"borrado")
+                                         this.removeEventListener('click', arguments.callee);
+                                         document.getElementById('delete').setAttribute("class", "modal")
+                                         var con = mysql.createConnection({
+                                              host: 'localhost',
+                                              user: 'root',
+                                              password: '123',
+                                              database: 'CECYTEM',
+                                              port: 3306
+                                          })
+                                         var q = con.query('DELETE FROM TBL_SALON WHERE INT_SALON= ?',[element['INT_SALON']], function(error, result){
+                                              if(error){
+                                                 throw error;
+                                              }else{
+                                                  console.log("borrado")
+                                              }
+                                           });
+                                          con.end();
+
+                                      })
+
+                                    })
+                                  td.appendChild(span2)
+                                  tr.appendChild(td)
+
+
+
+                                td=document.createElement('td')
+                                 span=document.createElement('span')
+                                 i=document.createElement('i')
+
+                                i.setAttribute("class", "fa fa-file-pdf-o")
+                                span.appendChild(i)
+                                span.setAttribute("class", "icon is-small")
+
+                                 span2=document.createElement('span')
+                                    span2.appendChild(span)
+                                    span2.setAttribute("class", "button")
+                                    span2.addEventListener("click",function(){
+                                      console.log("pdf")
+                                    })
+
+                                    td.appendChild(span2)
+                                  tr.appendChild(td)
+
+                                  
+                                
+                              document.getElementById('content').appendChild(tr)
+                              console.log(tr)
+                         })
+                    }
+                });
+               
+                connection.end();
+                
+
+              }
+            }
+          })
+          app.view()
+
+        
+       
+      </script>
+   </body>
 </html>
