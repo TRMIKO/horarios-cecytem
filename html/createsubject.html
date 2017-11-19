@@ -4,63 +4,116 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hello Bulma!</title>
+    <title>Materias</title>
     <link rel="stylesheet" href="../css/font-awesome.min.css">
     <link rel="stylesheet" href="../node_modules/bulma/css/bulma.css">
+    <style>
+        .accept-cancel {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 40px;
+        }
+
+    </style>
 </head>
 
 <body>
     <nav class="navbar" role="navigation" aria-label="main navigation">
-          <div class="navbar-brand">
+        <div class="navbar-brand">
             <!-- navbar items, navbar burger... -->
-                <a class="navbar-item" href="https://bulma.io">
+            <a class="navbar-item" href="https://bulma.io">
                   <img src="../images/letras.jpg" alt="Bulma: a modern CSS framework based on Flexbox" >
-                </a> 
-                <a class="navbar-item" href="index.html">
+                </a>
+            <a class="navbar-item" href="index.html">
                     Inicio
                 </a>
-                <a class="navbar-item" href="schedule.html">
+            <a class="navbar-item" href="schedule.html">
                     Horarios
                 </a>
-                <a class="navbar-item" href="teacher.html">
+            <a class="navbar-item" href="teacher.html">
                     Profesores
                 </a>
-                <a class="navbar-item" href="subject.html">
+            <a class="navbar-item" href="subject.html">
                     Materias
                 </a>
-                <a class="navbar-item" href="classroom.html">
+            <a class="navbar-item" href="classroom.html">
                     Salones
                 </a>
-          </div>
-          <div class="navbar-end">
+        </div>
+        <div class="navbar-end">
             <!-- navbar items, navbar burger... -->
-                
-                 <div class="navbar-item">
-                    <div class="field is-grouped">
-                      
-                          <p class="control">
-                            <a class="button is-danger" href="https://github.com/jgthms/bulma/releases/download/0.6.0/bulma-0.6.0.zip">
+
+            <div class="navbar-item">
+                <div class="field is-grouped">
+
+                    <p class="control">
+                        <a class="button is-danger" href="https://github.com/jgthms/bulma/releases/download/0.6.0/bulma-0.6.0.zip">
                               <span class="icon">
                                 <i class="fa fa-ban"></i>
                               </span>
                               <span>Salir</span>
                             </a>
-                          </p>
-                      </div>
+                    </p>
                 </div>
-          </div>
+            </div>
+        </div>
 
-            
+
     </nav>
-    <div class="tabs">
-        <ul>
-          <li class="is-active"><a href="subject.html">Administar</a></li>
-          <li ><a href="createsubject.html">Crear</a></li>
-          
-        </ul>
-      </div>
-  <h1>crear materias</h1>
-   
+    <section class="hero is-primary">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    Crear Materias
+                </h1>
+
+            </div>
+        </div>
+        <div class="tabs is-boxed">
+            <ul>
+                <li><a href="subject.html">Administar</a></li>
+                <li class="is-active"><a href="createsubject.html">Crear</a></li>
+
+            </ul>
+        </div>
+    </section>
+    <br>
+
+    <section>
+        <div class="container">
+            <div class="field">
+                <label class="label">Nombre</label>
+                <div class="control">
+                    <input class="input" type="text" id="materia" placeholder="Nombre de la Materia">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="field">
+                <label class="label">Semestre</label>
+                <div class="control">
+                    <input class="input" type="number" id="semestre" min="1" placeholder="Semestre en el que se Impartirá">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="field">
+                <label class="label">Hora</label>
+                <div class="control">
+                    <input class="input" type="number" id="hora" min="1" placeholder="Hora en la que se Impartirá">
+                </div>
+            </div>
+        </div>
+
+        <div class="columns">
+            <div class="accept-cancel column is-half is-offset-one-quarter ">
+                <a class="button is-dark" onclick="crearMateria()">Crear</a>
+                <a class="button is-danger">Cancelar</a>
+            </div>
+        </div>
+    </section>
+
+    <script src="../js/createsubject.js"></script>
 </body>
 
 </html>
