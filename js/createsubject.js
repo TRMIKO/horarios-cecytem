@@ -3,7 +3,7 @@ function crearMateria() {
     var connection = mysql.createConnection({
         host: 'localhost',
         user: 'root',
-        password: 'DeathRocker',
+        password: '123',
         database: 'CECYTEM',
         port: 3306
     });
