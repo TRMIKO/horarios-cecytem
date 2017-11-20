@@ -78,7 +78,9 @@
                      <th>ID</th>
                      <th>Nombre</th>
                      <th>Semestre</th>
-                     <th>Horas</th>
+                     <th>Horas Practicas</th>
+                     <th>Horas Teoricas</th>
+                     <th></th>
                      <th></th>
                   </tr>
                </thead>
@@ -132,9 +134,16 @@
                 
                 
                     <div class="field">
-                        <label class="label">Hora</label>
+                        <label class="label">Horas Practicas</label>
                         <div class="control">
-                            <input class="input" type="number" id="hora" min="1" placeholder="Hora en la que se Impartirá">
+                            <input class="input" type="number" id="horap" min="1" placeholder="Hora en la que se Impartirá">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Horas Teoricas</label>
+                        <div class="control">
+                            <input class="input" type="number" id="horat" min="1" placeholder="Hora en la que se Impartirá">
                         </div>
                     </div>
                 
@@ -202,7 +211,11 @@
                         tr.appendChild(td)
 
                         td=document.createElement('td')
-                        td.appendChild(document.createTextNode(element['INT_HORAR']))
+                        td.appendChild(document.createTextNode(element['INT_HORAS_P']))
+                        tr.appendChild(td)
+
+                        td=document.createElement('td')
+                        td.appendChild(document.createTextNode(element['INT_HORAS_T']))
                         tr.appendChild(td)
 
 
@@ -265,7 +278,8 @@
                                       document.getElementById('update').setAttribute("class", "is-active modal")
                                       document.getElementById('materia').value=element['VCH_NOMBRE']
                                       document.getElementById('semestre').value=element['INT_SEMESTRE']
-                                      document.getElementById('hora').value=element['INT_HORAR']
+                                      document.getElementById('horap').value=element['INT_HORAS_P']
+                                      document.getElementById('horat').value=element['INT_HORAS_T']
                                       document.getElementById('update-btn').addEventListener("click",function(){
                                         var con = mysql.createConnection({
                                               host: 'localhost',
@@ -274,7 +288,7 @@
                                               database: 'CECYTEM',
                                               port: 3306
                                           })
-                                         var q = con.query('UPDATE TBL_MATERIA SET VCH_NOMBRE= ?,INT_SEMESTRE=?,INT_HORAR=? WHERE INT_MATERIA= ?',[document.getElementById('materia').value,document.getElementById('semestre').value,document.getElementById('hora').value,element['INT_MATERIA']], function(error, result){
+                                         var q = con.query('UPDATE TBL_MATERIA SET VCH_NOMBRE= ?,INT_SEMESTRE=?,INT_HORAS_P=?,INT_HORAS_T=? WHERE INT_MATERIA= ?',[document.getElementById('materia').value,document.getElementById('semestre').value,document.getElementById('horap').value,document.getElementById('horat').value,element['INT_MATERIA']], function(error, result){
                                               if(error){
                                                  throw error;
                                               }else{
