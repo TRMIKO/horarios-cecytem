@@ -2,8 +2,8 @@ function crearMateria() {
     var mysql = require('mysql');
     var connection = mysql.createConnection({
         host: 'localhost',
-        user: 'root',
-        password: '123',
+        user: 'CECYTEM',
+        password: '100%CECYTEM',
         database: 'CECYTEM',
         port: 3306
     });

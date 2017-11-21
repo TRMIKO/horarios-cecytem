@@ -10,8 +10,8 @@ api.getDirectConnection: function(host, port, user, password, database) {
         var connectionProps = {
           host: 'localhost',
           database:'CECYTEM',
-          user: 'root',
-          password: '123'
+          user: 'CECYTEM',
+          password: '100%CECYTEM'
         };
        
         console.log(connectionProps);
