@@ -239,21 +239,21 @@
 
                                          this.removeEventListener('click', arguments.callee);
                                          document.getElementById('delete').setAttribute("class", "modal")
-                                         var con = mysql.createConnection({
+                                         var conn = mysql.createConnection({
                                               host: 'localhost',
                                               user: 'CECYTEM',
                                               password: '100%CECYTEM',
                                               database: 'CECYTEM',
                                               port: 3306
                                           })
-                                         var q = con.query('DELETE FROM TBL_MATERIA WHERE INT_MATERIA= ?',[element['INT_MATERIA']], function(error, result){
+                                         var q = conn.query('DELETE FROM TBL_MATERIA WHERE INT_MATERIA= ?',[element['INT_MATERIA']], function(error, result){
                                               if(error){
                                                  throw error;
                                               }else{
                                                   console.log("borrado")
                                               }
                                            });
-                                          con.end();
+                                          conn.end();
 
                                       })
 
@@ -281,14 +281,14 @@
                                       document.getElementById('horap').value=element['INT_HORAS_P']
                                       document.getElementById('horat').value=element['INT_HORAS_T']
                                       document.getElementById('update-btn').addEventListener("click",function(){
-                                        var con = mysql.createConnection({
+                                        var conn = mysql.createConnection({
                                              host: 'localhost',
                                              user: 'CECYTEM',
                                              password: '100%CECYTEM',
                                              database: 'CECYTEM',
                                              port: 3306
                                          })
-                                         var q = con.query('UPDATE TBL_MATERIA SET VCH_NOMBRE= ?,INT_SEMESTRE=?,INT_HORAS_P=?,INT_HORAS_T=? WHERE INT_MATERIA= ?',[document.getElementById('materia').value,document.getElementById('semestre').value,document.getElementById('horap').value,document.getElementById('horat').value,element['INT_MATERIA']], function(error, result){
+                                         var q = conn.query('UPDATE TBL_MATERIA SET VCH_NOMBRE= ?,INT_SEMESTRE=?,INT_HORAS_P=?,INT_HORAS_T=? WHERE INT_MATERIA= ?',[document.getElementById('materia').value,document.getElementById('semestre').value,document.getElementById('horap').value,document.getElementById('horat').value,element['INT_MATERIA']], function(error, result){
                                               if(error){
                                                  throw error;
                                               }else{
@@ -296,7 +296,7 @@
                                                    location.reload();
                                               }
                                            });
-                                          con.end();
+                                          conn.end();
                                       })
 
 
