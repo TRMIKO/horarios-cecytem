@@ -270,16 +270,16 @@
     <script type="text/javascript">
         function Verificar() {
             var mysql = require('mysql');
-            var connection = mysql.createConnection({
-                host: 'localhost',
-                user: 'CECYTEM',
-                password: '100%CECYTEM',
-                database: 'CECYTEM',
-                port: 3306
-            });
+            var con = mysql.createConnection({
+                 host: 'localhost',
+                 user: 'CECYTEM',
+                 password: '100%CECYTEM',
+                 database: 'CECYTEM',
+                 port: 3306
+             })
             var mail = document.getElementById("email").value;
             var pass = document.getElementById("password").value;
-            connection.connect(function(error) {
+            con.connect(function(error) {
                 if (error) {
                     throw error;
                 } else {
@@ -287,7 +287,7 @@
                 }
             });
 
-            var query2 = connection.query('SELECT * FROM TBL_USER WHERE VCH_CORREO=? AND VCH_PASS=?', [mail, pass], function(error, result) {
+            var query2 = con.query('SELECT * FROM TBL_USER WHERE VCH_CORREO=? AND VCH_PASS=?', [mail, pass], function(error, result) {
                 if (error) {
                     throw error;
                 } else {
@@ -402,13 +402,13 @@
 
         function Actualizar() {
             var mysql = require('mysql');
-            var connection = mysql.createConnection({
-                host: 'localhost',
-                user: 'CECYTEM',
-                password: '100%CECYTEM',
-                database: 'CECYTEM',
-                port: 3306
-            });
+            var con = mysql.createConnection({
+                 host: 'localhost',
+                 user: 'CECYTEM',
+                 password: '100%CECYTEM',
+                 database: 'CECYTEM',
+                 port: 3306
+             })
 
             var nombre = document.getElementById("nombre").value,
                 apellidoP = document.getElementById("apellidoP").value,
@@ -498,12 +498,12 @@
                 estadoC = null;
             if (status === "")
                 status = null;
-            
-            var query = connection.query("UPDATE TBL_USER SET VCH_NAME=?, VCH_A_PATERNO=?, VCH_A_MATERNO=?, INT_NUM_NOMINA=?, ENM_ESTADO_CIVIL=?, ENM_GENERO=?, VCH_LUGAR_NACIMIENTO=?, DDT_NACIMIENTO=?, VCH_CURP=?, VCH_RFC=?, VCH_CORREO=?, DDT_FECHA_INI_ORG=?, VCH_NOMBRAMIENTO=?, ENM_STATUS=?, INT_HORAS_BASE=?, INT_HORAS_ADICIONALES=?, VCH_LICENCIATURA=?, VCH_CEDULA_LICENCIATURA=?, VCH_MAESTRIA=?, VCH_CEDULA_MAESTRIA=?, VCH_DOCTORADO=?, VCH_CEDULA_DOCTORADO=?, VCH_CP=?, VCH_COLONIA=?, VCH_CALLE=?, VCH_NUMERO_CALLE=?, VCH_TEL_LOCAL=?, VCH_TEL_CEL=?, VCH_PASS=? WHERE VCH_CORREO=? AND VCH_PASS=?", [nombre, apellidoP, apellidoM, numeroN, estadoC, genero, lugarN, fechaN, curp, rfc, mail, fechaI, nombramiento, status, horasB, horasA, licenciatura, cedulaL, maestria, cedulaM, doctorado, cedulaD, codigoP, colonia, calle, numeroC, telefonoCa, telefonoCe, pass, mail, pass]);
+
+            var query = con.query("UPDATE TBL_USER SET VCH_NAME=?, VCH_A_PATERNO=?, VCH_A_MATERNO=?, INT_NUM_NOMINA=?, ENM_ESTADO_CIVIL=?, ENM_GENERO=?, VCH_LUGAR_NACIMIENTO=?, DDT_NACIMIENTO=?, VCH_CURP=?, VCH_RFC=?, VCH_CORREO=?, DDT_FECHA_INI_ORG=?, VCH_NOMBRAMIENTO=?, ENM_STATUS=?, INT_HORAS_BASE=?, INT_HORAS_ADICIONALES=?, VCH_LICENCIATURA=?, VCH_CEDULA_LICENCIATURA=?, VCH_MAESTRIA=?, VCH_CEDULA_MAESTRIA=?, VCH_DOCTORADO=?, VCH_CEDULA_DOCTORADO=?, VCH_CP=?, VCH_COLONIA=?, VCH_CALLE=?, VCH_NUMERO_CALLE=?, VCH_TEL_LOCAL=?, VCH_TEL_CEL=?, VCH_PASS=? WHERE VCH_CORREO=? AND VCH_PASS=?", [nombre, apellidoP, apellidoM, numeroN, estadoC, genero, lugarN, fechaN, curp, rfc, mail, fechaI, nombramiento, status, horasB, horasA, licenciatura, cedulaL, maestria, cedulaM, doctorado, cedulaD, codigoP, colonia, calle, numeroC, telefonoCa, telefonoCe, pass, mail, pass]);
 
             alert("¡Información actualizada con éxito!");
             location.href = "signin.html";
-            
+
             connection.end();
         }
 

@@ -13,7 +13,7 @@
             <!-- navbar items, navbar burger... -->
             <a class="navbar-item" href="https://bulma.io">
             <img src="../images/letras.jpg" alt="Bulma: a modern CSS framework based on Flexbox" >
-            </a> 
+            </a>
             <a class="navbar-item" href="index.html">
             Inicio
             </a>
@@ -85,8 +85,8 @@
                   </tr>
                </thead>
                <tbody id="content">
-                  
-                
+
+
                </tbody>
             </table>
          </div>
@@ -116,23 +116,23 @@
               </header>
               <section class="modal-card-body">
                 <!-- Content ... -->
-               
+
                     <div class="field">
                         <label class="label">Nombre</label>
                         <div class="control">
                             <input class="input" type="text" id="materia" placeholder="Nombre de la Materia">
                         </div>
                     </div>
-               
-              
+
+
                     <div class="field">
                         <label class="label">Semestre</label>
                         <div class="control">
                             <input class="input" type="number" id="semestre" min="1" placeholder="Semestre en el que se Impartirá">
                         </div>
                     </div>
-                
-                
+
+
                     <div class="field">
                         <label class="label">Horas Practicas</label>
                         <div class="control">
@@ -146,7 +146,7 @@
                             <input class="input" type="number" id="horat" min="1" placeholder="Hora en la que se Impartirá">
                         </div>
                     </div>
-                
+
               </section>
               <footer class="modal-card-foot">
                 <button class="button is-success" id="update-btn">Guardar cambios</button>
@@ -169,28 +169,28 @@
        },methods:{
          close:function(){
            document.getElementById('delete').setAttribute("class", "modal")
-       
-           
+
+
            console.log(document.getElementById('text').removeChild(document.getElementById('text').lastChild))
          },cupdate:function(){
            document.getElementById('update').setAttribute("class", "modal")
-      
-           
-    
+
+
+
          },
          del:function(id){
            console.log(id)
          },
          view:function(){
            var mysql = require('mysql')
-           var connection = mysql.createConnection({
-               host: 'localhost',
-               user: 'CECYTEM',
-               password: '100%CECYTEM',
-               database: 'CECYTEM',
-               port: 3306
-           })
-           var query2 = connection.query('SELECT * FROM TBL_MATERIA ', function(error, result){
+           var con = mysql.createConnection({
+                host: 'localhost',
+                user: 'CECYTEM',
+                password: '100%CECYTEM',
+                database: 'CECYTEM',
+                port: 3306
+            })
+           var query2 = con.query('SELECT * FROM TBL_MATERIA ', function(error, result){
                if(error){
                    throw error
                }else{
@@ -236,13 +236,13 @@
                                         document.getElementById('delete').setAttribute("class", "is-active modal")
                                         document.getElementById('text').appendChild(p)
                                         document.getElementById('delete-btn').addEventListener("click",function(){
-                                   
+
                                          this.removeEventListener('click', arguments.callee);
                                          document.getElementById('delete').setAttribute("class", "modal")
                                          var con = mysql.createConnection({
                                               host: 'localhost',
-                                              user: 'root',
-                                              password: '123',
+                                              user: 'CECYTEM',
+                                              password: '100%CECYTEM',
                                               database: 'CECYTEM',
                                               port: 3306
                                           })
@@ -282,12 +282,12 @@
                                       document.getElementById('horat').value=element['INT_HORAS_T']
                                       document.getElementById('update-btn').addEventListener("click",function(){
                                         var con = mysql.createConnection({
-                                              host: 'localhost',
-                                              user: 'root',
-                                              password: '123',
-                                              database: 'CECYTEM',
-                                              port: 3306
-                                          })
+                                             host: 'localhost',
+                                             user: 'CECYTEM',
+                                             password: '100%CECYTEM',
+                                             database: 'CECYTEM',
+                                             port: 3306
+                                         })
                                          var q = con.query('UPDATE TBL_MATERIA SET VCH_NOMBRE= ?,INT_SEMESTRE=?,INT_HORAS_P=?,INT_HORAS_T=? WHERE INT_MATERIA= ?',[document.getElementById('materia').value,document.getElementById('semestre').value,document.getElementById('horap').value,document.getElementById('horat').value,element['INT_MATERIA']], function(error, result){
                                               if(error){
                                                  throw error;
@@ -305,7 +305,7 @@
                                   tr.appendChild(td)
 
 
-                        
+
                         document.getElementById('content').appendChild(tr)
                         console.log(tr)
                         })
@@ -313,22 +313,22 @@
 
 
 
-   
-                         
-                    
+
+
+
                }
            });
-          
+
            connection.end();
-           
-   
+
+
          }
        }
      })
      app.view()
-   
-   
-   
+
+
+
 </script>
    </body>
 </html>
