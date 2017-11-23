@@ -222,40 +222,7 @@
 </body>
 <script type="text/javascript">
   function salir () {
-      var mysql = require('mysql');
-      var connection = mysql.createConnection({
-       host: 'localhost',
-       user: 'CECYTEM',
-       password: '100%CECYTEM',
-       database: 'CECYTEM',
-       port: 3306
-      });
-      connection.connect(function(error){
-       if(error){
-          throw error;
-       }else{
-          console.log('Conexion correcta.');
-       }
-      });
-      /*var query = connection.query('INSERT INTO TEST VALUES(?,?)', [1,"ARTURO"], function(error, result){
-           if(error){
-              throw error;
-           }else{
-              console.log(result);
-           }
-        }
-      );*/
-     /* var query2 = connection.query('UPDATE TBL_USER SET ENM_STATUS = "INACTIVO" WHERE ENM_STATUS = "ACTIVO"', function(error, result){
-          if(error){
-             throw error;
-          }else{
-              var resultado = result;
-              alert("saliendo");
-              alert("Adiós");
-              location.href = "signin.html";
-          }
-       });*/
-      connection.end();
+      location.href = "signin.html";
   }
 </script>
 </html>
