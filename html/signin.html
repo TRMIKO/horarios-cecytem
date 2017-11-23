@@ -13,6 +13,7 @@
             display: flex;
             justify-content: space-around;
         }
+
     </style>
 </head>
 
@@ -55,8 +56,220 @@
             </div>
         </div>
     </div>
+
+    <div class="modal" id="mod">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Actualizar Información</p>
+
+            </header>
+            <section class="modal-card-body">
+
+                <div class="">
+                    <div class="field ">
+                        <label class="label">Nombre</label>
+                        <div class="control">
+                            <input class="input" id="nombre" type="text" placeholder="Nombre del Profesor">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Apellido Paterno</label>
+                        <div class="control">
+                            <input class="input" id="apellidoP" type="text" placeholder="Apellido Paterno del Profesor">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Apellido Materno</label>
+                        <div class="control">
+                            <input class="input" id="apellidoM" type="text" placeholder="Apellido Materno del Profesor">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Lugar de Nacimiento</label>
+                        <div class="control">
+                            <input class="input" id="lugarN" type="text" placeholder="Lugar de Nacimiento del Profesor">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Fecha de Nacimiento</label>
+                        <div class="control">
+                            <input class="input" id="fechaN" type="date" min="1900-01-01" max="2018-01-01">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Género</label>
+                        <div class="control">
+                            <select class="input" id="genero">
+                       <option value="" selected disabled>Género del Profesor</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Femenino">Femenino</option>
+                    </select>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Estado Civil</label>
+                        <div class="control">
+                            <select class="input" id="estadoC">
+                       <option value="" selected disabled>Estado Civil del Profesor</option>
+                        <option value="SOLTER@">SOLTER@</option>
+                        <option value="CASAD@">CASAD@</option>
+                        <option value="VIUD@">VIUD@</option>
+                        <option value="DIVORCIAD@">DIVORCIAD@</option>
+                    </select>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">CURP</label>
+                        <div class="control">
+                            <input class="input" id="curp" type="text" placeholder="CURP del Profesor">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">RFC</label>
+                        <div class="control">
+                            <input class="input" id="rfc" type="text" placeholder="RFC del Profesor">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Colonia</label>
+                        <div class="control">
+                            <input class="input" id="colonia" type="text" placeholder="Colonia donde vive el Profesor">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Calle</label>
+                        <div class="control">
+                            <input class="input" id="calle" type="text" placeholder="Calle donde vive el Profesor">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Número</label>
+                        <div class="control">
+                            <input class="input" id="numeroC" type="text" placeholder="Número de Casa">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Código Postal</label>
+                        <div class="control">
+                            <input class="input" id="codigoP" type="text" placeholder="Código Postal del Profesor">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Télefono de Casa</label>
+                        <div class="control">
+                            <input class="input" id="telefonoCa" type="text" placeholder="Télefono de Casa del Profesor">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Télefono Celular</label>
+                        <div class="control">
+                            <input class="input" id="telefonoCe" type="text" placeholder="Télefono de Celular del Profesor">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Número de Nómina</label>
+                        <div class="control">
+                            <input class="input" id="numeroN" type="number" min="1" placeholder="Número de Nómina del Profesor">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Fecha de Inicio Dentro del Plantel</label>
+                        <div class="control">
+                            <input class="input" id="fechaI" type="date" min="1900-01-01" max="2018-01-01">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Nombramiento</label>
+                        <div class="control">
+                            <input class="input" id="nombramiento" type="text" placeholder="Nombramiento del Profesor">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Estatus</label>
+                        <div class="control">
+                            <select class="input" id="status">
+                       <option value="" selected disabled>Estatus del Profesor</option>
+                        <option value="ACTIVO">ACTIVO</option>
+                        <option value="INACTIVO">INACTIVO</option>
+                    </select>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Horas Base</label>
+                        <div class="control">
+                            <input class="input" id="horasB" type="number" min="1" placeholder="Horas Base del Profesor">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Horas Adicionales</label>
+                        <div class="control">
+                            <input class="input" id="horasA" type="number" min="1" placeholder="Horas Adicionales del Profesor">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Licenciatura</label>
+                        <div class="control">
+                            <input class="input" id="licenciatura" type="text" placeholder="Licenciatura del Profesor">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Cédula de Licenciatura</label>
+                        <div class="control">
+                            <input class="input" id="cedulaL" type="text" placeholder="Cédula de Licenciatura del Profesor">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Maestría</label>
+                        <div class="control">
+                            <input class="input" id="maestria" type="text" placeholder="Maestría del Profesor">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Cédula de Maestría</label>
+                        <div class="control">
+                            <input class="input" id="cedulaM" type="text" placeholder="Cédula de Maestría del Profesor">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Doctorado</label>
+                        <div class="control">
+                            <input class="input" id="doctorado" type="text" placeholder="Doctorado del Profesor">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Cédula de Doctorado</label>
+                        <div class="control">
+                            <input class="input" id="cedulaD" type="text" placeholder="Cédula de Doctorado del Profesor">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Correo</label>
+                        <div class="control">
+                            <input class="input" id="mail" type="email" placeholder="Correo del Profesor">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Contraseña</label>
+                        <div class="control">
+                            <input class="input" id="pass" type="password" placeholder="Contraseña del Profesor">
+                        </div>
+                    </div>
+                    <label>Mostrar Contraseña</label>
+                    <input id="mostrar" type="checkbox" onclick="mostrar()">
+
+                </div>
+
+            </section>
+            <footer class="modal-card-foot">
+                <button class="button is-success">Seguir</button>
+                <button class="button" onclick="Actualizar()">Actualizar</button>
+            </footer>
+        </div>
+    </div>
+
     <script type="text/javascript">
-       function Verificar () {
+        function Verificar() {
             var mysql = require('mysql');
             var connection = mysql.createConnection({
                 host: 'localhost',
@@ -67,37 +280,181 @@
             });
             var mail = document.getElementById("email").value;
             var pass = document.getElementById("password").value;
-            connection.connect(function(error){
-                if(error){
+            connection.connect(function(error) {
+                if (error) {
                     throw error;
-                }else{
+                } else {
                     console.log('Conexion correcta.');
                 }
             });
-  
-            var query2 = connection.query('SELECT VCH_CORREO, VCH_PASS, ENM_PERMISOS FROM TBL_USER WHERE VCH_CORREO=(?) AND VCH_PASS=(?) ', [mail, pass] , function(error, result){
-                if(error){
+
+            var query2 = connection.query('SELECT * FROM TBL_USER WHERE VCH_CORREO=? AND VCH_PASS=?', [mail, pass], function(error, result) {
+                if (error) {
                     throw error;
-                }else{
+                } else {
                     var mail = document.getElementById("email").value;
                     var pass = document.getElementById("password").value;
-                    if( result.length>0 && pass===result[0]['VCH_PASS'] && mail===result[0]['VCH_CORREO'] ) {
-                        if( result[0]['ENM_PERMISOS']==="ADMIN" ) {
-                                location.href="index.html";
-                                alert("admin");
-                           }
-                        if( result[0]['ENM_PERMISOS']==="USER" ) {
-                                //location.href="signup.html";
-                                alert("usuario");
-                           }
+                    if (result.length > 0 && pass === result[0]['VCH_PASS'] && mail === result[0]['VCH_CORREO']) {
+                        var modal = document.getElementById("mod");
+                        modal.setAttribute("class", "modal is-active")
+
+                        var nombre = document.getElementById("nombre"),
+                            apellidoP = document.getElementById("apellidoP"),
+                            apellidoM = document.getElementById("apellidoM"),
+                            lugarN = document.getElementById("lugarN"),
+                            fechaN = document.getElementById("fechaN"),
+                            genero = document.getElementById("genero"),
+                            estadoC = document.getElementById("estadoC"),
+                            curp = document.getElementById("curp"),
+                            rfc = document.getElementById("rfc"),
+                            colonia = document.getElementById("colonia"),
+                            calle = document.getElementById("calle"),
+                            numeroC = document.getElementById("numeroC"),
+                            codigoP = document.getElementById("codigoP"),
+                            telefonoCa = document.getElementById("telefonoCa"),
+                            telefonoCe = document.getElementById("telefonoCe"),
+                            fechaI = document.getElementById("fechaI"),
+                            numeroN = document.getElementById("numeroN"),
+                            nombramiento = document.getElementById("nombramiento"),
+                            status = document.getElementById("status"),
+                            horasB = document.getElementById("horasB"),
+                            horasA = document.getElementById("horasA"),
+                            licenciatura = document.getElementById("licenciatura"),
+                            cedulaL = document.getElementById("cedulaL"),
+                            maestria = document.getElementById("maestria"),
+                            cedulaM = document.getElementById("cedulaM"),
+                            doctorado = document.getElementById("doctorado"),
+                            cedulaD = document.getElementById("cedulaD"),
+                            mail = document.getElementById("mail"),
+                            pass = document.getElementById("pass"),
+                            fecha1 = null,
+                            fecha2 = null;
+
+                        nombre.value = result[0]["VCH_NAME"];
+                        apellidoP.value = result[0]["VCH_A_PATERNO"];
+                        apellidoM.value = result[0]["VCH_A_MATERNO"];
+                        lugarN.value = result[0]["VCH_LUGAR_NACIMIENTO"];
+                        if (result[0]["DDT_NACIMIENTO"] != null) {
+                            fecha1 = result[0]["DDT_NACIMIENTO"].getFullYear();
+                            if (result[0]["DDT_NACIMIENTO"].getMonth() < 10)
+                                fecha1 = fecha1 + "-0" + (result[0]["DDT_NACIMIENTO"].getMonth() + 1);
+                            else
+                                fecha1 = fecha1 + "-" + (result[0]["DDT_NACIMIENTO"].getMonth() + 1);
+                            if (result[0]["DDT_NACIMIENTO"].getDate() < 10)
+                                fecha1 = fecha1 + "-0" + result[0]["DDT_NACIMIENTO"].getDate();
+                            else
+                                fecha1 = fecha1 + "-" + result[0]["DDT_NACIMIENTO"].getDate();
+                        }
+                        fechaN.value = fecha1;
+                        genero.value = result[0]["ENM_GENERO"];
+                        estadoC.value = result[0]["ENM_ESTADO_CIVIL"];
+                        curp.value = result[0]["VCH_CURP"];
+                        rfc.value = result[0]["VCH_RFC"];
+                        colonia.value = result[0]["VCH_COLONIA"];
+                        calle.value = result[0]["VCH_CALLE"];
+                        numeroC.value = result[0]["VCH_NUMERO_CALLE"];
+                        codigoP.value = result[0]["VCH_CP"];
+                        telefonoCa.value = result[0]["VCH_TEL_LOCAL"];
+                        telefonoCe.value = result[0]["VCH_TEL_CEL"];
+                        if (result[0]["DDT_FECHA_INI_ORG"] != null) {
+                            fecha2 = result[0]["DDT_FECHA_INI_ORG"].getFullYear();
+                            if (result[0]["DDT_FECHA_INI_ORG"].getMonth() < 10)
+                                fecha2 = fecha2 + "-0" + (result[0]["DDT_FECHA_INI_ORG"].getMonth() + 1);
+                            else
+                                fecha2 = fecha2 + "-" + (result[0]["DDT_FECHA_INI_ORG"].getMonth() + 1);
+                            if (result[0]["DDT_FECHA_INI_ORG"].getDate() < 10)
+                                fecha2 = fecha2 + "-0" + result[0]["DDT_FECHA_INI_ORG"].getDate();
+                            else
+                                fecha2 = fecha2 + "-" + result[0]["DDT_FECHA_INI_ORG"].getDate();
+                        }
+                        fechaI.value = fecha2;
+                        numeroN.value = result[0]["INT_NUM_NOMINA"];
+                        nombramiento.value = result[0]["VCH_NOMBRAMIENTO"];
+                        status.value = result[0]["ENM_STATUS"];
+                        horasB.value = result[0]["INT_HORAS_BASE"];
+                        horasA.value = result[0]["INT_HORAS_ADICIONALES"];
+                        licenciatura.value = result[0]["VCH_LICENCIATURA"];
+                        cedulaL.value = result[0]["VCH_CEDULA_LICENCIATURA"];
+                        maestria.value = result[0]["VCH_MAESTRIA"];
+                        cedulaM.value = result[0]["VCH_CEDULA_MAESTRIA"];
+                        doctorado.value = result[0]["VCH_DOCTORADO"];
+                        cedulaD.value = result[0]["VCH_CEDULA_DOCTORADO"];
+                        mail.value = result[0]["VCH_CORREO"];
+                        pass.value = result[0]["VCH_PASS"];
+                        /*if (result[0]['ENM_PERMISOS'] === "ADMIN") {
+                            location.href = "index.html";
+                            alert("admin");
+                        }
+                        if (result[0]['ENM_PERMISOS'] === "USER") {
+                            location.href = "index.html";
+                            alert("usuario");
+                        }*/
                     } else {
                         alert("Usuario o contrasena incorrecta.")
                     }
                 }
             });
-           
+
             connection.end();
-            }
+        }
+
+        function Actualizar() {
+            var mysql = require('mysql');
+            var connection = mysql.createConnection({
+                host: 'localhost',
+                user: 'CECYTEM',
+                password: '100%CECYTEM',
+                database: 'CECYTEM',
+                port: 3306
+            });
+            var mail = document.getElementById("email").value;
+            var pass = document.getElementById("password").value;
+            connection.connect(function(error) {
+                if (error) {
+                    throw error;
+                } else {
+                    console.log('Conexion correcta.');
+                }
+            });
+
+            var query2 = connection.query('SELECT * FROM TBL_USER WHERE VCH_CORREO=? AND VCH_PASS=? ', [mail, pass], function(error, result) {
+                if (error) {
+                    throw error;
+                } else {
+                    var mail = document.getElementById("email").value;
+                    var pass = document.getElementById("password").value;
+                    if (result.length > 0 && pass === result[0]['VCH_PASS'] && mail === result[0]['VCH_CORREO']) {
+
+
+
+
+                        /*if (result[0]['ENM_PERMISOS'] === "ADMIN") {
+                            location.href = "index.html";
+                            alert("admin");
+                        }
+                        if (result[0]['ENM_PERMISOS'] === "USER") {
+                            location.href = "index.html";
+                            alert("usuario");
+                        }*/
+                    } else {
+                        alert("Usuario o contrasena incorrecta.")
+                    }
+                }
+            });
+
+            connection.end();
+        }
+
+        function mostrar() {
+            var pass = document.getElementById("pass"),
+                checkbox = document.getElementById("mostrar");
+
+            if (checkbox.checked == true)
+                pass.type = "text";
+            else
+                pass.type = "password";
+        }
+
     </script>
 </body>
 
