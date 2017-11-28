@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html>
-   <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Hello Bulma!</title>
-      <link rel="stylesheet" href="../css/font-awesome.min.css">
-      <link rel="stylesheet" href="../node_modules/bulma/css/bulma.css">
-   </head>
-   <body >
-      <nav class="navbar" role="navigation" aria-label="main navigation">
-         <div class="navbar-brand">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Horarios</title>
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../node_modules/bulma/css/bulma.css">
+</head>
+
+<body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
             <!-- navbar items, navbar burger... -->
             <a class="navbar-item" href="https://bulma.io">
             <img src="../images/letras.jpg" alt="Bulma: a modern CSS framework based on Flexbox" >
-            </a> 
+            </a>
             <a class="navbar-item" href="index.html">
             Inicio
             </a>
-            <a class="navbar-item" href="schedule.html">
+            <a class="navbar-item is-active" href="#">
             Horarios
             </a>
             <a class="navbar-item" href="teacher.html">
@@ -29,101 +31,102 @@
             <a class="navbar-item" href="classroom.html">
             Salones
             </a>
-         </div>
-         <div class="navbar-end">
+        </div>
+        <div class="navbar-end">
             <!-- navbar items, navbar burger... -->
             <div class="navbar-item">
-               <div class="field is-grouped">
-                  <p class="control">
-                     <a class="button is-danger" href="https://github.com/jgthms/bulma/releases/download/0.6.0/bulma-0.6.0.zip">
-                     <span class="icon">
-                     <i class="fa fa-ban"></i>
-                     </span>
-                     <span>Salir</span>
-                     </a>
-                  </p>
-               </div>
+                <div class="field is-grouped" onclick="salir()">
+
+                    <p class="control">
+                        <a class="button is-danger" href="#">
+                              <span class="icon">
+                                <i class="fa fa-ban"></i>
+                              </span>
+                              <span>Salir</span>
+                            </a>
+                    </p>
+                </div>
             </div>
-         </div>
-      </nav>
-      <section class="hero is-primary is-bold">
-         <div class="hero-body">
+        </div>
+    </nav>
+    <section class="hero is-primary is-bold">
+        <div class="hero-body">
             <div class="container">
-               <h1 class="title">
-                  Crear Horario
-               </h1>
+                <h1 class="title">
+                    Crear Horario
+                </h1>
             </div>
-         </div>
-         <div class="tabs is-boxed">
+        </div>
+        <div class="tabs is-boxed">
             <ul>
-               <li ><a href="schedule.html">Administar</a></li>
-               <li class="is-active"> <a href="createschedule.html">Crear</a></li>
+                <li><a href="schedule.html">Administar</a></li>
+                <li class="is-active"> <a href="#">Crear</a></li>
             </ul>
-         </div>
-      </section>
-      <br>
-      <section id="app">
-        
+        </div>
+    </section>
+    <br>
+    <section id="app">
+
         <section>
-         <div class="container">
-            <div class="field">
-               <label class="label">Periodo</label>
-               <div class="control">
-                  <div class="select">
-                     <select>
+            <div class="container">
+                <div class="field">
+                    <label class="label">Periodo</label>
+                    <div class="control">
+                        <div class="select">
+                            <select>
                         <option>Seleccionar</option>
                         <option>With options</option>
                      </select>
-                  </div>
-               </div>
-            </div>
-            <div class="field has-addons">
-               <div class="control">
-                  <input class="input" type="text" placeholder="Añadir Periodo">
-               </div>
-            </div>
-            <div class="field">
-               <label class="label">Grupo</label>
-               <div class="control">
-                  <div class="select">
-                     <select>
+                        </div>
+                    </div>
+                </div>
+                <div class="field has-addons">
+                    <div class="control">
+                        <input class="input" type="text" placeholder="Añadir Periodo">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Grupo</label>
+                    <div class="control">
+                        <div class="select">
+                            <select>
                         <option>Selecciona</option>
                         <option>With options</option>
                      </select>
-                  </div>
-               </div>
-            </div>
-            <div class="field has-addons">
-               <div class="control">
-                  <input class="input" type="text" placeholder="Añadir Grupo">
-               </div>
-            </div>
-            <br>
-            <div class="field is-grouped">
-               <div class="control">
-                  <button class="button is-dark">Aceptar</button>
-               </div>
-               <div class="control">
-                  <button class="button is-danger">Cancelar</button>
-               </div>
-            </div>
-            <br>
-            <div class="field has-addons">
-               <div class="control">
-                  <input v-model="hora" class="input" type="text" placeholder="Añadir Hora">
-               </div>
-               <div class="control">
-                  <a v-on:click="addHour()" class="button is-dark">
+                        </div>
+                    </div>
+                </div>
+                <div class="field has-addons">
+                    <div class="control">
+                        <input class="input" type="text" placeholder="Añadir Grupo">
+                    </div>
+                </div>
+                <br>
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button class="button is-dark">Aceptar</button>
+                    </div>
+                    <div class="control">
+                        <button class="button is-danger">Cancelar</button>
+                    </div>
+                </div>
+                <br>
+                <div class="field has-addons">
+                    <div class="control">
+                        <input v-model="hora" class="input" type="text" placeholder="Añadir Hora">
+                    </div>
+                    <div class="control">
+                        <a v-on:click="addHour()" class="button is-dark">
                   Añadir
                   </a>
-               </div>
-            </div>
-            <div v-for="o in "></div>
-            <h1>Agregar Materia</h1>
-            <div class="field">
-               <div class="control">
-                  <div class="select">
-                     <select v-model="dia">
+                    </div>
+                </div>
+                <div v-for="o in "></div>
+                <h1>Agregar Materia</h1>
+                <div class="field">
+                    <div class="control">
+                        <div class="select">
+                            <select v-model="dia">
                         <option>Día</option>
                         <option value="1">Lunes</option>
                         <option value="2">Martes</option>
@@ -131,313 +134,117 @@
                         <option value="4">Jueves</option>
                         <option value="5">Viernes</option>
                      </select>
-                  </div>
-                  <div class="select">
-                     <select v-model="tiempo">
+                        </div>
+                        <div class="select">
+                            <select v-model="tiempo">
                         <option>Elegir Hora</option>
                         <option v-for="(ha,$index) in horasAgregadas"  v-bind:value="$index">{{ha}}</option>
                      </select>
-                  </div>
-                  <div class="select">
-                     <select id="profesor" v-model="profesor">
+                        </div>
+                        <div class="select">
+                            <select id="profesor" v-model="profesor">
                         <option >Profesor</option>
                         <option style="background: red;">Aime 16:00-18:00</option>
                         <option>With options</option>
                      </select>
-                  </div>
-                  <div class="select">
-                     <select id="materia" v-model="materia">
+                        </div>
+                        <div class="select">
+                            <select id="materia" v-model="materia">
                         <option>Materia</option>
                         <option>With options</option>
                      </select>
-                  </div>
-                  <div class="select">
-                     <select id="salon" v-model="salon">
+                        </div>
+                        <div class="select">
+                            <select id="salon" v-model="salon">
                         <option>Salón</option>
                         <option>With options</option>
                      </select>
-                  </div>
-                  <button v-on:click="setClass()" class="button is-dark">
+                        </div>
+                        <button v-on:click="setClass()" class="button is-dark">
                   Agregar
                   </button>
-               </div>
+                    </div>
+                </div>
             </div>
-         </div>
         </section>
         <br>
-                <ul>
-    
-  </ul>
-        <div class="container"> 
-        
-         <h3 class="has-text-centered subtitle is-3">Horario</h3>
-         <table class="table table is-fullwidth table is-hoverable">
-            <thead>
-               <tr>
-                  <th>Horario</th>
-                  <th>Lunes</th>
-                  <th>Martes</th>
-                  <th>Miércoles</th>
-                  <th>Jueves</th>
-                  <th>Viernes</th>
-               </tr>
-            </thead>
-            <tbody is="horario"
-                  v-for="h in horas"
-                  v-bind:key="h.id"
-                  v-bind:horas="h">
-               
-             
-            </tbody>
-         </table>
-         <h3 class="has-text-centered subtitle is-3">Salones</h3>
-         <table class="table table is-fullwidth table is-hoverable">
-            <thead>
-               <tr>
-                  <th>Horario</th>
-                  <th>Lunes</th>
-                  <th>Martes</th>
-                  <th>Miércoles</th>
-                  <th>Jueves</th>
-                  <th>Viernes</th>
-               </tr>
-            </thead>
-            <tbody is="horario"
-                  v-for="h in salones"
-                  v-bind:key="h.id"
-                  v-bind:horas="h">
-               
-             
-            </tbody>
-         </table>
-         <h3 class="has-text-centered subtitle is-3">Relación</h3>
-         <table class="table table is-fullwidth table is-hoverable">
-            <thead>
-               <tr>
-                  <th>ID</th>
-                  <th>Asignatura</th>
-                  <th>Teorica</th>
-                  <th>Práctica</th>
-                  <th>Total Horas</th>
-                  <th>Profesor</th>
-               </tr>
-            </thead>
-            <tfoot>
-               <tr>
-                  <th>Total</th>
-                  <th></th>
-                  <th>{{thorasp}}</th>
-                  <th>{{thorast}}</th>
-                  <th>{{thoras}}</th>
-                  <th></th>
-               </tr>
-            </tfoot>
-            <tbody is="horario"
-                  v-for="h in relacion"
-                  v-bind:key="h.id"
-                  v-bind:horas="h">
-               
-               
-            </tbody>
-         </table>
+        <ul>
+
+        </ul>
+        <div class="container">
+
+            <h3 class="has-text-centered subtitle is-3">Horario</h3>
+            <table class="table table is-fullwidth table is-hoverable">
+                <thead>
+                    <tr>
+                        <th>Horario</th>
+                        <th>Lunes</th>
+                        <th>Martes</th>
+                        <th>Miércoles</th>
+                        <th>Jueves</th>
+                        <th>Viernes</th>
+                    </tr>
+                </thead>
+                <tbody is="horario" v-for="h in horas" v-bind:key="h.id" v-bind:horas="h">
+
+
+                </tbody>
+            </table>
+            <h3 class="has-text-centered subtitle is-3">Salones</h3>
+            <table class="table table is-fullwidth table is-hoverable">
+                <thead>
+                    <tr>
+                        <th>Horario</th>
+                        <th>Lunes</th>
+                        <th>Martes</th>
+                        <th>Miércoles</th>
+                        <th>Jueves</th>
+                        <th>Viernes</th>
+                    </tr>
+                </thead>
+                <tbody is="horario" v-for="h in salones" v-bind:key="h.id" v-bind:horas="h">
+
+
+                </tbody>
+            </table>
+            <h3 class="has-text-centered subtitle is-3">Relación</h3>
+            <table class="table table is-fullwidth table is-hoverable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Asignatura</th>
+                        <th>Teorica</th>
+                        <th>Práctica</th>
+                        <th>Total Horas</th>
+                        <th>Profesor</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Total</th>
+                        <th></th>
+                        <th>{{thorasp}}</th>
+                        <th>{{thorast}}</th>
+                        <th>{{thoras}}</th>
+                        <th></th>
+                    </tr>
+                </tfoot>
+                <tbody is="horario" v-for="h in relacion" v-bind:key="h.id" v-bind:horas="h">
+
+
+                </tbody>
+            </table>
         </div>
-      </section>
-     
-      
-    
-      
-      <script src="../node_modules/vue/dist/vue.js"></script>
-      <script>
-        Vue.component('horario', {
-          props:['horas'],
-
-          template: '<tr>'+
-                    ' <td> {{horas[0]}} </td> ' +
-                    ' <td> {{horas[1]}} </td> ' +
-                    ' <td> {{horas[2]}} </td> ' +
-                    ' <td> {{horas[3]}} </td> ' +
-                    ' <td> {{horas[4]}} </td> ' +
-                    ' <td> {{horas[5]}} </td> ' +
-                    '</tr>'
-        })
-         var app = new Vue({
-            el: '#app',
-            data: {
-              msj:'hola',
-              hora:'',
-              thorasp:0,
-              thorast:0,
-              thoras:0,
-              materia:'',
-              arrayMateria:[],
-              arrayProfesor:[],
-              arraySalon:[],
-              dia:'',
-              tiempo:'',
-              profesor:'',
-              salon:'',
-              salones:[],
-              horasAgregadas:[],
-              relacion:[
-                
-              ],
-              horas:[
-                 
-              ]
-            },methods:{
-              addHour:function(){
-                this.horas.push({
-                  0:this.hora,
-                  1:'',
-                  2:'',
-                  3:'',
-                  4:'',
-                  5:''
-                  
-                  
-                })
-
-                this.salones.push({
-                  0:this.hora,
-                  1:'',
-                  2:'',
-                  3:'',
-                  4:'',
-                  5:''
-                  
-                  
-                })
-              },
-              setClass:function(){
-                //console.log(this.materia,this.tiempo,this.salon,this.profesor,this.dia)
-                this.horas[this.tiempo][this.dia]=this.arrayMateria[this.materia]['VCH_NOMBRE'] 
-             
-                this.salones[this.tiempo][this.dia]=this.arraySalon[this.salon]['VCH_NOMBRE']
-                for(let i =0; i<this.relacion.length;i++){
-                  if(this.relacion[i][1]==this.arrayMateria[this.materia]['VCH_NOMBRE'])
-                    return 0
-                }
-                this.thorast+=this.arrayMateria[this.materia]['INT_HORAS_T']
-                this.thorasp+=this.arrayMateria[this.materia]['INT_HORAS_P']
-                this.thoras+=(this.arrayMateria[this.materia]['INT_HORAS_P']+ this.arrayMateria[this.materia]['INT_HORAS_T'])
-                this.relacion.push({
-                  0:1,
-                  1:this.arrayMateria[this.materia]['VCH_NOMBRE'],
-                  2:this.arrayMateria[this.materia]['INT_HORAS_P'] ,
-                  3:this.arrayMateria[this.materia]['INT_HORAS_T'] ,
-                  4:this.arrayMateria[this.materia]['INT_HORAS_T']+this.arrayMateria[this.materia]['INT_HORAS_P'],
-                  5:this.arrayProfesor[this.profesor]['VCH_NAME']
-                })
-             
-                  
-                  
-                  
-               // console.log(this.arrayProfesor[0])
-              }
-            },watch:{
-              horas:function(){
-                    this.horasAgregadas=this.horas.map(function(x) {
-                                         return x[0];
-                                      });
-              }
-            }
-          })
-         //console.log(app['_data'])
-         
-
-
-        function salones(){
-          var mysql = require('mysql')
-           var con = mysql.createConnection({
-               host: 'localhost',
-               user: 'root',
-               password: '123',
-               database: 'CECYTEM',
-               port: 3306
-           })
-           var q = con.query('SELECT * FROM TBL_SALON', function(error, result) {
-               if (error) {
-                   throw error;
-               } else {
-                      
-                      let i=0
-                   result.forEach(function (element) {
-                    let opt = document.createElement('option')
-                    opt.setAttribute("value", i++)
-                        opt.appendChild(document.createTextNode(element['VCH_NOMBRE']))
-                        document.getElementById('salon').appendChild(opt)
-                        app['_data']['arraySalon'].push(element)
-
-                     
-                   })
-               }
-           });
-           con.end();                                    
-         }
+    </section>
 
 
 
 
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script src="../js/createschedule.js">
+        
 
-         // llamadas a base de datos
-         function materia(){
-          var mysql = require('mysql')
-           var con = mysql.createConnection({
-               host: 'localhost',
-               user: 'root',
-               password: '123',
-               database: 'CECYTEM',
-               port: 3306
-           })
-           var q = con.query('SELECT * FROM TBL_MATERIA', function(error, result) {
-               if (error) {
-                   throw error;
-               } else {
-                  let i=0
-                   result.forEach(function (element) {
-                    let opt = document.createElement('option')
-                        opt.setAttribute("value", i++)
-                        opt.appendChild(document.createTextNode(element['VCH_NOMBRE']))
-                        document.getElementById('materia').appendChild(opt)
-                        app['_data']['arrayMateria'].push(element)
-                        
-                   })
-               }
-           });
-           con.end();                                    
-         }
-         function profesor(){
-          var mysql = require('mysql')
-           var con = mysql.createConnection({
-               host: 'localhost',
-               user: 'root',
-               password: '123',
-               database: 'CECYTEM',
-               port: 3306
-           })
-           var q = con.query('SELECT * FROM TBL_USER', function(error, result) {
-               if (error) {
-                   throw error;
-               } else {
-                  
-                   result.forEach(function (element) {
-                    let i=0
-                    let opt = document.createElement('option')
-                        opt.setAttribute("value", i++)
-                        opt.appendChild(document.createTextNode(element['VCH_A_PATERNO'] +' '+ element['VCH_A_MATERNO'] +' '+ element['VCH_NAME'] +  " 3" ))
-                        document.getElementById('profesor').appendChild(opt)
-                        app['_data']['arrayProfesor'].push(element)
-                       
-                   })
+    </script>
+</body>
 
-               }
-           });
-           con.end();                                    
-         }
-         profesor()
-        salones()
-        materia()
-         
-      </script>
-   </body>
 </html>

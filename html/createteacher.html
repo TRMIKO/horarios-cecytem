@@ -7,12 +7,15 @@
     <title>Profesores</title>
     <link rel="stylesheet" href="../css/font-awesome.min.css">
     <link rel="stylesheet" href="../node_modules/bulma/css/bulma.css">
+    <link rel="stylesheet" href="../node_modules/alertifyjs/build/css/alertify.css">
+    <link rel="stylesheet" href="../node_modules/alertifyjs/build/css/themes/default.css">
     <style>
-      .accept-cancel{
-        display: flex;
-        justify-content: space-around;
-        margin-top: 40px;
-      }
+        .accept-cancel {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 40px;
+        }
+
     </style>
 </head>
 
@@ -29,7 +32,7 @@
             <a class="navbar-item" href="schedule.html">
                     Horarios
                 </a>
-            <a class="navbar-item" href="teacher.html">
+            <a class="navbar-item is-active" href="#">
                     Profesores
                 </a>
             <a class="navbar-item" href="subject.html">
@@ -43,10 +46,9 @@
             <!-- navbar items, navbar burger... -->
 
             <div class="navbar-item">
-                <div class="field is-grouped">
-
+                <div class="field is-grouped" onclick="salir()">
                     <p class="control">
-                        <a class="button is-danger" href="https://github.com/jgthms/bulma/releases/download/0.6.0/bulma-0.6.0.zip">
+                        <a class="button is-danger" href="#">
                               <span class="icon">
                                 <i class="fa fa-ban"></i>
                               </span>
@@ -71,7 +73,7 @@
         <div class="tabs is-boxed">
             <ul>
                 <li><a href="teacher.html">Administar</a></li>
-                <li class="is-active"><a href="createteacher.html">Crear</a></li>
+                <li class="is-active"><a href="#">Crear</a></li>
 
             </ul>
         </div>
@@ -255,7 +257,7 @@
                 <div class="control">
                     <input class="input" id="cedulaD" type="text" placeholder="Cédula de Doctorado del Profesor">
                 </div>
-            </div>            
+            </div>
             <div class="field">
                 <label class="label">Permiso</label>
                 <div class="control">
@@ -278,7 +280,7 @@
                     <input class="input" id="pass" type="password" placeholder="Contraseña del Profesor">
                 </div>
             </div>
-            
+
         </div>
         <div class="columns">
             <div class="accept-cancel column is-half is-offset-one-quarter ">

@@ -19,7 +19,7 @@
                 <a class="navbar-item" href="index.html">
                     Inicio
                 </a>
-                <a class="navbar-item" href="schedule.html">
+                <a class="navbar-item is-active" href="#">
                     Horarios
                 </a>
                 <a class="navbar-item" href="teacher.html">
@@ -34,12 +34,12 @@
           </div>
           <div class="navbar-end">
             <!-- navbar items, navbar burger... -->
-                
+
                  <div class="navbar-item">
-                    <div class="field is-grouped">
-                      
+                    <div class="field is-grouped" onclick="salir()">
+
                           <p class="control">
-                            <a class="button is-dark" href="https://github.com/jgthms/bulma/releases/download/0.6.0/bulma-0.6.0.zip">
+                            <a class="button is-danger" href="#">
                               <span class="icon">
                                 <i class="fa fa-ban"></i>
                               </span>
@@ -65,7 +65,7 @@
   </div>
   <div class="tabs is-boxed">
         <ul>
-          <li class="is-active"><a href="schedule.html">Administar</a></li>
+          <li class="is-active"><a href="#">Administar</a></li>
           <li><a href="createschedule.html">Crear</a></li>
           
         </ul>
@@ -257,6 +257,7 @@
       
     </div>
   </section>
+  <script src="../js/schedule.js"></script>
 </body>
 
 </html>

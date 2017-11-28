@@ -1,3 +1,10 @@
+var alertify = require("alertifyjs");
+
+function salir() {
+    location.href = "signin.html";
+}
+
+
 function crearProfesor() {
     var mysql = require('mysql');
     var connection = mysql.createConnection({
@@ -45,69 +52,77 @@ function crearProfesor() {
         permiso = document.getElementById("permiso").value,
         mail = document.getElementById("mail").value,
         pass = document.getElementById("pass").value;
-        
-        if ( nombre === "" )
-            nombre = null;
-        if ( apellidoP === "" )
-            apellidoP = null;
-        if ( apellidoM === "" )
-            apellidoM = null;
-        if ( lugarN === "" )
-            lugarN = null;
-        if ( fechaN === "" )
-            fechaN = null;
-        if ( curp === "" )
-            curp = null;
-        if ( rfc === "" )
-            rfc = null;
-        if ( colonia === "" )
-            colonia = null;
-        if ( calle === "" )
-            calle = null;
-        if ( numeroC === "" )
-            numeroC = null;
-        if ( codigoP === "" )
-            codigoP = null;
-        if ( telefonoCa === "" )
-            telefonoCa= null;
-        if ( telefonoCe === "" )
-            telefonoCe= null;
-        if ( fechaI === "" )
-            fechaI = null;
-        if ( numeroN === "" )
-            numeroN = null;
-        if ( nombramiento === "" )
-            nombramiento = null;
-        if ( horasB === "" )
-            horasB = null;
-        if ( horasA === "" )
-            horasA = null;
-        if ( mail === "" )
-            mail = null;
-        if ( pass === "" )
-            pass = null;
-        if ( licenciatura === "" )
-            licenciatura = null;
-        if ( cedulaL=== "" )
-            cedulaL= null;
-        if ( maestria === "" )
-            maestria = null;
-        if ( cedulaM === "" )
-            cedulaM = null;
-        if ( doctorado === "" )
-            doctorado = null;
-        if ( cedulaD === "" )
-            cedulaD = null;
-        if ( genero === "" )
-            genero = null;
-        if ( estadoC === "" )
-            estadoC = null;
-        if ( permiso === "" )
-            permiso = null;
-        if ( status === "" )
-            status = null;
 
-    var query = connection.query("INSERT INTO TBL_USER (VCH_NAME, VCH_A_PATERNO, VCH_A_MATERNO, INT_NUM_NOMINA, ENM_ESTADO_CIVIL, ENM_GENERO, VCH_LUGAR_NACIMIENTO, DDT_NACIMIENTO, VCH_CURP, VCH_RFC, VCH_CORREO, DDT_FECHA_INI_ORG, VCH_NOMBRAMIENTO, ENM_STATUS, INT_HORAS_BASE, INT_HORAS_ADICIONALES, VCH_LICENCIATURA, VCH_CEDULA_LICENCIATURA, VCH_MAESTRIA, VCH_CEDULA_MAESTRIA, VCH_DOCTORADO, VCH_CEDULA_DOCTORADO, VCH_CP, VCH_COLONIA, VCH_CALLE, VCH_NUMERO_CALLE, VCH_TEL_LOCAL, VCH_TEL_CEL, VCH_PASS, ENM_PERMISOS) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [nombre, apellidoP, apellidoM, numeroN, estadoC, genero, lugarN, fechaN, curp, rfc, mail, fechaI, nombramiento, status, horasB, horasA, licenciatura, cedulaL, maestria, cedulaM, doctorado, cedulaD, codigoP, colonia, calle, numeroC, telefonoCa, telefonoCe, pass, permiso]);
-    
+    if (nombre === "") {
+        alertify.error("Falta llenar el campo del Nombre");
+        return 0;
+    }
+    if (apellidoP === "")
+        apellidoP = null;
+    if (apellidoM === "")
+        apellidoM = null;
+    if (lugarN === "")
+        lugarN = null;
+    if (fechaN === "")
+        fechaN = null;
+    if (curp === "")
+        curp = null;
+    if (rfc === "")
+        rfc = null;
+    if (colonia === "")
+        colonia = null;
+    if (calle === "")
+        calle = null;
+    if (numeroC === "")
+        numeroC = null;
+    if (codigoP === "")
+        codigoP = null;
+    if (telefonoCa === "")
+        telefonoCa = null;
+    if (telefonoCe === "")
+        telefonoCe = null;
+    if (fechaI === "")
+        fechaI = null;
+    if (numeroN === "")
+        numeroN = null;
+    if (nombramiento === "")
+        nombramiento = null;
+    if (horasB === "")
+        horasB = null;
+    if (horasA === "")
+        horasA = null;
+    if (mail === "")
+        mail = null;
+    if (pass === "")
+        pass = null;
+    if (licenciatura === "")
+        licenciatura = null;
+    if (cedulaL === "")
+        cedulaL = null;
+    if (maestria === "")
+        maestria = null;
+    if (cedulaM === "")
+        cedulaM = null;
+    if (doctorado === "")
+        doctorado = null;
+    if (cedulaD === "")
+        cedulaD = null;
+    if (genero === "")
+        genero = null;
+    if (estadoC === "")
+        estadoC = null;
+    if (permiso === "")
+        permiso = null;
+    if (status === "")
+        status = null;
+    /*
+        var query = connection.query("INSERT INTO TBL_USER (VCH_NAME, VCH_A_PATERNO, VCH_A_MATERNO, INT_NUM_NOMINA, ENM_ESTADO_CIVIL, ENM_GENERO, VCH_LUGAR_NACIMIENTO, DDT_NACIMIENTO, VCH_CURP, VCH_RFC, VCH_CORREO, DDT_FECHA_INI_ORG, VCH_NOMBRAMIENTO, ENM_STATUS, INT_HORAS_BASE, INT_HORAS_ADICIONALES, VCH_LICENCIATURA, VCH_CEDULA_LICENCIATURA, VCH_MAESTRIA, VCH_CEDULA_MAESTRIA, VCH_DOCTORADO, VCH_CEDULA_DOCTORADO, VCH_CP, VCH_COLONIA, VCH_CALLE, VCH_NUMERO_CALLE, VCH_TEL_LOCAL, VCH_TEL_CEL, VCH_PASS, ENM_PERMISOS) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [nombre, apellidoP, apellidoM, numeroN, estadoC, genero, lugarN, fechaN, curp, rfc, mail, fechaI, nombramiento, status, horasB, horasA, licenciatura, cedulaL, maestria, cedulaM, doctorado, cedulaD, codigoP, colonia, calle, numeroC, telefonoCa, telefonoCe, pass, permiso]);
+    */
+
+    alertify.success("¡Se ha creado al profesor con éxito!");
+    setTimeout(function () {
+        location.href = "teacher.html";
+    }, 3000);
+
     connection.end();
 }
