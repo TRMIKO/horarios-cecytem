@@ -11,340 +11,342 @@
 
 <body>
     <nav class="navbar" role="navigation" aria-label="main navigation">
-          <div class="navbar-brand">
+        <div class="navbar-brand">
             <!-- navbar items, navbar burger... -->
-                <a class="navbar-item" href="https://bulma.io">
+            <a class="navbar-item" href="https://bulma.io">
                   <img src="../images/letras.jpg" alt="Bulma: a modern CSS framework based on Flexbox" >
-                </a> 
-                <a class="navbar-item" href="index.html">
+                </a>
+            <a class="navbar-item" href="index.html">
                     Inicio
                 </a>
-                <a class="navbar-item" href="schedule.html">
+            <a class="navbar-item" href="schedule.html">
                     Horarios
                 </a>
-                <a class="navbar-item is-active" href="#">
+            <a class="navbar-item is-active" href="#">
                     Profesores
                 </a>
-                <a class="navbar-item" href="subject.html">
+            <a class="navbar-item" href="subject.html">
                     Materias
                 </a>
-                <a class="navbar-item" href="classroom.html">
+            <a class="navbar-item" href="classroom.html">
                     Salones
                 </a>
-          </div>
-          <div class="navbar-end">
+        </div>
+        <div class="navbar-end">
             <!-- navbar items, navbar burger... -->
-                
-                 <div class="navbar-item">
-                    <div class="field is-grouped" onclick="salir()">
 
-                          <p class="control">
+            <div class="navbar-item">
+                <div class="field is-grouped" onclick="salir()">
+                    <div class="field is-grouped">
+                        <p class="control">
                             <a class="button is-danger" href="#">
                               <span class="icon">
                                 <i class="fa fa-ban"></i>
                               </span>
                               <span>Salir</span>
                             </a>
-                          </p>
-                      </div>
+                        </p>
+                    </div>
                 </div>
-          </div>
+            </div>
 
-            
+
     </nav>
-      <section class="hero is-info is-bold">
-  <div class="hero-body">
-    <div class="container">
-      <h1 class="title">
-        Administrar Profesores
-      </h1>
-      
-    </div>
-  </div>
-  <div class="tabs is-boxed">
-        <ul>
-          <li class="is-active"><a href="#">Administar</a></li>
-          <li><a href="createteacher.html">Crear</a></li>
-          
-        </ul>
-      </div>
-</section>
-  
- <br>
+    <section class="hero is-info is-bold">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    Administrar Profesores
+                </h1>
 
-   <section id="app">
-    <div class="container">
-      <div class="field">
-  <p class="control has-icons-left has-icons-right">
-    <input class="input" type="email" placeholder="Buscar">
-    <span class="icon is-small is-left">
+            </div>
+        </div>
+        <div class="tabs is-boxed">
+            <ul>
+                <li class="is-active"><a href="#">Administar</a></li>
+                <li><a href="createteacher.html">Crear</a></li>
+
+            </ul>
+        </div>
+    </section>
+
+    <br>
+
+    <section id="app">
+        <div class="container">
+            <div class="field">
+                <p class="control has-icons-left has-icons-right">
+                    <input class="input" type="email" placeholder="Buscar">
+                    <span class="icon is-small is-left">
       <i class="fa fa-info-circle"></i>
     </span>
-    
-  </p>
-</div>
-       <table class="table table is-fullwidth table is-hoverable">
-                      <thead>
-                        <tr>
-                          <th>ID</th>
-                          <th>Nombre</th>
-                          <th title="Apellido Paterno">A.Paterno</th>
-                          <th title="Apellido Materno">A.Materno</th>
-                          <th>Eliminar</th>
-                          <th>Editar</th>
-                          <th>PDF</th>
-                        </tr>
-                      </thead>
-                      <tbody id="content">
-                        
-                            
 
-                          
+                </p>
+            </div>
+            <table class="table table is-fullwidth table is-hoverable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th title="Apellido Paterno">A.Paterno</th>
+                        <th title="Apellido Materno">A.Materno</th>
+                        <th>Eliminar</th>
+                        <th>Editar</th>
+                        <th>PDF</th>
+                    </tr>
+                </thead>
+                <tbody id="content">
 
-                            
-                             
-                      </tbody>
-                    </table>
-      
-    </div>
-     <div id="delete" class="modal" >
-          <div class="modal-background"></div>
-          <div class="modal-card">
-            <header class="modal-card-head">
-              <p class="modal-card-title" id="text">Eliminar Profesor : </p>
-              <button class="delete" aria-label="close" v-on:click="close()"></button>
-            </header>
-            <section class="modal-card-body">
-              <h2>Seguro que desea eliminar?</h2>
-            </section>
-            <footer class="modal-card-foot">
-              <button id="delete-btn" class="button is-success">Eliminar</button>
-              <button  v-on:click="close()"  class="button" >Cancelar</button>
-            </footer>
-          </div>
+
+
+
+
+
+
+                </tbody>
+            </table>
+
+        </div>
+        <div id="delete" class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title" id="text">Eliminar Profesor : </p>
+                    <button class="delete" aria-label="close" v-on:click="close()"></button>
+                </header>
+                <section class="modal-card-body">
+                    <h2>Seguro que desea eliminar?</h2>
+                </section>
+                <footer class="modal-card-foot">
+                    <button id="delete-btn" class="button is-success">Eliminar</button>
+                    <button v-on:click="close()" class="button">Cancelar</button>
+                </footer>
+            </div>
         </div>
 
         <div class="modal" id="update">
             <div class="modal-background"></div>
             <div class="modal-card">
-              <header class="modal-card-head">
-                <p class="modal-card-title">Modal title</p>
-                <button class="delete" v-on:click="cupdate()" aria-label="close"></button>
-              </header>
-              <section class="modal-card-body">
-                <!-- Content ... -->
-               
-                         <div class="field">
-                      <label class="label">Nombre</label>
-                      <div class="control">
-                          <input class="input" id="nombre" type="text" placeholder="Nombre del Profesor">
-                      </div>
-                  </div>
-                  <div class="field">
-                      <label class="label">Apellido Paterno</label>
-                      <div class="control">
-                          <input class="input" id="apellidoP" type="text" placeholder="Apellido Paterno del Profesor">
-                      </div>
-                  </div>
-                  <div class="field">
-                      <label class="label">Apellido Materno</label>
-                      <div class="control">
-                          <input class="input" id="apellidoM" type="text" placeholder="Apellido Materno del Profesor">
-                      </div>
-                  </div>
-                  <div class="field">
-                      <label class="label">Lugar de Nacimiento</label>
-                      <div class="control">
-                          <input class="input" id="lugarN" type="text" placeholder="Lugar de Nacimiento del Profesor">
-                      </div>
-                  </div>
-                  <div class="field">
-                      <label class="label">Fecha de Nacimiento</label>
-                      <div class="control">
-                          <input class="input" id="fechaN" type="date" min="1900-01-01" max="2018-01-01">
-                      </div>
-                  </div>
-                  <div class="field">
-                      <label class="label">Género</label>
-                      <div class="control">
-                          <select class="input" id="genero">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">Modal title</p>
+                    <button class="delete" v-on:click="cupdate()" aria-label="close"></button>
+                </header>
+                <section class="modal-card-body">
+                    <!-- Content ... -->
+
+                    <div class="field">
+                        <label class="label">Nombre</label>
+                        <div class="control">
+                            <input class="input" id="nombre" type="text" placeholder="Nombre del Profesor">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Apellido Paterno</label>
+                        <div class="control">
+                            <input class="input" id="apellidoP" type="text" placeholder="Apellido Paterno del Profesor">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Apellido Materno</label>
+                        <div class="control">
+                            <input class="input" id="apellidoM" type="text" placeholder="Apellido Materno del Profesor">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Lugar de Nacimiento</label>
+                        <div class="control">
+                            <input class="input" id="lugarN" type="text" placeholder="Lugar de Nacimiento del Profesor">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Fecha de Nacimiento</label>
+                        <div class="control">
+                            <input class="input" id="fechaN" type="date" min="1900-01-01" max="2018-01-01">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Género</label>
+                        <div class="control">
+                            <select class="input" id="genero">
                              <option value="" selected disabled>Género del Profesor</option>
                               <option value="Masculino">Masculino</option>
                               <option value="Femenino">Femenino</option>
                           </select>
-                      </div>
-                  </div>
-                  <div class="field">
-                      <label class="label">Estado Civil</label>
-                      <div class="control">
-                          <select class="input" id="estadoC">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Estado Civil</label>
+                        <div class="control">
+                            <select class="input" id="estadoC">
                              <option value="" selected disabled>Estado Civil del Profesor</option>
                               <option value="SOLTER@">SOLTER@</option>
                               <option value="CASAD@">CASAD@</option>
                               <option value="VIUD@">VIUD@</option>
                               <option value="DIVORCIAD@">DIVORCIAD@</option>
                           </select>
-                      </div>
-                  </div>
-                  <div class="field">
-                      <label class="label">CURP</label>
-                      <div class="control">
-                          <input class="input" id="curp" type="text" placeholder="CURP del Profesor">
-                      </div>
-                  </div>
-                  <div class="field">
-                      <label class="label">RFC</label>
-                      <div class="control">
-                          <input class="input" id="rfc" type="text" placeholder="RFC del Profesor">
-                      </div>
-                  </div>
-                  <div class="field">
-                      <label class="label">Colonia</label>
-                      <div class="control">
-                          <input class="input" id="colonia" type="text" placeholder="Colonia donde vive el Profesor">
-                      </div>
-                  </div>
-                  <div class="field">
-                      <label class="label">Calle</label>
-                      <div class="control">
-                          <input class="input" id="calle" type="text" placeholder="Calle donde vive el Profesor">
-                      </div>
-                  </div>
-                  <div class="field">
-                      <label class="label">Número</label>
-                      <div class="control">
-                          <input class="input" id="numeroC" type="text" placeholder="Número de Casa">
-                      </div>
-                  </div>
-                  <div class="field">
-                      <label class="label">Código Postal</label>
-                      <div class="control">
-                          <input class="input" id="codigoP" type="text" placeholder="Código Postal del Profesor">
-                      </div>
-                  </div>
-                  <div class="field">
-                      <label class="label">Télefono de Casa</label>
-                      <div class="control">
-                          <input class="input" id="telefonoCa" type="text" placeholder="Télefono de Casa del Profesor">
-                      </div>
-                  </div>
-                  <div class="field">
-                      <label class="label">Télefono Celular</label>
-                      <div class="control">
-                          <input class="input" id="telefonoCe" type="text" placeholder="Télefono de Celular del Profesor">
-                      </div>
-                  </div>
-                  <div class="field">
-                      <label class="label">Número de Nómina</label>
-                      <div class="control">
-                          <input class="input" id="numeroN" type="number" min="1" placeholder="Número de Nómina del Profesor">
-                      </div>
-                  </div>
-                  <div class="field">
-                      <label class="label">Fecha de Inicio Dentro del Plantel</label>
-                      <div class="control">
-                          <input class="input" id="fechaI" type="date" min="1900-01-01" max="2018-01-01">
-                      </div>
-                  </div>
-                  <div class="field">
-                      <label class="label">Nombramiento</label>
-                      <div class="control">
-                          <input class="input" id="nombramiento" type="text" placeholder="Nombramiento del Profesor">
-                      </div>
-                  </div>
-                  <div class="field">
-                      <label class="label">Estatus</label>
-                      <div class="control">
-                          <select class="input" id="status">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">CURP</label>
+                        <div class="control">
+                            <input class="input" id="curp" type="text" placeholder="CURP del Profesor">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">RFC</label>
+                        <div class="control">
+                            <input class="input" id="rfc" type="text" placeholder="RFC del Profesor">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Colonia</label>
+                        <div class="control">
+                            <input class="input" id="colonia" type="text" placeholder="Colonia donde vive el Profesor">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Calle</label>
+                        <div class="control">
+                            <input class="input" id="calle" type="text" placeholder="Calle donde vive el Profesor">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Número</label>
+                        <div class="control">
+                            <input class="input" id="numeroC" type="text" placeholder="Número de Casa">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Código Postal</label>
+                        <div class="control">
+                            <input class="input" id="codigoP" type="text" placeholder="Código Postal del Profesor">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Télefono de Casa</label>
+                        <div class="control">
+                            <input class="input" id="telefonoCa" type="text" placeholder="Télefono de Casa del Profesor">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Télefono Celular</label>
+                        <div class="control">
+                            <input class="input" id="telefonoCe" type="text" placeholder="Télefono de Celular del Profesor">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Número de Nómina</label>
+                        <div class="control">
+                            <input class="input" id="numeroN" type="number" min="1" placeholder="Número de Nómina del Profesor">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Fecha de Inicio Dentro del Plantel</label>
+                        <div class="control">
+                            <input class="input" id="fechaI" type="date" min="1900-01-01" max="2018-01-01">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Nombramiento</label>
+                        <div class="control">
+                            <input class="input" id="nombramiento" type="text" placeholder="Nombramiento del Profesor">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Estatus</label>
+                        <div class="control">
+                            <select class="input" id="status">
                              <option value="" selected disabled>Estatus del Profesor</option>
                               <option value="ACTIVO">ACTIVO</option>
                               <option value="INACTIVO">INACTIVO</option>
                           </select>
-                      </div>
-                  </div>
-                  <div class="field">
-                      <label class="label">Horas Base</label>
-                      <div class="control">
-                          <input class="input" id="horasB" type="number" min="1" placeholder="Horas Base del Profesor">
-                      </div>
-                  </div>
-                  <div class="field">
-                      <label class="label">Horas Adicionales</label>
-                      <div class="control">
-                          <input class="input" id="horasA" type="number" min="1" placeholder="Horas Adicionales del Profesor">
-                      </div>
-                  </div>
-                  <div class="field">
-                      <label class="label">Licenciatura</label>
-                      <div class="control">
-                          <input class="input" id="licenciatura" type="text" placeholder="Licenciatura del Profesor">
-                      </div>
-                  </div>
-                  <div class="field">
-                      <label class="label">Cédula de Licenciatura</label>
-                      <div class="control">
-                          <input class="input" id="cedulaL" type="text" placeholder="Cédula de Licenciatura del Profesor">
-                      </div>
-                  </div>
-                  <div class="field">
-                      <label class="label">Maestría</label>
-                      <div class="control">
-                          <input class="input" id="maestria" type="text" placeholder="Maestría del Profesor">
-                      </div>
-                  </div>
-                  <div class="field">
-                      <label class="label">Cédula de Maestría</label>
-                      <div class="control">
-                          <input class="input" id="cedulaM" type="text" placeholder="Cédula de Maestría del Profesor">
-                      </div>
-                  </div>
-                  <div class="field">
-                      <label class="label">Doctorado</label>
-                      <div class="control">
-                          <input class="input" id="doctorado" type="text" placeholder="Doctorado del Profesor">
-                      </div>
-                  </div>
-                  <div class="field">
-                      <label class="label">Cédula de Doctorado</label>
-                      <div class="control">
-                          <input class="input" id="cedulaD" type="text" placeholder="Cédula de Doctorado del Profesor">
-                      </div>
-                  </div>            
-                  <div class="field">
-                      <label class="label">Permiso</label>
-                      <div class="control">
-                          <select class="input" id="permiso">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Horas Base</label>
+                        <div class="control">
+                            <input class="input" id="horasB" type="number" min="1" placeholder="Horas Base del Profesor">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Horas Adicionales</label>
+                        <div class="control">
+                            <input class="input" id="horasA" type="number" min="1" placeholder="Horas Adicionales del Profesor">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Licenciatura</label>
+                        <div class="control">
+                            <input class="input" id="licenciatura" type="text" placeholder="Licenciatura del Profesor">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Cédula de Licenciatura</label>
+                        <div class="control">
+                            <input class="input" id="cedulaL" type="text" placeholder="Cédula de Licenciatura del Profesor">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Maestría</label>
+                        <div class="control">
+                            <input class="input" id="maestria" type="text" placeholder="Maestría del Profesor">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Cédula de Maestría</label>
+                        <div class="control">
+                            <input class="input" id="cedulaM" type="text" placeholder="Cédula de Maestría del Profesor">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Doctorado</label>
+                        <div class="control">
+                            <input class="input" id="doctorado" type="text" placeholder="Doctorado del Profesor">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Cédula de Doctorado</label>
+                        <div class="control">
+                            <input class="input" id="cedulaD" type="text" placeholder="Cédula de Doctorado del Profesor">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Permiso</label>
+                        <div class="control">
+                            <select class="input" id="permiso">
                              <option value="" selected disabled>Permiso del Profesor</option>
                               <option value="USER">Usuario</option>
                               <option value="ADMIN">Administrador</option>
                           </select>
-                      </div>
-                  </div>
-                  <div class="field">
-                      <label class="label">Correo</label>
-                      <div class="control">
-                          <input class="input" id="mail" type="email" placeholder="Correo del Profesor">
-                      </div>
-                  </div>
-                  <div class="field">
-                      <label class="label">Contraseña</label>
-                      <div class="control">
-                          <input class="input" id="pass" type="password" placeholder="Contraseña del Profesor">
-                      </div>
-                  </div>
-                  
-             
-                
-              </section>
-              <footer class="modal-card-foot">
-                <button class="button is-success" id="update-btn">Guardar cambios</button>
-                <button  v-on:click="cupdate()" class="button">Cancel</button>
-              </footer>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Correo</label>
+                        <div class="control">
+                            <input class="input" id="mail" type="email" placeholder="Correo del Profesor">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Contraseña</label>
+                        <div class="control">
+                            <input class="input" id="pass" type="password" placeholder="Contraseña del Profesor">
+                        </div>
+                    </div>
+
+
+
+                </section>
+                <footer class="modal-card-foot">
+                    <button class="button is-success" id="update-btn">Guardar cambios</button>
+                    <button v-on:click="cupdate()" class="button">Cancel</button>
+                </footer>
             </div>
-          </div>
-  </section>
-       <script src="../node_modules/vue/dist/vue.js"></script>
-<script src="../js/teacher.js"></script>
+        </div>
+    </section>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+
+    <script src="../js/teacher.js"></script>
+
 </body>
 
 </html>

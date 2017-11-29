@@ -1,13 +1,13 @@
 function registrarUsuario() {
     var mysql = require('mysql');
-    var connection = mysql.createConnection({
-        host: 'localhost',
-        user: 'root',
-        password: 'DeathRocker',
-        database: 'CECYTEM',
-        port: 3306
-    });
-    connection.connect(function (error) {
+    var con = mysql.createConnection({
+         host: 'localhost',
+         user: 'CECYTEM',
+         password: '100%CECYTEM',
+         database: 'CECYTEM',
+         port: 3306
+     })
+    con.connect(function (error) {
         if (error) {
             throw error;
         } else {
@@ -45,7 +45,7 @@ function registrarUsuario() {
         permiso = "",
         mail = document.getElementById("mail").value,
         pass = document.getElementById("pass").value;
-        
+
         if ( nombre === "" )
             nombre = null;
         if ( apellidoP === "" )
@@ -108,9 +108,9 @@ function registrarUsuario() {
             status = null;
 
     var query = connection.query("INSERT INTO TBL_USER (VCH_NAME, VCH_A_PATERNO, VCH_A_MATERNO, INT_NUM_NOMINA, ENM_ESTADO_CIVIL, ENM_GENERO, VCH_LUGAR_NACIMIENTO, DDT_NACIMIENTO, VCH_CURP, VCH_RFC, VCH_CORREO, DDT_FECHA_INI_ORG, VCH_NOMBRAMIENTO, ENM_STATUS, INT_HORAS_BASE, INT_HORAS_ADICIONALES, VCH_LICENCIATURA, VCH_CEDULA_LICENCIATURA, VCH_MAESTRIA, VCH_CEDULA_MAESTRIA, VCH_DOCTORADO, VCH_CEDULA_DOCTORADO, VCH_CP, VCH_COLONIA, VCH_CALLE, VCH_NUMERO_CALLE, VCH_TEL_LOCAL, VCH_TEL_CEL, VCH_PASS, ENM_PERMISOS) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [nombre, apellidoP, apellidoM, numeroN, estadoC, genero, lugarN, fechaN, curp, rfc, mail, fechaI, nombramiento, status, horasB, horasA, licenciatura, cedulaL, maestria, cedulaM, doctorado, cedulaD, codigoP, colonia, calle, numeroC, telefonoCa, telefonoCe, pass, permiso]);
-    
+
     alert("¡Usuario creado exitosamente!");
     location.href = "signin.html";
-    
+
     connection.end();
 }

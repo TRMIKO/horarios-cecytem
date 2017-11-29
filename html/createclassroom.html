@@ -20,7 +20,7 @@
             <!-- navbar items, navbar burger... -->
                 <a class="navbar-item" href="https://bulma.io">
                   <img src="../images/letras.jpg" alt="Bulma: a modern CSS framework based on Flexbox" >
-                </a> 
+                </a>
                 <a class="navbar-item" href="index.html">
                     Inicio
                 </a>
@@ -39,10 +39,10 @@
           </div>
           <div class="navbar-end">
             <!-- navbar items, navbar burger... -->
-                
+
                  <div class="navbar-item">
                     <div class="field is-grouped">
-                      
+
                           <p class="control">
                             <a class="button is-dark" href="https://github.com/jgthms/bulma/releases/download/0.6.0/bulma-0.6.0.zip">
                               <span class="icon">
@@ -55,7 +55,7 @@
                 </div>
           </div>
 
-            
+
     </nav>
     <section class="hero is-primary">
   <div class="hero-body">
@@ -63,14 +63,14 @@
       <h1 class="title">
         Crear Salón
       </h1>
-      
+
     </div>
   </div>
   <div class="tabs is-boxed">
         <ul>
           <li ><a href="classroom.html">Administar</a></li>
           <li class="is-active"><a href="createclassroom.html">Crear</a></li>
-          
+
         </ul>
       </div>
 </section>
@@ -84,8 +84,8 @@
               <input v-model="nombre" class="input" type="text" placeholder="Nombre">
             </div>
           </div>
-         
-           
+
+
       </div>
       <div class="columns">
         <div class="accept-cancel column is-half is-offset-one-quarter ">
@@ -93,7 +93,7 @@
           <a class="button is-danger" href="index.html">Cancelar</a>
         </div>
       </div>
-        
+
     </section>
     <script src="../node_modules/vue/dist/vue.js"></script>
     <script>
@@ -101,28 +101,28 @@
         el: '#app',
         data: {
           nombre:''
-         
+
         }, methods: {
           create: function () {
-       
+
             var mysql = require('mysql')
-            var connection = mysql.createConnection({
-                host: 'localhost',
-                user: 'root',
-                password: '123',
-                database: 'CECYTEM',
-                port: 3306
-            })
-            var query2 = connection.query('INSERT INTO TBL_SALON VALUES(NULL,?) ', [this.nombre] , function(error, result){
+						var con = mysql.createConnection({
+								 host: 'localhost',
+								 user: 'CECYTEM',
+								 password: '100%CECYTEM',
+								 database: 'CECYTEM',
+								 port: 3306
+						 })
+            var query2 = con.query('INSERT INTO TBL_SALON VALUES(NULL,?) ', [this.nombre] , function(error, result){
                 if(error){
                     throw error
                 }else{
                     console.log("exito")
                 }
             });
-           
-            connection.end();
-       
+
+            con.end();
+
           }
         }
 
