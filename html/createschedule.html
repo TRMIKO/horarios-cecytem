@@ -7,6 +7,8 @@
     <title>Horarios</title>
     <link rel="stylesheet" href="../css/font-awesome.min.css">
     <link rel="stylesheet" href="../node_modules/bulma/css/bulma.css">
+    <link rel="stylesheet" href="../node_modules/alertifyjs/build/css/alertify.css">
+    <link rel="stylesheet" href="../node_modules/alertifyjs/build/css/themes/default.css">
 </head>
 
 <body>
@@ -111,23 +113,205 @@
                     </div>
                 </div>
                 <br>
+
+
                 <div class="field has-addons">
-                    <div class="control">
-                        <input v-model="hora" class="input" type="text" placeholder="Añadir Hora">
-                    </div>
-                    <div class="control">
-                        <a v-on:click="addHour()" class="button is-dark">
-                  Añadir
-                  </a>
-                    </div>
+                  <p class="control">
+                    <span class="select">
+                      <select v-model="hini">
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                      </select>
+                    </span>
+                    <span  style="margin:0px 5px;">:</span>
+                    <span class="select">
+                      <select v-model="mini">
+                        <option value="00">00</option>
+                        <option value="01">01</option>
+                        <option value="02">02</option>
+                        <option value="03">03</option>
+                        <option value="04">04</option>
+                        <option value="05">05</option>
+                        <option value="06">06</option>
+                        <option value="07">07</option>
+                        <option value="08">08</option>
+                        <option value="09">09</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+                        <option value="31">31</option>
+                        <option value="32">32</option>
+                        <option value="33">33</option>
+                        <option value="34">34</option>
+                        <option value="35">35</option>
+                        <option value="36">36</option>
+                        <option value="37">37</option>
+                        <option value="38">38</option>
+                        <option value="39">39</option>
+                        <option value="40">40</option>
+                        <option value="41">41</option>
+                        <option value="42">42</option>
+                        <option value="43">43</option>
+                        <option value="44">44</option>
+                        <option value="45">45</option>
+                        <option value="46">46</option>
+                        <option value="47">47</option>
+                        <option value="48">48</option>
+                        <option value="49">49</option>
+                        <option value="50">50</option>
+                        <option value="51">51</option>
+                        <option value="52">52</option>
+                        <option value="53">53</option>
+                        <option value="54">54</option>
+                        <option value="55">55</option>
+                        <option value="56">56</option>
+                        <option value="57">57</option>
+                        <option value="58">58</option>
+                        <option value="59">59</option>
+                        <option value="60">60</option>
+                      </select>
+                    </span>
+                  </p>
+                  <span style="margin:0px 10px;"> - </span>
+                  <p class="control">
+                    <span class="select">
+                      <select v-model="hfin">
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                      </select>
+                    </span>
+                    <span style="margin:0px 5px;">:</span>
+                    <span class="select">
+                      <select v-model="mfin">
+                        <option value="00">00</option>
+                        <option value="01">01</option>
+                        <option value="02">02</option>
+                        <option value="03">03</option>
+                        <option value="04">04</option>
+                        <option value="05">05</option>
+                        <option value="06">06</option>
+                        <option value="07">07</option>
+                        <option value="08">08</option>
+                        <option value="09">09</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+                        <option value="31">31</option>
+                        <option value="32">32</option>
+                        <option value="33">33</option>
+                        <option value="34">34</option>
+                        <option value="35">35</option>
+                        <option value="36">36</option>
+                        <option value="37">37</option>
+                        <option value="38">38</option>
+                        <option value="39">39</option>
+                        <option value="40">40</option>
+                        <option value="41">41</option>
+                        <option value="42">42</option>
+                        <option value="43">43</option>
+                        <option value="44">44</option>
+                        <option value="45">45</option>
+                        <option value="46">46</option>
+                        <option value="47">47</option>
+                        <option value="48">48</option>
+                        <option value="49">49</option>
+                        <option value="50">50</option>
+                        <option value="51">51</option>
+                        <option value="52">52</option>
+                        <option value="53">53</option>
+                        <option value="54">54</option>
+                        <option value="55">55</option>
+                        <option value="56">56</option>
+                        <option value="57">57</option>
+                        <option value="58">58</option>
+                        <option value="59">59</option>
+                        <option value="60">60</option>
+
+
+                      </select>
+                    </span>
+                  </p>
+                  <span style="margin:0px 5px;"></span>
+                  <p class="control">
+                    <a v-on:click="addHour()" class="button is-primary">
+                      Añadir Hora
+                    </a>
+                  </p>
                 </div>
+
                 <div v-for="o in "></div>
                 <h1>Agregar Materia</h1>
                 <div class="field">
                     <div class="control">
                         <div class="select">
                             <select v-model="dia">
-                        <option>Día</option>
+
                         <option value="1">Lunes</option>
                         <option value="2">Martes</option>
                         <option value="3">Miércoles</option>
@@ -137,27 +321,25 @@
                         </div>
                         <div class="select">
                             <select v-model="tiempo">
-                        <option>Elegir Hora</option>
+
                         <option v-for="(ha,$index) in horasAgregadas"  v-bind:value="$index">{{ha}}</option>
                      </select>
                         </div>
                         <div class="select">
                             <select id="profesor" v-model="profesor">
-                        <option >Profesor</option>
-                        <option style="background: red;">Aime 16:00-18:00</option>
-                        <option>With options</option>
+
+
+
                      </select>
                         </div>
                         <div class="select">
                             <select id="materia" v-model="materia">
-                        <option>Materia</option>
-                        <option>With options</option>
+
                      </select>
                         </div>
                         <div class="select">
                             <select id="salon" v-model="salon">
-                        <option>Salón</option>
-                        <option>With options</option>
+
                      </select>
                         </div>
                         <button v-on:click="setClass()" class="button is-dark">
@@ -168,15 +350,16 @@
             </div>
         </section>
         <br>
-        <ul>
 
-        </ul>
         <div class="container">
-
+          <div class="field has-addons has-addons-right">
+            <a v-on:click="limpiar" class="button is-info is-hovered">Limpiar</a>
+          </div>
             <h3 class="has-text-centered subtitle is-3">Horario</h3>
             <table class="table table is-fullwidth table is-hoverable">
                 <thead>
                     <tr>
+
                         <th>Horario</th>
                         <th>Lunes</th>
                         <th>Martes</th>
@@ -185,7 +368,7 @@
                         <th>Viernes</th>
                     </tr>
                 </thead>
-                <tbody is="horario" v-for="h in horas" v-bind:key="h.id" v-bind:horas="h">
+                <tbody is="horario" v-for="(h,index) in horas"  v-on:remove="eliminar(a)" v-on:remove-class="removeClass" v-bind:key="h.id" v-bind:horas="h" v-bind:hora="index">
 
 
                 </tbody>
@@ -194,6 +377,7 @@
             <table class="table table is-fullwidth table is-hoverable">
                 <thead>
                     <tr>
+
                         <th>Horario</th>
                         <th>Lunes</th>
                         <th>Martes</th>
@@ -202,7 +386,7 @@
                         <th>Viernes</th>
                     </tr>
                 </thead>
-                <tbody is="horario" v-for="h in salones" v-bind:key="h.id" v-bind:horas="h">
+                <tbody is="grupo" v-for="(h,index)  in salones"  v-on:remove="eliminar(index)" v-on:remove-class="removeClass"  v-bind:key="h.id" v-bind:index="index" v-bind:horas="h">
 
 
                 </tbody>
@@ -229,7 +413,7 @@
                         <th></th>
                     </tr>
                 </tfoot>
-                <tbody is="horario" v-for="h in relacion" v-bind:key="h.id" v-bind:horas="h">
+                <tbody is="relacion" v-for="h in relacion" v-on:remove-subject="removeSubject" v-bind:key="h.id" v-bind:horas="h">
 
 
                 </tbody>
@@ -242,7 +426,7 @@
 
     <script src="../node_modules/vue/dist/vue.js"></script>
     <script src="../js/createschedule.js">
-        
+
 
     </script>
 </body>
