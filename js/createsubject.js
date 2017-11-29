@@ -24,3 +24,7 @@ function crearMateria() {
     var query = connection.query("INSERT INTO TBL_MATERIA (VCH_NOMBRE, INT_SEMESTRE, INT_HORAS_P, INT_HORAS_T) VALUES (?, ?, ?,?)", [materia, semestre, horap,horat]);
     connection.end();
 }
+
+function salir() {
+    location.href = "signin.html";
+}

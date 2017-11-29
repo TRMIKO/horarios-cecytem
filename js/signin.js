@@ -26,11 +26,17 @@ function Verificar() {
             var mail = document.getElementById("email").value;
             var pass = document.getElementById("password").value;
             if (result.length > 0 && pass === result[0]['VCH_PASS'] && mail === result[0]['VCH_CORREO']) {
-                if (result[0]['ENM_PERMISOS'] === "ADMIN")
-                    location.href = "index.html";
-                else {
+                if (result[0]['ENM_PERMISOS'] === "ADMIN") {
+                    alertify.success("Datos Correctos. Ingresando.")
+                    setTimeout(function () {
+                        location.href = "index.html";
+                    }, 3000);
+                } else {
+                    alertify.success("Datos Correctos. Ingresando.")
                     var modal = document.getElementById("mod");
-                    modal.setAttribute("class", "modal is-active");
+                    setTimeout(function () {
+                        modal.setAttribute("class", "modal is-active");
+                    }, 3000);
 
                     var nombre = document.getElementById("nombre"),
                         apellidoP = document.getElementById("apellidoP"),
@@ -117,7 +123,7 @@ function Verificar() {
                     pass.value = result[0]["VCH_PASS"];
                 }
             } else {
-                alertify.error("Usuario o contraseña incorrecta.");
+                alertify.error("Usuario o contraseña incorrectos.");
                 document.getElementById("email").value = null;
                 document.getElementById("password").value = null;
             }
