@@ -1,5 +1,8 @@
 function salir() {
-    location.href = "signin.html";
+    alertify.error("¡Nos vemos pronto!");
+    setTimeout(function () {
+        location.href = "index.html";
+    }, 3000);
 }
 
 Vue.component('my-component', {

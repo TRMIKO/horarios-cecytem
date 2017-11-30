@@ -1,5 +1,8 @@
 function salir() {
-    location.href = "signin.html";
+    alertify.error("¡Nos vemos pronto!");
+    setTimeout(function () {
+        location.href = "index.html";
+    }, 3000);
 }
 
 Vue.component('my-component', {
@@ -32,8 +35,8 @@ var app = new Vue({
             var mysql = require('mysql')
             var connection = mysql.createConnection({
                 host: 'localhost',
-                user: 'root',
-                password: '123',
+                user: 'CECYTEM',
+                password: '100%CECYTEM',
                 database: 'CECYTEM',
                 port: 3306
             })
@@ -84,8 +87,8 @@ var app = new Vue({
                                 document.getElementById('delete').setAttribute("class", "modal")
                                 var con = mysql.createConnection({
                                     host: 'localhost',
-                                    user: 'root',
-                                    password: '123',
+                                    user: 'CECYTEM',
+                                    password: '100%CECYTEM',
                                     database: 'CECYTEM',
                                     port: 3306
                                 })

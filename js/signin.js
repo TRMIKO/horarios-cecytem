@@ -254,11 +254,22 @@ function mostrar() {
 }
 
 function cerrar() {
-    var modal = document.getElementById("mod"),
-        mail = document.getElementById("email"),
-        pass = document.getElementById("password");
+    alertify.error("¡Nos vemos pronto!");
+    setTimeout(function () {
+        location.href = "signin.html";
+    }, 3000);
+}
 
-    modal.setAttribute("class", "modal");
-    mail.value = null;
-    pass.value = null;
+function mostrarInfo () {
+    document.getElementById("informacion").setAttribute("style", "display: block");
+    document.getElementById("disponibilidad").setAttribute("style", "display: none");
+    document.getElementById("btnDispo").setAttribute("class", "button is-link is-outlined");
+    document.getElementById("btnInfo").setAttribute("class", "button is-link");
+}
+
+function mostrarDispo() {
+    document.getElementById("informacion").setAttribute("style", "display: none");
+    document.getElementById("disponibilidad").setAttribute("style", "display: block");
+    document.getElementById("btnInfo").setAttribute("class", "button is-link is-outlined");
+    document.getElementById("btnDispo").setAttribute("class", "button is-link");
 }

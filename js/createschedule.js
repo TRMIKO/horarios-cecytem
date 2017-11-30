@@ -1,7 +1,10 @@
 var alertify = require("alertifyjs")
 
 function salir() {
-  location.href = "signin.html";
+    alertify.error("¡Nos vemos pronto!");
+    setTimeout(function () {
+        location.href = "index.html";
+    }, 3000);
 }
 
 Vue.component('horario', {
@@ -285,8 +288,8 @@ function salones() {
   var mysql = require('mysql')
   var con = mysql.createConnection({
     host: 'localhost',
-    user: 'root',
-    password: '123',
+    user: 'CECYTEM',
+    password: '100%CECYTEM',
     database: 'CECYTEM',
     port: 3306
   })
@@ -319,8 +322,8 @@ function materia() {
   var mysql = require('mysql')
   var con = mysql.createConnection({
     host: 'localhost',
-    user: 'root',
-    password: '123',
+    user: 'CECYTEM',
+    password: '100%CECYTEM',
     database: 'CECYTEM',
     port: 3306
   })
@@ -346,8 +349,8 @@ function profesor() {
   var mysql = require('mysql')
   var con = mysql.createConnection({
     host: 'localhost',
-    user: 'root',
-    password: '123',
+    user: 'CECYTEM',
+    password: '100%CECYTEM',
     database: 'CECYTEM',
     port: 3306
   })

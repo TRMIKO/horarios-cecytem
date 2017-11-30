@@ -1,133 +1,106 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	 <meta charset="utf-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hello Bulma!</title>
+    <title>Salones</title>
     <link rel="stylesheet" href="../css/font-awesome.min.css">
     <link rel="stylesheet" href="../node_modules/bulma/css/bulma.css">
+    <link rel="stylesheet" href="../node_modules/alertifyjs/build/css/alertify.css">
+    <link rel="stylesheet" href="../node_modules/alertifyjs/build/css/themes/default.css">
     <style>
-      .accept-cancel{
-        display: flex;
-        justify-content: space-around;
-        margin-top: 40px;
-      }
+        .accept-cancel {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 40px;
+        }
+
     </style>
 </head>
+
 <body>
-<nav class="navbar" role="navigation" aria-label="main navigation">
-          <div class="navbar-brand">
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
             <!-- navbar items, navbar burger... -->
-                <a class="navbar-item" href="#">
+            <a class="navbar-item" href="#">
                   <img src="../images/letras.jpg" alt="Bulma: a modern CSS framework based on Flexbox" >
                 </a>
-                <a class="navbar-item" href="index.html">
+            <a class="navbar-item" href="index.html">
                     Inicio
                 </a>
-                <a class="navbar-item" href="schedule.html">
+            <a class="navbar-item" href="schedule.html">
                     Horarios
                 </a>
-                <a class="navbar-item" href="teacher.html">
+            <a class="navbar-item" href="teacher.html">
                     Profesores
                 </a>
-                <a class="navbar-item" href="subject.html">
+            <a class="navbar-item" href="subject.html">
                     Materias
                 </a>
-                <a class="navbar-item" href="classroom.html">
+            <a class="navbar-item is-active" href="#">
                     Salones
                 </a>
-          </div>
-          <div class="navbar-end">
+        </div>
+        <div class="navbar-end">
             <!-- navbar items, navbar burger... -->
+            <div class="navbar-item">
+                <div class="field is-grouped" onclick="salir()">
 
-                 <div class="navbar-item">
-                    <div class="field is-grouped">
-
-                          <p class="control">
-                            <a class="button is-dark" href="https://github.com/jgthms/bulma/releases/download/0.6.0/bulma-0.6.0.zip">
+                    <p class="control">
+                        <a class="button is-danger" href="#">
                               <span class="icon">
                                 <i class="fa fa-ban"></i>
                               </span>
                               <span>Salir</span>
                             </a>
-                          </p>
-                      </div>
+                    </p>
                 </div>
-          </div>
+            </div>
+        </div>
 
 
     </nav>
     <section class="hero is-primary">
-  <div class="hero-body">
-    <div class="container">
-      <h1 class="title">
-        Crear Salón
-      </h1>
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    Crear Salón
+                </h1>
 
-    </div>
-  </div>
-  <div class="tabs is-boxed">
-        <ul>
-          <li ><a href="classroom.html">Administar</a></li>
-          <li class="is-active"><a href="createclassroom.html">Crear</a></li>
-
-        </ul>
-      </div>
-</section>
-<br>
-        <section id="app">
-      <div class="container">
-
-         <div class="field">
-            <label class="label">Nombre Salon</label>
-            <div class="control">
-              <input v-model="nombre" class="input" type="text" placeholder="Nombre">
             </div>
-          </div>
-
-
-      </div>
-      <div class="columns">
-        <div class="accept-cancel column is-half is-offset-one-quarter ">
-          <a v-on:click="create" class="button is-dark">Crear</a>
-          <a class="button is-danger" href="index.html">Cancelar</a>
         </div>
-      </div>
+        <div class="tabs is-boxed">
+            <ul>
+                <li><a href="classroom.html">Administar</a></li>
+                <li class="is-active"><a href="#">Crear</a></li>
+
+            </ul>
+        </div>
+    </section>
+    <br>
+    <section id="app">
+        <div class="container">
+
+            <div class="field">
+                <label class="label">Nombre Salon</label>
+                <div class="control">
+                    <input v-model="nombre" class="input" type="text" placeholder="Nombre">
+                </div>
+            </div>
+
+
+        </div>
+        <div class="columns">
+            <div class="accept-cancel column is-half is-offset-one-quarter ">
+                <a v-on:click="create" class="button is-link">Crear</a>
+                <a class="button is-danger" href="classroom.html">Cancelar</a>
+            </div>
+        </div>
 
     </section>
     <script src="../node_modules/vue/dist/vue.js"></script>
-    <script>
-      var app = new Vue({
-        el: '#app',
-        data: {
-          nombre:''
-
-        }, methods: {
-          create: function () {
-
-            var mysql = require('mysql')
-						var con = mysql.createConnection({
-								 host: 'localhost',
-								 user: 'CECYTEM',
-								 password: '100%CECYTEM',
-								 database: 'CECYTEM',
-								 port: 3306
-						 })
-            var query2 = con.query('INSERT INTO TBL_SALON VALUES(NULL,?) ', [this.nombre] , function(error, result){
-                if(error){
-                    throw error
-                }else{
-                    console.log("exito")
-                }
-            });
-
-            con.end();
-
-          }
-        }
-
-
-      })
-    </script>
+    <script  src="../js/createclassroom.js"></script>
 </body>
+
 </html>

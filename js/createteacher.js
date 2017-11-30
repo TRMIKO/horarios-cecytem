@@ -1,7 +1,10 @@
 var alertify = require("alertifyjs");
 
 function salir() {
-    location.href = "signin.html";
+    alertify.error("¡Nos vemos pronto!");
+    setTimeout(function () {
+        location.href = "index.html";
+    }, 3000);
 }
 
 
@@ -71,9 +74,6 @@ function crearProfesor() {
         document.getElementById("apellidoP").setAttribute("class", "input is-success");
         document.getElementById("errorAP").setAttribute("style", "display: none");
     }
-
-    if (apellidoM === "")
-        apellidoM = null;
     if (lugarN === "") {
         alertify.error("Falta llenar el campo del LUGAR DE NACIMIENTO");
         document.getElementById("lugarN").setAttribute("class", "input is-danger");
@@ -210,7 +210,7 @@ function crearProfesor() {
         document.getElementById("status").setAttribute("class", "input is-success");
         document.getElementById("errorSta").setAttribute("style", "display: none");
     }
-    
+
     if (horasB === "") {
         alertify.error("Falta llenar el campo de HORAS BASE");
         document.getElementById("horasB").setAttribute("class", "input is-danger");
@@ -274,13 +274,21 @@ function crearProfesor() {
         document.getElementById("pass").setAttribute("class", "input is-success");
         document.getElementById("errorPass").setAttribute("style", "display: none");
     }
+    if (apellidoM === "")
+        apellidoM = null;
+    if (telefonoCe === "")
+        telefonoCe = null;
+    if (maestria === "")
+        maestria = null;
+    if (cedulaM === "")
+        cedulaM = null;
+    if (doctorado === "")
+        doctorado = null;
+    if (cedulaD === "")
+        cedulaD = null;
 
+    var query = connection.query("INSERT INTO TBL_USER (VCH_NAME, VCH_A_PATERNO, VCH_A_MATERNO, INT_NUM_NOMINA, ENM_ESTADO_CIVIL, ENM_GENERO, VCH_LUGAR_NACIMIENTO, DDT_NACIMIENTO, VCH_CURP, VCH_RFC, VCH_CORREO, DDT_FECHA_INI_ORG, VCH_NOMBRAMIENTO, ENM_STATUS, INT_HORAS_BASE, INT_HORAS_ADICIONALES, VCH_LICENCIATURA, VCH_CEDULA_LICENCIATURA, VCH_MAESTRIA, VCH_CEDULA_MAESTRIA, VCH_DOCTORADO, VCH_CEDULA_DOCTORADO, VCH_CP, VCH_COLONIA, VCH_CALLE, VCH_NUMERO_CALLE, VCH_TEL_LOCAL, VCH_TEL_CEL, VCH_PASS, ENM_PERMISOS) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [nombre, apellidoP, apellidoM, numeroN, estadoC, genero, lugarN, fechaN, curp, rfc, mail, fechaI, nombramiento, status, horasB, horasA, licenciatura, cedulaL, maestria, cedulaM, doctorado, cedulaD, codigoP, colonia, calle, numeroC, telefonoCa, telefonoCe, pass, permiso]);
 
-
-
-    /*
-        var query = connection.query("INSERT INTO TBL_USER (VCH_NAME, VCH_A_PATERNO, VCH_A_MATERNO, INT_NUM_NOMINA, ENM_ESTADO_CIVIL, ENM_GENERO, VCH_LUGAR_NACIMIENTO, DDT_NACIMIENTO, VCH_CURP, VCH_RFC, VCH_CORREO, DDT_FECHA_INI_ORG, VCH_NOMBRAMIENTO, ENM_STATUS, INT_HORAS_BASE, INT_HORAS_ADICIONALES, VCH_LICENCIATURA, VCH_CEDULA_LICENCIATURA, VCH_MAESTRIA, VCH_CEDULA_MAESTRIA, VCH_DOCTORADO, VCH_CEDULA_DOCTORADO, VCH_CP, VCH_COLONIA, VCH_CALLE, VCH_NUMERO_CALLE, VCH_TEL_LOCAL, VCH_TEL_CEL, VCH_PASS, ENM_PERMISOS) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [nombre, apellidoP, apellidoM, numeroN, estadoC, genero, lugarN, fechaN, curp, rfc, mail, fechaI, nombramiento, status, horasB, horasA, licenciatura, cedulaL, maestria, cedulaM, doctorado, cedulaD, codigoP, colonia, calle, numeroC, telefonoCa, telefonoCe, pass, permiso]);
-    */
 
     alertify.success("¡Se ha creado al profesor con éxito!");
     setTimeout(function () {
