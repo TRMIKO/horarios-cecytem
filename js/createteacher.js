@@ -3,7 +3,7 @@ var alertify = require("alertifyjs");
 function salir() {
     alertify.error("¡Nos vemos pronto!");
     setTimeout(function () {
-        location.href = "index.html";
+        location.href = "signin.html";
     }, 3000);
 }
 
@@ -296,4 +296,21 @@ function crearProfesor() {
     }, 3000);
 
     connection.end();
+}
+
+function mostrar() {
+    var pass = document.getElementById("pass"),
+        checkbox = document.getElementById("mostrar");
+
+    if (checkbox.checked == true)
+        pass.type = "text";
+    else
+        pass.type = "password";
+}
+
+function cancelar() {
+    alertify.error("Cancelando la creación del profesor.");
+    setTimeout(function () {
+        location.href = "teacher.html";
+    }, 3000);
 }

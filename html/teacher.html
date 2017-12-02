@@ -130,7 +130,7 @@
             <div class="modal-background"></div>
             <div class="modal-card">
                 <header class="modal-card-head">
-                    <p class="modal-card-title">Modal title</p>
+                    <p class="modal-card-title">Editar Profesor</p>
                     <button class="delete" v-on:click="cupdate()" aria-label="close"></button>
                 </header>
                 <section class="modal-card-body">
@@ -141,12 +141,14 @@
                         <div class="control">
                             <input class="input" id="nombre" type="text" placeholder="Nombre del Profesor">
                         </div>
+                        <p class="help is-danger" id="errorNombre" style="display: none;">Falta llenar este campo.</p>
                     </div>
                     <div class="field">
                         <label class="label">Apellido Paterno</label>
                         <div class="control">
                             <input class="input" id="apellidoP" type="text" placeholder="Apellido Paterno del Profesor">
                         </div>
+                        <p class="help is-danger" id="errorAP" style="display: none;">Falta llenar este campo.</p>
                     </div>
                     <div class="field">
                         <label class="label">Apellido Materno</label>
@@ -159,81 +161,92 @@
                         <div class="control">
                             <input class="input" id="lugarN" type="text" placeholder="Lugar de Nacimiento del Profesor">
                         </div>
+                        <p class="help is-danger" id="errorLN" style="display: none;">Falta llenar este campo.</p>
                     </div>
                     <div class="field">
                         <label class="label">Fecha de Nacimiento</label>
                         <div class="control">
                             <input class="input" id="fechaN" type="date" min="1900-01-01" max="2018-01-01">
                         </div>
+                        <p class="help is-danger" id="errorNac" style="display: none;">Falta llenar este campo.</p>
                     </div>
                     <div class="field">
                         <label class="label">Género</label>
                         <div class="control">
                             <select class="input" id="genero">
-                             <option value="" selected disabled>Género del Profesor</option>
-                              <option value="Masculino">Masculino</option>
-                              <option value="Femenino">Femenino</option>
-                          </select>
+                       <option value="" selected disabled>Género del Profesor</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Femenino">Femenino</option>
+                    </select>
                         </div>
+                        <p class="help is-danger" id="errorGen" style="display: none;">Falta llenar este campo.</p>
                     </div>
                     <div class="field">
                         <label class="label">Estado Civil</label>
                         <div class="control">
                             <select class="input" id="estadoC">
-                             <option value="" selected disabled>Estado Civil del Profesor</option>
-                              <option value="SOLTER@">SOLTER@</option>
-                              <option value="CASAD@">CASAD@</option>
-                              <option value="VIUD@">VIUD@</option>
-                              <option value="DIVORCIAD@">DIVORCIAD@</option>
-                          </select>
+                       <option value="" selected disabled>Estado Civil del Profesor</option>
+                        <option value="SOLTER@">SOLTER@</option>
+                        <option value="CASAD@">CASAD@</option>
+                        <option value="VIUD@">VIUD@</option>
+                        <option value="DIVORCIAD@">DIVORCIAD@</option>
+                    </select>
                         </div>
+                        <p class="help is-danger" id="errorEC" style="display: none;">Falta llenar este campo.</p>
                     </div>
                     <div class="field">
                         <label class="label">CURP</label>
                         <div class="control">
                             <input class="input" id="curp" type="text" placeholder="CURP del Profesor">
                         </div>
+                        <p class="help is-danger" id="errorCURP" style="display: none;">Falta llenar este campo.</p>
                     </div>
                     <div class="field">
                         <label class="label">RFC</label>
                         <div class="control">
                             <input class="input" id="rfc" type="text" placeholder="RFC del Profesor">
                         </div>
+                        <p class="help is-danger" id="errorRFC" style="display: none;">Falta llenar este campo.</p>
                     </div>
                     <div class="field">
                         <label class="label">Colonia</label>
                         <div class="control">
                             <input class="input" id="colonia" type="text" placeholder="Colonia donde vive el Profesor">
                         </div>
+                        <p class="help is-danger" id="errorCol" style="display: none;">Falta llenar este campo.</p>
                     </div>
                     <div class="field">
                         <label class="label">Calle</label>
                         <div class="control">
                             <input class="input" id="calle" type="text" placeholder="Calle donde vive el Profesor">
                         </div>
+                        <p class="help is-danger" id="errorCalle" style="display: none;">Falta llenar este campo.</p>
                     </div>
                     <div class="field">
                         <label class="label">Número</label>
                         <div class="control">
                             <input class="input" id="numeroC" type="text" placeholder="Número de Casa">
                         </div>
+                        <p class="help is-danger" id="errorNC" style="display: none;">Falta llenar este campo.</p>
                     </div>
                     <div class="field">
                         <label class="label">Código Postal</label>
                         <div class="control">
                             <input class="input" id="codigoP" type="text" placeholder="Código Postal del Profesor">
                         </div>
+                        <p class="help is-danger" id="errorCP" style="display: none;">Falta llenar este campo.</p>
                     </div>
                     <div class="field">
-                        <label class="label">Télefono de Casa</label>
+                        <label class="label">Télefono 1</label>
                         <div class="control">
-                            <input class="input" id="telefonoCa" type="text" placeholder="Télefono de Casa del Profesor">
+                            <input class="input" id="telefonoCa" type="text" placeholder="Télefono de Preferencia">
                         </div>
+                        <p class="help is-danger" id="errorT1" style="display: none;">Falta llenar este campo.</p>
                     </div>
                     <div class="field">
-                        <label class="label">Télefono Celular</label>
+                        <label class="label">Télefono 2</label>
                         <div class="control">
-                            <input class="input" id="telefonoCe" type="text" placeholder="Télefono de Celular del Profesor">
+                            <input class="input" id="telefonoCe" type="text" placeholder="Télefono Secundario">
                         </div>
                     </div>
                     <div class="field">
@@ -241,52 +254,60 @@
                         <div class="control">
                             <input class="input" id="numeroN" type="number" min="1" placeholder="Número de Nómina del Profesor">
                         </div>
+                        <p class="help is-danger" id="errorNN" style="display: none;">Falta llenar este campo.</p>
                     </div>
                     <div class="field">
                         <label class="label">Fecha de Inicio Dentro del Plantel</label>
                         <div class="control">
                             <input class="input" id="fechaI" type="date" min="1900-01-01" max="2018-01-01">
                         </div>
+                        <p class="help is-danger" id="errorFIDP" style="display: none;">Falta llenar este campo.</p>
                     </div>
                     <div class="field">
                         <label class="label">Nombramiento</label>
                         <div class="control">
                             <input class="input" id="nombramiento" type="text" placeholder="Nombramiento del Profesor">
                         </div>
+                        <p class="help is-danger" id="errorNombra" style="display: none;">Falta llenar este campo.</p>
                     </div>
                     <div class="field">
                         <label class="label">Estatus</label>
                         <div class="control">
                             <select class="input" id="status">
-                             <option value="" selected disabled>Estatus del Profesor</option>
-                              <option value="ACTIVO">ACTIVO</option>
-                              <option value="INACTIVO">INACTIVO</option>
-                          </select>
+                       <option value="" selected disabled>Estatus del Profesor</option>
+                        <option value="ACTIVO">ACTIVO</option>
+                        <option value="INACTIVO">INACTIVO</option>
+                    </select>
                         </div>
+                        <p class="help is-danger" id="errorSta" style="display: none;">Falta llenar este campo.</p>
                     </div>
                     <div class="field">
                         <label class="label">Horas Base</label>
                         <div class="control">
                             <input class="input" id="horasB" type="number" min="1" placeholder="Horas Base del Profesor">
                         </div>
+                        <p class="help is-danger" id="errorHB" style="display: none;">Falta llenar este campo.</p>
                     </div>
                     <div class="field">
                         <label class="label">Horas Adicionales</label>
                         <div class="control">
                             <input class="input" id="horasA" type="number" min="1" placeholder="Horas Adicionales del Profesor">
                         </div>
+                        <p class="help is-danger" id="errorHA" style="display: none;">Falta llenar este campo.</p>
                     </div>
                     <div class="field">
                         <label class="label">Licenciatura</label>
                         <div class="control">
                             <input class="input" id="licenciatura" type="text" placeholder="Licenciatura del Profesor">
                         </div>
+                        <p class="help is-danger" id="errorLic" style="display: none;">Falta llenar este campo.</p>
                     </div>
                     <div class="field">
                         <label class="label">Cédula de Licenciatura</label>
                         <div class="control">
                             <input class="input" id="cedulaL" type="text" placeholder="Cédula de Licenciatura del Profesor">
                         </div>
+                        <p class="help is-danger" id="errorCL" style="display: none;">Falta llenar este campo.</p>
                     </div>
                     <div class="field">
                         <label class="label">Maestría</label>
@@ -316,31 +337,36 @@
                         <label class="label">Permiso</label>
                         <div class="control">
                             <select class="input" id="permiso">
-                             <option value="" selected disabled>Permiso del Profesor</option>
-                              <option value="USER">Usuario</option>
-                              <option value="ADMIN">Administrador</option>
-                          </select>
+                       <option value="" selected disabled>Permiso del Profesor</option>
+                        <option value="USER">Usuario</option>
+                        <option value="ADMIN">Administrador</option>
+                    </select>
                         </div>
+                        <p class="help is-danger" id="errorPer" style="display: none;">Falta llenar este campo.</p>
                     </div>
                     <div class="field">
                         <label class="label">Correo</label>
                         <div class="control">
                             <input class="input" id="mail" type="email" placeholder="Correo del Profesor">
                         </div>
+                        <p class="help is-danger" id="errorCorreo" style="display: none;">Falta llenar este campo.</p>
                     </div>
                     <div class="field">
                         <label class="label">Contraseña</label>
                         <div class="control">
                             <input class="input" id="pass" type="password" placeholder="Contraseña del Profesor">
                         </div>
+                        <p class="help is-danger" id="errorPass" style="display: none;">Falta llenar este campo.</p>
                     </div>
+                    <label>Mostrar Contraseña</label>
 
+                    <input id="mostrar" type="checkbox" onclick="mostrar()">
 
 
                 </section>
                 <footer class="modal-card-foot">
-                    <button class="button is-success" id="update-btn">Guardar cambios</button>
-                    <button v-on:click="cupdate()" class="button">Cancel</button>
+                    <button class="button is-success" id="update-btn">Actualizar</button>
+                    <button v-on:click="cupdate()" class="button is-danger">Cancelar</button>
                 </footer>
             </div>
         </div>

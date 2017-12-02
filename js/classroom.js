@@ -3,7 +3,7 @@ var alertify = require("alertifyjs");
 function salir() {
     alertify.error("¡Nos vemos pronto!");
     setTimeout(function () {
-        location.href = "index.html";
+        location.href = "signin.html";
     }, 3000);
 }
 
@@ -65,7 +65,7 @@ var app = new Vue({
                             span2.appendChild(span)
                             span2.setAttribute("class", "button is-danger")
                             span2.addEventListener("click", function () {
-                                alertify.confirm("Eliminar Salón", "Desea eliminar el salón " + element['VCH_NOMBRE'],
+                                alertify.confirm("Eliminar Salón", "¿Desea eliminar el salón " + element['VCH_NOMBRE'] + "?" ,
                                     function () {
                                         var con = mysql.createConnection({
                                             host: 'localhost',
@@ -89,10 +89,6 @@ var app = new Vue({
                                     function () {
                                         alertify.error('Cancelado.');
                                     });
-
-
-                         
-
                         })
                         td.appendChild(span2)
                         tr.appendChild(td)

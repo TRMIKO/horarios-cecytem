@@ -3,7 +3,7 @@ var alertify = require("alertifyjs");
 function salir() {
     alertify.error("¡Nos vemos pronto!");
     setTimeout(function () {
-        location.href = "index.html";
+        location.href = "signin.html";
     }, 3000);
 }
 
@@ -24,7 +24,21 @@ var app = new Vue({
                 database: 'CECYTEM',
                 port: 3306
             })
-            var query2 = con.query('INSERT INTO TBL_SALON VALUES(NULL,?) ', [this.nombre], function (error, result) {
+
+            var nombre = document.getElementById("nombre").value;
+
+            if (nombre === '') {
+                alertify.error("Falta llenar el campo de NOMBRE");
+                document.getElementById("nombre").setAttribute("class", "input is-danger");
+                document.getElementById("errorNom").setAttribute("style", "display: block");
+                return 0;
+            } else {
+                document.getElementById("nombre").setAttribute("class", "input is-success");
+                document.getElementById("errorNom").setAttribute("style", "display: none");
+            }
+
+
+            var query2 = con.query('INSERT INTO TBL_SALON VALUES(NULL,?) ', [nombre], function (error, result) {
                 if (error) {
                     throw error
                 } else {

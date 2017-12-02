@@ -85,15 +85,16 @@
             <div class="field">
                 <label class="label">Nombre Salon</label>
                 <div class="control">
-                    <input v-model="nombre" class="input" type="text" placeholder="Nombre">
+                    <input v-model="nombre" class="input" id="nombre" type="text" placeholder="Nombre">
                 </div>
+                <p class="help is-danger" id="errorNom" style="display: none;">Falta llenar este campo.</p>
             </div>
 
 
         </div>
         <div class="columns">
             <div class="accept-cancel column is-half is-offset-one-quarter ">
-                <a v-on:click="create" class="button is-link">Crear</a>
+                <a v-on:click="create" class="button is-success">Crear</a>
                 <a class="button is-danger" href="classroom.html">Cancelar</a>
             </div>
         </div>
