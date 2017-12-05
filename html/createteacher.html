@@ -80,8 +80,15 @@
     </section>
 
     <br>
-    <section>
+    <section id="app">
+
         <div class="container">
+          <a class="button is-primary" v-on:click="muestra=1">Datos personales</a>
+          <a class="button is-primary" v-on:click="muestra=0">Disponibilidad</a>
+          <br>
+          <br>
+
+          <article v-if="muestra">
             <div class="field">
                 <label class="label">Nombre</label>
                 <div class="control">
@@ -308,6 +315,103 @@
 
             <input id="mostrar" type="checkbox" onclick="mostrar()">
 
+          </article>
+          <article v-if="!muestra">
+            <div class="field has-addons">
+              <p class="control">
+                <span class="select">
+                  <select v-model="dia">
+                    <option value="1">Lunes</option>
+                    <option value="2">Martes</option>
+                    <option value="3">Miercoles</option>
+                    <option value="4">Jueves</option>
+                    <option value="5">Viernes</option>
+
+                  </select>
+                </span>
+                <span class="select">
+                  <select v-model="hini">
+                    <option value="0">6</option>
+                    <option value="1">7</option>
+                    <option value="2">8</option>
+                    <option value="3">9</option>
+                    <option value="4">10</option>
+                    <option value="5">11</option>
+                    <option value="6">12</option>
+                    <option value="7">13</option>
+                    <option value="8">14</option>
+                    <option value="9">15</option>
+                    <option value="10">16</option>
+                    <option value="11">17</option>
+                    <option value="12">18</option>
+                    <option value="13">19</option>
+                    <option value="14">20</option>
+                    <option value="15">21</option>
+                    <option value="16">22</option>
+                  </select>
+                </span>
+                
+              </p>
+              <span style="margin:0px 10px;"> - </span>
+              <p class="control">
+                <span class="select">
+                  <select v-model="hfin">
+                    <option value="0">6</option>
+                    <option value="1">7</option>
+                    <option value="2">8</option>
+                    <option value="3">9</option>
+                    <option value="4">10</option>
+                    <option value="5">11</option>
+                    <option value="6">12</option>
+                    <option value="7">13</option>
+                    <option value="8">14</option>
+                    <option value="9">15</option>
+                    <option value="10">16</option>
+                    <option value="11">17</option>
+                    <option value="12">18</option>
+                    <option value="13">19</option>
+                    <option value="14">20</option>
+                    <option value="15">21</option>
+                    <option value="16">22</option>
+                  </select>
+                </span>
+
+
+
+                <span class="select">
+                  <select v-model="disp">
+                    <option value="0">Disponibilidad</option>
+                    <option value="1">Bueno</option>
+                    <option value="2">Regular</option>
+                    <option value="3">Malo</option>
+                  </select>
+                </span>
+              </p>
+              <span style="margin:0px 5px;"></span>
+              <p class="control">
+                <a v-on:click="addHour()" class="button is-primary">
+                  Añadir Hora
+                </a>
+              </p>
+            </div>
+            <table class="table table is-fullwidth table is-hoverable">
+              <thead>
+                <tr>
+                  <td>hora</td>
+                  <td>Lunes</td>
+                  <td>Martes</td>
+                  <td>Miercoles</td>
+                  <td>Jueves</td>
+                  <td>Viernes</td>
+
+                </tr>
+              </thead>
+              <tbody is="horario" v-for="(h,index) in horas" v-bind:key="h.id" v-bind:horas="h" v-bind:hora="index">
+
+              </tbody>
+            </table>
+          </article>
+
         </div>
         <div class="columns">
             <div class="accept-cancel column is-half is-offset-one-quarter ">
@@ -318,6 +422,7 @@
 
     </section>
 
+    <script src="../node_modules/vue/dist/vue.js"></script>
     <script src="../js/createteacher.js"></script>
 </body>
 
