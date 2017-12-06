@@ -25,7 +25,7 @@ Vue.component('profesores-comp', {
       update: function(p) {
         this.$emit('update',p)
       },pdf: function(p) {
-        this.$emit('pdf',p['INT_USER'])
+        this.$emit('pdf',p)
       }
 
     }
@@ -195,13 +195,17 @@ var app = new Vue({
                   document.getElementById('rfc').value = element['VCH_RFC'] == null ? '' : element['VCH_RFC']
                   document.getElementById('telefonoCe').value = element['VCH_TEL_CEL'] == null ? '' : element['VCH_TEL_CEL']
                   document.getElementById('telefonoCa').value = element['VCH_TEL_LOCAL'] == null ? '' : element['VCH_TEL_LOCAL']
-                  document.getElementById('update-btn').addEventListener("click", function () {
-                  
+
+
 
 
         },
-        pdf: function (id) {
-            console.log(id)
+        pdf: function (p) {
+            console.log(p)
+            /*************************PDF*****************/
+
+
+              /***********************PDF*****************/
         },
         view: function () {
 
