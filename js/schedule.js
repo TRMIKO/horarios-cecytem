@@ -317,7 +317,7 @@ var app = new Vue({
       var queryPDF = connection.query("UPDATE TBL_PDF SET VCH_VALOR=? WHERE VCH_NOMBRE='PROFESOR'", [h['IDG']+","+h['IDGR']]);
 
 
-      alertify.success("Descargar PDF");
+      alertify.success("Visualizar PDF");
       setTimeout(function () {
         location.href="pdfSchedule.html";
       }, 3000);

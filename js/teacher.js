@@ -216,57 +216,10 @@ var app = new Vue({
 
             var queryPDF = connection.query("UPDATE TBL_PDF SET VCH_VALOR=? WHERE VCH_NOMBRE='PROFESOR'", [p.INT_USER]);
 
-            alertify.success("Descargar PDF");
-//            html2canvas(document.getElementById("plantillaPDF"), {
-//                onrendered: function (canvas) {
-//                    var img = canvas;
-//                    var doc = new jspdf();
-//
-//                    doc.addImage(img, 'JPEG', -2, 0);
-//                    doc.setFontSize(12);
-//                    doc.text(70, 32, p.VCH_NAME)
-//                    doc.text(120, 32, p.VCH_A_PATERNO)
-//                    doc.text(170, 32, p.VCH_A_MATERNO)
-                    setTimeout(function () {
-                        location.href="pdfTeacher.html";
-                    }, 3000);
-   //             }
-  //          });
-
-
-            //            doc.save('profesor.pdf')
-            //            var url = '../visorPDF/web/varianza.pdf';
-            //            PDFJS.workerSrc = '../visorPDF/build/pdf.worker.js';
-            //            var loadingTask = PDFJS.getDocument(url);
-            //            loadingTask.promise.then(function (pdf) {
-            //                console.log('PDF loaded');
-            //
-            //                // Fetch the first page
-            //                var pageNumber = 1;
-            //                pdf.getPage(pageNumber).then(function (page) {
-            //                    console.log('Page loaded');
-            //
-            //                    var scale = 1.5;
-            //                    var viewport = page.getViewport(scale);
-            //
-            //                    // Prepare canvas using PDF page dimensions
-            //                    var canvas = document.getElementById('cuerpoPDF');
-            //                    var context = canvas.getContext('2d');
-            //
-            //                    // Render PDF page into canvas context
-            //                    var renderContext = {
-            //                        canvasContext: context,
-            //                        viewport: viewport
-            //                    };
-            //                    var renderTask = page.render(renderContext);
-            //                    renderTask.then(function () {
-            //                        console.log('Page rendered');
-            //                    });
-            //                });
-            //            }, function (reason) {
-            //                // PDF loading error
-            //                console.error(reason);
-            //            });
+            alertify.success("Visualizar PDF");   
+            setTimeout(function () {
+                location.href = "pdfTeacher.html";
+            }, 3000);
             /***********************PDF*****************/
         },
         view: function () {

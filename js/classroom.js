@@ -117,7 +117,7 @@ var app = new Vue({
                   span2.appendChild(span)
                   span2.setAttribute("class", "button")
                   span2.addEventListener("click", function () {
-                       alertify.success("Descargar PDF");
+                       alertify.success("Visualizar PDF");
                         setTimeout(function () {
                             location.href="pdfClassroom.html";
                         }, 3000);

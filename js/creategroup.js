@@ -7,6 +7,13 @@ function salir() {
     }, 3000);
 }
 
+function regresar() {
+    alertify.error("Se canceló la creación del Grupo.");
+    setTimeout(function () {
+        location.href = "group.html";
+    }, 3000);
+}
+
 var app = new Vue({
     el: '#app',
     data: {
@@ -28,7 +35,8 @@ var app = new Vue({
             })
 
             var nombre = document.getElementById("nombre").value;
-
+            var especialidad = document.getElementById("especialidad").value;
+            
             if (nombre === '') {
                 alertify.error("Falta llenar el campo de NOMBRE");
                 document.getElementById("nombre").setAttribute("class", "input is-danger");
@@ -37,6 +45,15 @@ var app = new Vue({
             } else {
                 document.getElementById("nombre").setAttribute("class", "input is-success");
                 document.getElementById("errorNom").setAttribute("style", "display: none");
+            }
+            if (especialidad === '') {
+                alertify.error("Falta llenar el campo de ESPECIALIDAD");
+                document.getElementById("especialidad").setAttribute("class", "input is-danger");
+                document.getElementById("errorEsp").setAttribute("style", "display: block");
+                return 0;
+            } else {
+                document.getElementById("especialidad").setAttribute("class", "input is-success");
+                document.getElementById("errorEsp").setAttribute("style", "display: none");
             }
 
 
