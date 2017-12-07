@@ -64,27 +64,27 @@
             <div class="field">
                 <label class="label">Nombre</label>
                 <div class="control">
-                    <input class="input" id="nombre" type="text" placeholder="Nombre del Profesor">
+                    <input onkeypress="return soloLetras(event)" class="input" id="nombre" type="text" placeholder="Nombre del Profesor">
                 </div>
                 <p class="help is-danger" id="errorNombre" style="display: none;">Falta llenar este campo.</p>
             </div>
             <div class="field">
                 <label class="label">Apellido Paterno</label>
                 <div class="control">
-                    <input class="input" id="apellidoP" type="text" placeholder="Apellido Paterno del Profesor">
+                    <input onkeypress="return soloLetras(event)" class="input" id="apellidoP" type="text" placeholder="Apellido Paterno del Profesor">
                 </div>
                 <p class="help is-danger" id="errorAP" style="display: none;">Falta llenar este campo.</p>
             </div>
             <div class="field">
                 <label class="label">Apellido Materno</label>
                 <div class="control">
-                    <input class="input" id="apellidoM" type="text" placeholder="Apellido Materno del Profesor">
+                    <input onkeypress="return soloLetras(event)" class="input" id="apellidoM" type="text" placeholder="Apellido Materno del Profesor">
                 </div>
             </div>
             <div class="field">
                 <label class="label">Lugar de Nacimiento</label>
                 <div class="control">
-                    <input class="input" id="lugarN" type="text" placeholder="Lugar de Nacimiento del Profesor">
+                    <input onkeypress="return soloLetras(event)" class="input" id="lugarN" type="text" placeholder="Lugar de Nacimiento del Profesor">
                 </div>
                 <p class="help is-danger" id="errorLN" style="display: none;">Falta llenar este campo.</p>
             </div>
@@ -136,48 +136,48 @@
             <div class="field">
                 <label class="label">Colonia</label>
                 <div class="control">
-                    <input class="input" id="colonia" type="text" placeholder="Colonia donde vive el Profesor">
+                    <input onkeypress="return soloLetras(event)" class="input" id="colonia" type="text" placeholder="Colonia donde vive el Profesor">
                 </div>
                 <p class="help is-danger" id="errorCol" style="display: none;">Falta llenar este campo.</p>
             </div>
             <div class="field">
                 <label class="label">Calle</label>
                 <div class="control">
-                    <input class="input" id="calle" type="text" placeholder="Calle donde vive el Profesor">
+                    <input  class="input" id="calle" type="text" placeholder="Calle donde vive el Profesor">
                 </div>
                 <p class="help is-danger" id="errorCalle" style="display: none;">Falta llenar este campo.</p>
             </div>
             <div class="field">
                 <label class="label">Número</label>
                 <div class="control">
-                    <input class="input" id="numeroC" type="text" placeholder="Número de Casa">
+                    <input  class="input" id="numeroC" type="text" placeholder="Número de Casa">
                 </div>
                 <p class="help is-danger" id="errorNC" style="display: none;">Falta llenar este campo.</p>
             </div>
             <div class="field">
                 <label class="label">Código Postal</label>
                 <div class="control">
-                    <input class="input" id="codigoP" type="text" placeholder="Código Postal del Profesor">
+                    <input  class="input" id="codigoP" type="text" placeholder="Código Postal del Profesor">
                 </div>
                 <p class="help is-danger" id="errorCP" style="display: none;">Falta llenar este campo.</p>
             </div>
             <div class="field">
                 <label class="label">Télefono 1</label>
                 <div class="control">
-                    <input class="input" id="telefonoCa" type="text" placeholder="Télefono de Preferencia">
+                    <input onkeypress="return soloNum(event)" class="input" id="telefonoCa" type="text" placeholder="Télefono de Preferencia">
                 </div>
                 <p class="help is-danger" id="errorT1" style="display: none;">Falta llenar este campo.</p>
             </div>
             <div class="field">
                 <label class="label">Télefono 2</label>
                 <div class="control">
-                    <input class="input" id="telefonoCe" type="text" placeholder="Télefono Secundario">
+                    <input onkeypress="return soloNum(event)" class="input" id="telefonoCe" type="text" placeholder="Télefono Secundario">
                 </div>
             </div>
             <div class="field">
                 <label class="label">Número de Nómina</label>
                 <div class="control">
-                    <input class="input" id="numeroN" type="number" min="1" placeholder="Número de Nómina del Profesor">
+                    <input onkeypress="return soloNum(event)" class="input" id="numeroN"   placeholder="Número de Nómina del Profesor">
                 </div>
                 <p class="help is-danger" id="errorNN" style="display: none;">Falta llenar este campo.</p>
             </div>
@@ -191,7 +191,7 @@
             <div class="field">
                 <label class="label">Nombramiento</label>
                 <div class="control">
-                    <input class="input" id="nombramiento" type="text" placeholder="Nombramiento del Profesor">
+                    <input onkeypress="return soloLetras(event)" class="input" id="nombramiento" type="text" placeholder="Nombramiento del Profesor">
                 </div>
                 <p class="help is-danger" id="errorNombra" style="display: none;">Falta llenar este campo.</p>
             </div>
@@ -223,7 +223,7 @@
             <div class="field">
                 <label class="label">Licenciatura</label>
                 <div class="control">
-                    <input class="input" id="licenciatura" type="text" placeholder="Licenciatura del Profesor">
+                    <input onkeypress="return soloLetras(event)" class="input" id="licenciatura" type="text" placeholder="Licenciatura del Profesor">
                 </div>
                 <p class="help is-danger" id="errorLic" style="display: none;">Falta llenar este campo.</p>
             </div>
@@ -237,7 +237,7 @@
             <div class="field">
                 <label class="label">Maestría</label>
                 <div class="control">
-                    <input class="input" id="maestria" type="text" placeholder="Maestría del Profesor">
+                    <input onkeypress="return soloLetras(event)" class="input" id="maestria" type="text" placeholder="Maestría del Profesor">
                 </div>
             </div>
             <div class="field">
@@ -249,7 +249,7 @@
             <div class="field">
                 <label class="label">Doctorado</label>
                 <div class="control">
-                    <input class="input" id="doctorado" type="text" placeholder="Doctorado del Profesor">
+                    <input onkeypress="return soloLetras(event)" class="input" id="doctorado" type="text" placeholder="Doctorado del Profesor">
                 </div>
             </div>
             <div class="field">
