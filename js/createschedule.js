@@ -43,8 +43,8 @@ Vue.component('grupo', {
   template: '<tr >' +
     '<td>{{horas[0]}}</td>' +
     ' <td>{{horas[1]["nombre"]}}</td> ' +
-    ' <td>{{horas[3]["nombre"]}}</td> ' +
     ' <td>{{horas[2]["nombre"]}}</td> ' +
+    ' <td>{{horas[3]["nombre"]}}</td> ' +
     ' <td>{{horas[4]["nombre"]}}</td> ' +
     ' <td>{{horas[5]["nombre"]}}</td> ' +
     '</tr>',
@@ -295,7 +295,7 @@ var app = new Vue({
                   database: 'CECYTEM',
                   port: 3306
                 })
-                var q = con.query('INSERT INTO TBL_HORARIO VALUES(NULL,?,?,?,?,?,?)',[this.todo.relacion[k]['5']['id'],this.todo.grupo,this.todo.horario[i][j].id,this.todo.salones[i][j]['id'],this.todo.periodo,this.todo.horario[i]['0']], function(error, result) {
+                var q = con.query('INSERT INTO TBL_HORARIO VALUES(NULL,?,?,?,?,?,?,?)',[this.todo.relacion[k]['5']['id'],this.todo.grupo,this.todo.horario[i][j].id,this.todo.salones[i][j]['id'],this.todo.periodo,this.todo.horario[i]['0'],j], function(error, result) {
                   if (error) {
                     throw error;
                   } else {
