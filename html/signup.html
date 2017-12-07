@@ -31,10 +31,10 @@
             <!-- navbar items, navbar burger... -->
 
             <div class="navbar-item">
-                <div class="field is-grouped">
+                <div class="field is-grouped" onclick="salir()">
 
                     <p class="control">
-                        <a class="button is-danger" href="signin.html">
+                        <a class="button is-danger" href="#">
                               <span class="icon">
                                 <i class="fa fa-ban"></i>
                               </span>
@@ -111,10 +111,10 @@
                 <div class="control">
                     <select class="input" id="estadoC">
                        <option value="" selected disabled>Estado Civil del Profesor</option>
-                        <option value="SOLTER@">SOLTER@</option>
-                        <option value="CASAD@">CASAD@</option>
-                        <option value="VIUD@">VIUD@</option>
-                        <option value="DIVORCIAD@">DIVORCIAD@</option>
+                        <option value="Soltero(a)">Soltero(a)</option>
+                        <option value="Casado(a)">Casado(a)</option>
+                        <option value="Viudo(a)">Viudo(a)</option>
+                        <option value="Divorciado(a)">Divorciado(a)</option>
                     </select>
                 </div>
                 <p class="help is-danger" id="errorEC" style="display: none;">Falta llenar este campo.</p>
@@ -285,7 +285,7 @@
         <div class="columns">
             <div class="accept-cancel column is-half is-offset-one-quarter ">
                 <a class="button is-success" onclick="registrarUsuario()">Registrarse</a>
-                <a class="button is-danger" href="signin.html">Cancelar</a>
+                <a class="button is-danger" href="#" onclick="salir()">Cancelar</a>
             </div>
         </div>
 
