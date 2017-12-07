@@ -205,6 +205,17 @@ var app = new Vue({
         pdf: function (p) {
             console.log(p)
             /*************************PDF*****************/
+            var mysql = require('mysql');
+            var connection = mysql.createConnection({
+                host: 'localhost',
+                user: 'CECYTEM',
+                password: '100%CECYTEM',
+                database: 'CECYTEM',
+                port: 3306
+            });
+            
+            var queryPDF = connection.query("UPDATE TBL_PDF SET INT_VALOR=? WHERE VCH_NOMBRE='PROFESOR'", [p.INT_USER]);
+            
             alertify.success("Descargar PDF");
 //            html2canvas(document.getElementById("plantillaPDF"), {
 //                onrendered: function (canvas) {
