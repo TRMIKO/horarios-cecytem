@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Materias</title>
+    <title>Salones</title>
     <link rel="stylesheet" href="../css/font-awesome.min.css">
     <link rel="stylesheet" href="../node_modules/bulma/css/bulma.css">
     <link rel="stylesheet" href="../node_modules/alertifyjs/build/css/alertify.css">
@@ -35,10 +35,10 @@
             <a class="navbar-item" href="teacher.html">
                     Profesores
                 </a>
-            <a class="navbar-item is-active" href="#">
+            <a class="navbar-item" href="subject.html">
                     Materias
                 </a>
-            <a class="navbar-item" href="classroom.html">
+            <a class="navbar-item is-active" href="#">
                     Salones
                 </a>
                 <a class="navbar-item is-active" href="group.html">
@@ -47,9 +47,9 @@
         </div>
         <div class="navbar-end">
             <!-- navbar items, navbar burger... -->
-
             <div class="navbar-item">
                 <div class="field is-grouped" onclick="salir()">
+
                     <p class="control">
                         <a class="button is-danger" href="#">
                               <span class="icon">
@@ -68,69 +68,61 @@
         <div class="hero-body">
             <div class="container">
                 <h1 class="title">
-                    Crear Materias
+                    Crear Grupo
                 </h1>
 
             </div>
         </div>
         <div class="tabs is-boxed">
             <ul>
-                <li><a href="subject.html">Administar</a></li>
+                <li><a href="group.html">Administar</a></li>
                 <li class="is-active"><a href="#">Crear</a></li>
 
             </ul>
         </div>
     </section>
     <br>
+    <section id="app">
+        <div class="container">
 
-    <section>
+            <div class="field">
+                <label class="label">Nombre Grupo</label>
+                <div class="control">
+                    <input v-model="nombre" class="input" id="nombre" type="text" placeholder="Nombre">
+                </div>
+                <p class="help is-danger" id="errorNom" style="display: none;">Falta llenar este campo.</p>
+            </div>
+            <div class="field">
+                <label class="label">Especialidad</label>
+                <div class="control">
+                    <input v-model="esp" class="input" id="nombre" type="text" placeholder="Nombre">
+                </div>
+                <p class="help is-danger" id="errorNom" style="display: none;">Falta llenar este campo.</p>
+            </div>
+            <div class="field">
+              <label class="label">Turno</label>
+              <div class="control">
+                <div class="select">
+                  <select   v-model="turno">
+                    <option value="MIXTO">MIXTO</option>
+                    <option value="MATUTINO">MATUTINO</option>
+                  </select>
+                </div>
+              </div>
+            </div>
 
-        <div class="container">
-            <div class="field">
-                <label class="label">Nombre</label>
-                <div class="control">
-                    <input class="input" type="text" id="materia" placeholder="Nombre de la Materia">
-                </div>
-                <p class="help is-danger" id="errorMateria" style="display: none;">Falta llenar este campo.</p>
-            </div>
-        </div>
-        <div class="container">
-            <div class="field">
-                <label class="label">Semestre</label>
-                <div class="control">
-                    <input class="input" type="number" id="semestre" min="1" placeholder="Semestre en el que se Impartirá">
-                </div>
-                <p class="help is-danger" id="errorSemestre" style="display: none;">Falta llenar este campo.</p>
-            </div>
-        </div>
-        <div class="container">
-            <div class="field">
-                <label class="label">Horas Practicas</label>
-                <div class="control">
-                    <input class="input" type="number" id="horap" min="1" placeholder="Horas Practicas">
-                </div>
-                <p class="help is-danger" id="errorPra" style="display: none;">Falta llenar este campo.</p>
-            </div>
-        </div>
-        <div class="container">
-            <div class="field">
-                <label class="label">Hora Teoricas</label>
-                <div class="control">
-                    <input class="input" type="number" id="horat" min="1" placeholder="Horas Teoricas">
-                </div>
-                <p class="help is-danger" id="errorTeo" style="display: none;">Falta llenar este campo.</p>
-            </div>
-        </div>
 
+        </div>
         <div class="columns">
             <div class="accept-cancel column is-half is-offset-one-quarter ">
-                <a class="button is-success" onclick="crearMateria()">Crear</a>
-                <a class="button is-danger" onclick="cancel()">Cancelar</a>
+                <a v-on:click="create" class="button is-success">Crear</a>
+                <a class="button is-danger" href="classroom.html">Cancelar</a>
             </div>
         </div>
-    </section>
 
-    <script src="../js/createsubject.js"></script>
+    </section>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script  src="../js/creategroup.js"></script>
 </body>
 
 </html>

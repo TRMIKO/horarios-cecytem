@@ -12,7 +12,10 @@
 </head>
 
 <body>
-    <table class="is-bordered is-fullwidth table is-hoverable">
+  <section id="app">
+
+    <table class="is-bordered is-fullwidth table is-hoverable" >
+
         <thead>
             <tr>
                 <th><img src="../images/logoestado.png" width="100px" height="40px" alt=""></th>
@@ -20,13 +23,13 @@
                 <th><img src="../images/minilogo.jpg" width="40px" height="40px" alt=""></th>
             </tr>
             <tr>
-                <th colspan="2">GRUPO:</th>
-                <th colspan="2">SEMESTRE:</th>
+                <th colspan="2">GRUPO:  {{info['GRUPO']}}</th>
+                <th colspan="2">PERIODO: {{info['GEN']}}</th>
                 <th colspan="2">AULA:</th>
             </tr>
             <tr>
-                <th colspan="3">TURNO: MATUTINO</th>
-                <th colspan="3">ESPECIALIDAD:</th>
+                <th colspan="3">TURNO: {{info['TURNO']}}</th>
+                <th colspan="3">ESPECIALIDAD:  {{info['ESP']}}</th>
             </tr>
             <tr>
                 <th class="is-light">HORA</th>
@@ -37,77 +40,30 @@
                 <th class="is-light">VIERNES</th>
             </tr>
         </thead>
-        <tbody>
-            <tr>
-                <td>7:00-7:50</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>7:50-8:40</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>8:40-9:30</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>9:30-10:20</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td class="is-light">10:20-10:40</td>
-                <td class="is-light" colspan="5" style="text-align: center">RECESO</td>
-            </tr>
-            <tr>
-                <td>10:40-11:30</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>11:30-12:20</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>12:20-13:10</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>13:10-14:00</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+        <tbody is="hour" v-for="(h,index) in dbHorario.horario"  v-bind:key="h.id" v-bind:horas="h" v-bind:hora="index">
+
+
         </tbody>
     </table>
+    <h3 class="has-text-centered subtitle is-3">Salones</h3>
+      <table class="table table is-fullwidth table is-hoverable">
+          <thead>
+              <tr>
+
+                  <th>Horario</th>
+                  <th>Lunes</th>
+                  <th>Martes</th>
+                  <th>Miércoles</th>
+                  <th>Jueves</th>
+                  <th>Viernes</th>
+              </tr>
+          </thead>
+          <tbody is="grupo" v-for="(h,index)  in dbHorario.salones"   v-bind:key="h.id" v-bind:index="index" v-bind:horas="h">
+
+
+          </tbody>
+      </table>
+      <h3 class="has-text-centered subtitle is-3">Relación</h3>
     <table class="table is-bordered is-fullwidth">
         <thead>
             <tr>
@@ -119,98 +75,17 @@
                 <th class="is-light">PROFESOR</th>
             </tr>
         </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>6</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>7</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>8</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>9</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td colspan="3">SUBDIRECTOR</td>
-                <td colspan="3">DIRECTOR</td>
-            </tr>
+        <tbody is="relacion" v-for="h in dbHorario.relacion"  v-bind:key="h.id" v-bind:horas="h">
+
+
         </tbody>
     </table>
+  </section>
     <div id="btns">
         <button class="button is-success" onclick="descargar()">Descargar PDF</button>
         <button class="button is-danger" onclick="regresar()">Regresar</button>
     </div>
-    
+    <script src="../node_modules/vue/dist/vue.js"></script>
     <script src="../js/pdfSchedule.js"></script>
 </body>
 

@@ -213,9 +213,9 @@ var app = new Vue({
                 database: 'CECYTEM',
                 port: 3306
             });
-            
-            var queryPDF = connection.query("UPDATE TBL_PDF SET INT_VALOR=? WHERE VCH_NOMBRE='PROFESOR'", [p.INT_USER]);
-            
+
+            var queryPDF = connection.query("UPDATE TBL_PDF SET VCH_VALOR=? WHERE VCH_NOMBRE='PROFESOR'", [p.INT_USER]);
+
             alertify.success("Descargar PDF");
 //            html2canvas(document.getElementById("plantillaPDF"), {
 //                onrendered: function (canvas) {
