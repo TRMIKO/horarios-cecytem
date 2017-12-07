@@ -16,7 +16,7 @@ Vue.component('profesores-comp', {
         '<td> <span>{{p["VCH_A_PATERNO"]}}</span> </td>' +
         '<td> <span>{{p["VCH_A_MATERNO"]}}</span> </td>' +
         '<td> <span><a class="button is-danger" v-on:click="remove(p)"  href="#"><span class="icon"><i class="fa fa-ban"></i></span></a></span> </td>' +
-        '<td> <span><a class="button is-info" v-on:click="update(p)"  href="#"><span class="icon"><i class="fa fa-pencil"></i></span></a></span> </td>' +
+        '<td> <span><a class="button is-info" v-on:click="update(p)"  href="#"><span class="icon"><i class="fa fa-eye"></i></span></a></span> </td>' +
         '<td> <span><a class="button " v-on:click="pdf(p)"  href="#"><span class="icon"><i class="fa  fa-file-pdf-o "></i></span></a></span> </td>' +
         '</tr>',
     methods: {
