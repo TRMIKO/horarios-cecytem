@@ -75,38 +75,31 @@
                     <label class="label">Periodo</label>
                     <div class="control">
                         <div class="select">
-                            <select>
-                        <option>Seleccionar</option>
-                        <option>With options</option>
+                            <select v-model="todo.periodo">
+                                <option v-for="(g,index) in dbGeneracion"  v-bind:value="index">{{g['VCH_NOMBRE']}}</option>
+
                      </select>
                         </div>
                     </div>
                 </div>
-                <div class="field has-addons">
-                    <div class="control">
-                        <input class="input" type="text" placeholder="Añadir Periodo">
-                    </div>
-                </div>
+              
                 <div class="field">
                     <label class="label">Grupo</label>
+
                     <div class="control">
                         <div class="select">
-                            <select>
-                        <option>Selecciona</option>
-                        <option>With options</option>
-                     </select>
+                            <select v-model="todo.grupo">
+                                <option v-for="(g,index) in dbGrupo" v-bind:value="index">{{g['VCH_NOMBRE']}}</option>
+
+                             </select>
                         </div>
                     </div>
                 </div>
-                <div class="field has-addons">
-                    <div class="control">
-                        <input class="input" type="text" placeholder="Añadir Grupo">
-                    </div>
-                </div>
+
                 <br>
                 <div class="field is-grouped">
                     <div class="control">
-                        <button class="button is-dark">Aceptar</button>
+                        <button  v-on:click="save" class="button is-dark">Aceptar</button>
                     </div>
                     <div class="control">
                         <button class="button is-danger">Cancelar</button>
@@ -327,20 +320,19 @@
                         </div>
                         <div class="select">
                             <select id="profesor" v-model="profesor">
-
-
-
-                     </select>
+                              <option v-bind:value="index" v-for="(p,index) in dbProfesores">{{p['VCH_NAME']+ ' '+p['VCH_A_PATERNO']+ ' '+p['VCH_A_MATERNO'] }}</option>
+                            </select>
                         </div>
                         <div class="select">
-                            <select id="materia" v-model="materia">
+                            <select  v-model="materia">
+                              <option v-for="(m,index) in dbMaterias" v-bind:value="index">{{m['VCH_NOMBRE']}}</option>
 
-                     </select>
+                             </select>
                         </div>
                         <div class="select">
                             <select id="salon" v-model="salon">
-
-                     </select>
+                              <option v-bind:value="index" v-for="(s,index) in dbSalones">{{s['VCH_NOMBRE']}}</option>
+                           </select>
                         </div>
                         <button v-on:click="setClass()" class="button is-dark">
                   Agregar
@@ -350,6 +342,7 @@
             </div>
         </section>
         <br>
+
 
         <div class="container">
           <div class="field has-addons has-addons-right">
@@ -368,7 +361,7 @@
                         <th>Viernes</th>
                     </tr>
                 </thead>
-                <tbody is="horario" v-for="(h,index) in horas"  v-on:remove="eliminar(a)" v-on:remove-class="removeClass" v-bind:key="h.id" v-bind:horas="h" v-bind:hora="index">
+                <tbody is="horario" v-for="(h,index) in todo.horario"  v-on:remove="eliminar" v-on:remove-class="removeClass" v-bind:key="h.id" v-bind:horas="h" v-bind:hora="index">
 
 
                 </tbody>
@@ -386,7 +379,7 @@
                         <th>Viernes</th>
                     </tr>
                 </thead>
-                <tbody is="grupo" v-for="(h,index)  in salones"  v-on:remove="eliminar(index)" v-on:remove-class="removeClass"  v-bind:key="h.id" v-bind:index="index" v-bind:horas="h">
+                <tbody is="grupo" v-for="(h,index)  in todo.salones"  v-on:remove="eliminar(index)" v-on:remove-class="removeClass"  v-bind:key="h.id" v-bind:index="index" v-bind:horas="h">
 
 
                 </tbody>
@@ -413,7 +406,7 @@
                         <th></th>
                     </tr>
                 </tfoot>
-                <tbody is="relacion" v-for="h in relacion" v-on:remove-subject="removeSubject" v-bind:key="h.id" v-bind:horas="h">
+                <tbody is="relacion" v-for="h in todo.relacion" v-on:remove-subject="removeSubject" v-bind:key="h.id" v-bind:horas="h">
 
 
                 </tbody>

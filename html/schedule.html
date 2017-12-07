@@ -2,263 +2,272 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Horarios</title>
-    <link rel="stylesheet" href="../css/font-awesome.min.css">
-    <link rel="stylesheet" href="../node_modules/bulma/css/bulma.css">
-    <link rel="stylesheet" href="../node_modules/alertifyjs/build/css/alertify.css">
-    <link rel="stylesheet" href="../node_modules/alertifyjs/build/css/themes/default.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Horarios</title>
+  <link rel="stylesheet" href="../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../node_modules/bulma/css/bulma.css">
+  <link rel="stylesheet" href="../node_modules/alertifyjs/build/css/alertify.css">
+  <link rel="stylesheet" href="../node_modules/alertifyjs/build/css/themes/default.css">
 </head>
 
 <body>
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-          <div class="navbar-brand">
-            <!-- navbar items, navbar burger... -->
-                <a class="navbar-item" href="#">
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <!-- navbar items, navbar burger... -->
+      <a class="navbar-item" href="#">
                   <img src="../images/letras.jpg" alt="Bulma: a modern CSS framework based on Flexbox" >
-                </a> 
-                <a class="navbar-item" href="index.html">
+                </a>
+      <a class="navbar-item" href="index.html">
                     Inicio
                 </a>
-                <a class="navbar-item is-active" href="#">
+      <a class="navbar-item is-active" href="#">
                     Horarios
                 </a>
-                <a class="navbar-item" href="teacher.html">
+      <a class="navbar-item" href="teacher.html">
                     Profesores
                 </a>
-                <a class="navbar-item" href="subject.html">
+      <a class="navbar-item" href="subject.html">
                     Materias
                 </a>
-                <a class="navbar-item" href="classroom.html">
+      <a class="navbar-item" href="classroom.html">
                     Salones
                 </a>
-          </div>
-          <div class="navbar-end">
-            <!-- navbar items, navbar burger... -->
+    </div>
+    <div class="navbar-end">
+      <!-- navbar items, navbar burger... -->
 
-                 <div class="navbar-item">
-                    <div class="field is-grouped" onclick="salir()">
+      <div class="navbar-item">
+        <div class="field is-grouped" onclick="salir()">
 
-                          <p class="control">
-                            <a class="button is-danger" href="#">
+          <p class="control">
+            <a class="button is-danger" href="#">
                               <span class="icon">
                                 <i class="fa fa-ban"></i>
                               </span>
                               <span>Salir</span>
                             </a>
-                          </p>
-                      </div>
-                </div>
-          </div>
+          </p>
+        </div>
+      </div>
+    </div>
 
-            
-    </nav>
-    
-  
-   <section class="hero is-info is-bold">
-  <div class="hero-body">
-    <div class="container">
-      <h1 class="title">
+
+  </nav>
+
+
+  <section class="hero is-info is-bold">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
         Administrar Horarios
       </h1>
-      
-    </div>
-  </div>
-  <div class="tabs is-boxed">
-        <ul>
-          <li class="is-active"><a href="#">Administar</a></li>
-          <li><a href="createschedule.html">Crear</a></li>
-          
-        </ul>
+
       </div>
-</section>
-    <br>
-    <section>
+    </div>
+    <div class="tabs is-boxed">
+      <ul>
+        <li class="is-active"><a href="#">Administar</a></li>
+        <li><a href="createschedule.html">Crear</a></li>
+
+      </ul>
+    </div>
+  </section>
+  <br>
+  <section id="app">
     <div class="container">
       <div class="field">
-  <p class="control has-icons-left has-icons-right">
-    <input class="input" type="email" placeholder="Buscar">
-    <span class="icon is-small is-left">
+        <p class="control has-icons-left has-icons-right">
+          <input class="input" type="email" placeholder="Buscar">
+          <span class="icon is-small is-left">
       <i class="fa fa-info-circle"></i>
     </span>
-    
-  </p>
-</div>
-<div class="field has-addons">
-  <div class="control">
-    <input class="input" type="text" placeholder="Periodo">
-  </div>
-  <div class="control">
-    <a class="button is-info">
-      Crear Periodo
-    </a>
-  </div>
-</div>
-<br>
-<div class="select">
-    <select>
+
+        </p>
+      </div>
+      <div class="field has-addons">
+        <div class="control">
+          <input class="input" type="text" placeholder="Periodo">
+        </div>
+        <div class="control">
+          <a v-on:click="getHorario" class="button is-info">
+              Crear Periodo
+          </a>
+        </div>
+      </div>
+      <br>
+      <div class="select">
+        <select>
       <option selected>Periodo</option>
       <option>2017-1</option>
       <option>2017-2</option>
     </select>
-  </div>
-  <br>
+      </div>
+      <br>
 
-     
-   
-       <table class="table table is-fullwidth table is-hoverable">
-                      <thead>
-                        <tr>
-                        
-                          <th>Grupo</th>
-                          <th>Semestre</th>
-                          <th>Periodo</th>
-                          <th>Turno</th>
-                          <th>Especialidad</th>
-                          <th></th>
-                          <th>PDF</th>
-                         
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                              <td>item1</td>
-                              <td>item2</td>
-                              <td>item3</td>
-                              <td>sss</td>
-                              <td>ddd</td>
-                              <td><div class="buttons has-addons">
-                                    <span class="button is-dark">
+
+
+      <table class="table table is-fullwidth table is-hoverable">
+        <thead>
+          <tr>
+
+            <th>Grupo</th>
+            <th>Semestre</th>
+            <th>Periodo</th>
+            <th>Turno</th>
+            <th>Especialidad</th>
+            <th></th>
+            <th>PDF</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>item1</td>
+            <td>item2</td>
+            <td>item3</td>
+            <td>sss</td>
+            <td>ddd</td>
+            <td>
+              <div class="buttons has-addons">
+                <span class="button is-dark">
                                       <span class="icon is-small">
                                         <i class="fa fa fa-eye"></i>
                                       </span>
-                                    </span>
-                                    <span class="button is-info">
+                </span>
+                <span class="button is-info">
                                       <span class="icon is-small">
                                         <i class="fa fa-pencil"></i>
                                       </span>
-                                    </span>
-                                    <span class="button is-danger">
+                </span>
+                <span class="button is-danger">
                                       <span class="icon is-small">
                                         <i class="fa fa-ban"></i>
                                       </span>
-                                    </span>
-                                   
-                                  </div>
-                              </td>
-                               <td><span class="button is-light ">
+                </span>
+
+              </div>
+            </td>
+            <td><span class="button is-light ">
                                       <span class="icon is-small">
                                         <i class="fa fa-file-pdf-o"></i>
                                       </span>
-                                    </span></td>
-                                
-                          </tr>
-                          <tr>
-                              <td>item1</td>
-                              <td>item2</td>
-                              <td>item3</td>
-                              <td>sss</td>
-                              <td>ddd</td>
-                              <td><div class="buttons has-addons">
-                                    <span class="button is-dark">
+              </span>
+            </td>
+
+          </tr>
+          <tr>
+            <td>item1</td>
+            <td>item2</td>
+            <td>item3</td>
+            <td>sss</td>
+            <td>ddd</td>
+            <td>
+              <div class="buttons has-addons">
+                <span class="button is-dark">
                                       <span class="icon is-small">
                                         <i class="fa fa fa-eye"></i>
                                       </span>
-                                    </span>
-                                    <span class="button is-info">
+                </span>
+                <span class="button is-info">
                                       <span class="icon is-small">
                                         <i class="fa fa-pencil"></i>
                                       </span>
-                                    </span>
-                                    <span class="button is-danger">
+                </span>
+                <span class="button is-danger">
                                       <span class="icon is-small">
                                         <i class="fa fa-ban"></i>
                                       </span>
-                                    </span>
-                                   
-                                  </div>
-                              </td>
-                               <td><span class="button is-light ">
+                </span>
+
+              </div>
+            </td>
+            <td><span class="button is-light ">
                                       <span class="icon is-small">
                                         <i class="fa fa-file-pdf-o"></i>
                                       </span>
-                                    </span></td>
-                                
-                          </tr>
-                           <tr>
-                              <td>item1</td>
-                              <td>item2</td>
-                              <td>item3</td>
-                              <td>sss</td>
-                              <td>ddd</td>
-                              <td><div class="buttons has-addons">
-                                    <span class="button is-dark">
+              </span>
+            </td>
+
+          </tr>
+          <tr>
+            <td>item1</td>
+            <td>item2</td>
+            <td>item3</td>
+            <td>sss</td>
+            <td>ddd</td>
+            <td>
+              <div class="buttons has-addons">
+                <span class="button is-dark">
                                       <span class="icon is-small">
                                         <i class="fa fa fa-eye"></i>
                                       </span>
-                                    </span>
-                                    <span class="button is-info">
+                </span>
+                <span class="button is-info">
                                       <span class="icon is-small">
                                         <i class="fa fa-pencil"></i>
                                       </span>
-                                    </span>
-                                    <span class="button is-danger">
+                </span>
+                <span class="button is-danger">
                                       <span class="icon is-small">
                                         <i class="fa fa-ban"></i>
                                       </span>
-                                    </span>
-                                   
-                                  </div>
-                              </td>
-                               <td><span class="button is-light ">
+                </span>
+
+              </div>
+            </td>
+            <td><span class="button is-light ">
                                       <span class="icon is-small">
                                         <i class="fa fa-file-pdf-o"></i>
                                       </span>
-                                    </span></td>
-                                
-                          </tr>
-                           <tr>
-                              <td>item1</td>
-                              <td>item2</td>
-                              <td>item3</td>
-                              <td>sss</td>
-                              <td>ddd</td>
-                              <td><div class="buttons has-addons">
-                                    <span class="button is-dark">
+              </span>
+            </td>
+
+          </tr>
+          <tr>
+            <td>item1</td>
+            <td>item2</td>
+            <td>item3</td>
+            <td>sss</td>
+            <td>ddd</td>
+            <td>
+              <div class="buttons has-addons">
+                <span class="button is-dark">
                                       <span class="icon is-small">
                                         <i class="fa fa fa-eye"></i>
                                       </span>
-                                    </span>
-                                    <span class="button is-info">
+                </span>
+                <span class="button is-info">
                                       <span class="icon is-small">
                                         <i class="fa fa-pencil"></i>
                                       </span>
-                                    </span>
-                                    <span class="button is-danger">
+                </span>
+                <span class="button is-danger">
                                       <span class="icon is-small">
                                         <i class="fa fa-ban"></i>
                                       </span>
-                                    </span>
-                                   
-                                  </div>
-                              </td>
-                               <td><span class="button is-light ">
+                </span>
+
+              </div>
+            </td>
+            <td><span class="button is-light ">
                                       <span class="icon is-small">
                                         <i class="fa fa-file-pdf-o"></i>
                                       </span>
-                                    </span></td>
-                                
-                          </tr>
-                         
-                         
-                         
-                            
-                      </tbody>
-                    </table>
-      
+              </span>
+            </td>
+
+          </tr>
+
+
+
+
+        </tbody>
+      </table>
+
     </div>
   </section>
+  <script src="../node_modules/vue/dist/vue.js"></script>
   <script src="../js/schedule.js"></script>
 </body>
 
