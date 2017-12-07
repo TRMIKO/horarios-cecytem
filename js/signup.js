@@ -6,6 +6,133 @@ function salir() {
         location.href = "signin.html";
     }, 3000);
 }
+Vue.component('horario', {
+  props: ['horas', 'hora'],
+
+  template: '<tr >' +
+    '<td> <span>{{horas[0]}}</span> </td>' +
+    ' <td> <button v-if="vacio(horas[1].data)" v-bind:class="horas[1].classObject">{{horas[1].data}}</button> </td> ' +
+    ' <td> <button v-if="vacio(horas[2].data)" v-bind:class="horas[2].classObject">{{horas[2].data}}</button> </td> ' +
+    ' <td> <button v-if="vacio(horas[3].data)" v-bind:class="horas[3].classObject">{{horas[3].data}}</button> </td> ' +
+    ' <td> <button v-if="vacio(horas[4].data)" v-bind:class="horas[4].classObject">{{horas[4].data}}</button> </td> ' +
+    ' <td> <button v-if="vacio(horas[5].data)" v-bind:class="horas[5].classObject">{{horas[5].data}}</button> </td> ' +
+    '</tr>',
+  methods: {
+    vacio:function(a){
+      if (a!=''){
+        return true
+
+      }
+      else {
+        return false
+      }
+    }
+  }
+})
+var app = new Vue({
+  el: '#app',
+  data: {
+    message: 'Hello Vue!',
+    muestra:1,
+    hini:0,
+    mini:0,
+    hfin:0,
+    mfin:0,
+    dia:1,
+    disp:'0',
+    prof:{
+      nombre:'',
+      apellidoM:'',
+      apellidoP:'',
+      lugarN:'',
+      fechaN:'',
+      genero:'',
+      estadoC:'',
+      rfc:'',
+      curp:'',
+      colonia:'',
+      calle:'',
+      numeroC:'',
+      numeroN:'',
+      codigoP:'',
+      telefonoCa:'',
+      telefonoCe:'',
+      fechaI:'',
+      nombramiento:'',
+      status:'',
+      horasB:'',
+      horasA:'',
+      licenciatura:'',
+      cedulaL:'',
+      maestria:'',
+      cedulaM:'',
+      doctorado:'',
+      cedulaD:'',
+      permiso:'',
+      mail:'',
+      pass:''
+    },
+
+    horas:[
+      {0:"6:00-7:00",1:{data:'',classObject:{}},2:{data:'',classObject:{}},3:{data:'',classObject:{}},4:{data:'',classObject:{}},5:{data:'',classObject:{}}},
+      {0:"7:00-8:00",1:{data:'',classObject:{}},2:{data:'',classObject:{}},3:{data:'',classObject:{}},4:{data:'',classObject:{}},5:{data:'',classObject:{}}},
+      {0:"8:00-9:00",1:{data:'',classObject:{}},2:{data:'',classObject:{}},3:{data:'',classObject:{}},4:{data:'',classObject:{}},5:{data:'',classObject:{}}},
+      {0:"9:00-10:00",1:{data:'',classObject:{}},2:{data:'',classObject:{}},3:{data:'',classObject:{}},4:{data:'',classObject:{}},5:{data:'',classObject:{}}},
+      {0:"10:00-11:00",1:{data:'',classObject:{}},2:{data:'',classObject:{}},3:{data:'',classObject:{}},4:{data:'',classObject:{}},5:{data:'',classObject:{}}},
+      {0:"11:00-12:00",1:{data:'',classObject:{}},2:{data:'',classObject:{}},3:{data:'',classObject:{}},4:{data:'',classObject:{}},5:{data:'',classObject:{}}},
+      {0:"12:00-13:00",1:{data:'',classObject:{}},2:{data:'',classObject:{}},3:{data:'',classObject:{}},4:{data:'',classObject:{}},5:{data:'',classObject:{}}},
+      {0:"13:00-14:00",1:{data:'',classObject:{}},2:{data:'',classObject:{}},3:{data:'',classObject:{}},4:{data:'',classObject:{}},5:{data:'',classObject:{}}},
+      {0:"14:00-15:00",1:{data:'',classObject:{}},2:{data:'',classObject:{}},3:{data:'',classObject:{}},4:{data:'',classObject:{}},5:{data:'',classObject:{}}},
+      {0:"15:00-16:00",1:{data:'',classObject:{}},2:{data:'',classObject:{}},3:{data:'',classObject:{}},4:{data:'',classObject:{}},5:{data:'',classObject:{}}},
+      {0:"16:00-17:00",1:{data:'',classObject:{}},2:{data:'',classObject:{}},3:{data:'',classObject:{}},4:{data:'',classObject:{}},5:{data:'',classObject:{}}},
+      {0:"17:00-18:00",1:{data:'',classObject:{}},2:{data:'',classObject:{}},3:{data:'',classObject:{}},4:{data:'',classObject:{}},5:{data:'',classObject:{}}},
+      {0:"18:00-19:00",1:{data:'',classObject:{}},2:{data:'',classObject:{}},3:{data:'',classObject:{}},4:{data:'',classObject:{}},5:{data:'',classObject:{}}},
+      {0:"19:00-20:00",1:{data:'',classObject:{}},2:{data:'',classObject:{}},3:{data:'',classObject:{}},4:{data:'',classObject:{}},5:{data:'',classObject:{}}},
+      {0:"20:00-21:00",1:{data:'',classObject:{}},2:{data:'',classObject:{}},3:{data:'',classObject:{}},4:{data:'',classObject:{}},5:{data:'',classObject:{}}},
+      {0:"21:00-22:00",1:{data:'',classObject:{}},2:{data:'',classObject:{}},3:{data:'',classObject:{}},4:{data:'',classObject:{}},5:{data:'',classObject:{}}}
+      ]
+  },
+  methods:{
+    addHour:function(){
+      for(let i=parseInt(this.hini);i<parseInt(this.hfin);i++){
+        this.horas[i][this.dia]['data']=((this.disp=='1') ? 'Bueno' : ((this.disp=='2') ? 'Medio' :'Malo'))
+        this.horas[i][this.dia]['classObject']={
+            button:true,
+            'is-success':(this.disp=='1') ? true : false,
+            'is-warning':(this.disp=='2') ? true : false,
+            'is-danger':(this.disp=='3') ? true : false
+        }
+
+      }
+    },
+
+      createProf:function(){
+        var mysql = require('mysql');
+        var con = mysql.createConnection({
+            host: 'localhost',
+            user: 'CECYTEM',
+            password: '100%CECYTEM',
+            database: 'CECYTEM',
+            port: 3306
+        })
+        var query = con.query("INSERT INTO TBL_USER (VCH_NAME, VCH_A_PATERNO, VCH_A_MATERNO, INT_NUM_NOMINA, ENM_ESTADO_CIVIL, ENM_GENERO, VCH_LUGAR_NACIMIENTO, DDT_NACIMIENTO, VCH_CURP, VCH_RFC, VCH_CORREO, DDT_FECHA_INI_ORG, VCH_NOMBRAMIENTO, ENM_STATUS, INT_HORAS_BASE, INT_HORAS_ADICIONALES, VCH_LICENCIATURA, VCH_CEDULA_LICENCIATURA, VCH_MAESTRIA, VCH_CEDULA_MAESTRIA, VCH_DOCTORADO, VCH_CEDULA_DOCTORADO, VCH_CP, VCH_COLONIA, VCH_CALLE, VCH_NUMERO_CALLE, VCH_TEL_LOCAL, VCH_TEL_CEL, VCH_PASS, ENM_PERMISOS) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [nombre, apellidoP, apellidoM, numeroN, estadoC, genero, lugarN, fechaN, curp, rfc, mail, fechaI, nombramiento, status, horasB, horasA, licenciatura, cedulaL, maestria, cedulaM, doctorado, cedulaD, codigoP, colonia, calle, numeroC, telefonoCa, telefonoCe, pass, 'NULL'],function(error, result) {
+          if (error) {
+            throw error;
+          } else {
+              console.log("ekfoskfslkjfklslkfjlskdjflkjslkjflskjlkfjslkjflksdjkfljskljflksjdfkljskljdfsk");
+
+          }
+        });
+
+
+
+
+
+        con.end();
+
+      }
+  }
+})
 
 function soloLetras(e){
        key = e.keyCode || e.which;
@@ -343,6 +470,7 @@ function registrarUsuario() {
         throw error;
       } else {
           console.log("ekfoskfslkjfklslkfjlskdjflkjslkjflskjlkfjslkjflksdjkfljskljflksjdfkljskljdfsk");
+          alertify.success('Success message');
 
       }
     });
