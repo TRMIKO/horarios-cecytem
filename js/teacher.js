@@ -1,4 +1,5 @@
 var alertify = require("alertifyjs");
+var jspdf = require("jspdf");
 
 function salir() {
     alertify.error("¡Nos vemos pronto!");
@@ -7,90 +8,91 @@ function salir() {
     }, 3000);
 }
 Vue.component('profesores-comp', {
-  props: ['p','index'],
+    props: ['p', 'index'],
 
-  template: '<tr >' +
-    '<td> <span>{{index}}</span> </td>' +
-    '<td> <span>{{p["VCH_NAME"]}}</span> </td>' +
-    '<td> <span>{{p["VCH_A_PATERNO"]}}</span> </td>' +
-    '<td> <span>{{p["VCH_A_MATERNO"]}}</span> </td>' +
-    '<td> <span><a class="button is-danger" v-on:click="remove(p)"  href="#"><span class="icon"><i class="fa fa-ban"></i></span></a></span> </td>' +
-    '<td> <span><a class="button is-info" v-on:click="update(p)"  href="#"><span class="icon"><i class="fa fa-pencil"></i></span></a></span> </td>' +
-    '<td> <span><a class="button " v-on:click="pdf(p)"  href="#"><span class="icon"><i class="fa  fa-file-pdf-o "></i></span></a></span> </td>' +
-    '</tr>',
+    template: '<tr >' +
+        '<td> <span>{{index}}</span> </td>' +
+        '<td> <span>{{p["VCH_NAME"]}}</span> </td>' +
+        '<td> <span>{{p["VCH_A_PATERNO"]}}</span> </td>' +
+        '<td> <span>{{p["VCH_A_MATERNO"]}}</span> </td>' +
+        '<td> <span><a class="button is-danger" v-on:click="remove(p)"  href="#"><span class="icon"><i class="fa fa-ban"></i></span></a></span> </td>' +
+        '<td> <span><a class="button is-info" v-on:click="update(p)"  href="#"><span class="icon"><i class="fa fa-pencil"></i></span></a></span> </td>' +
+        '<td> <span><a class="button " v-on:click="pdf(p)"  href="#"><span class="icon"><i class="fa  fa-file-pdf-o "></i></span></a></span> </td>' +
+        '</tr>',
     methods: {
-      remove: function(p) {
-        this.$emit('remove',p['INT_USER'])
-      },
-      update: function(p) {
-        this.$emit('update',p)
-      },pdf: function(p) {
-        this.$emit('pdf',p)
-      }
+        remove: function (p) {
+            this.$emit('remove', p['INT_USER'])
+        },
+        update: function (p) {
+            this.$emit('update', p)
+        },
+        pdf: function (p) {
+            this.$emit('pdf', p)
+        }
 
     }
 })
 Vue.component('horario', {
-  props: ['horas', 'hora'],
+    props: ['horas', 'hora'],
 
-  template: '<tr >' +
-    '<td> <span>{{horas[0]}}</span> </td>' +
-    ' <td> <button v-if="vacio(horas[1].data)" v-bind:class="horas[1].classObject">{{horas[1].data}}</button> </td> ' +
-    ' <td> <button v-if="vacio(horas[2].data)" v-bind:class="horas[2].classObject">{{horas[2].data}}</button> </td> ' +
-    ' <td> <button v-if="vacio(horas[3].data)" v-bind:class="horas[3].classObject">{{horas[3].data}}</button> </td> ' +
-    ' <td> <button v-if="vacio(horas[4].data)" v-bind:class="horas[4].classObject">{{horas[4].data}}</button> </td> ' +
-    ' <td> <button v-if="vacio(horas[5].data)" v-bind:class="horas[5].classObject">{{horas[5].data}}</button> </td> ' +
-    '</tr>',
-  methods: {
-    vacio:function(a){
-      if (a!=''){
-        return true
+    template: '<tr >' +
+        '<td> <span>{{horas[0]}}</span> </td>' +
+        ' <td> <button v-if="vacio(horas[1].data)" v-bind:class="horas[1].classObject">{{horas[1].data}}</button> </td> ' +
+        ' <td> <button v-if="vacio(horas[2].data)" v-bind:class="horas[2].classObject">{{horas[2].data}}</button> </td> ' +
+        ' <td> <button v-if="vacio(horas[3].data)" v-bind:class="horas[3].classObject">{{horas[3].data}}</button> </td> ' +
+        ' <td> <button v-if="vacio(horas[4].data)" v-bind:class="horas[4].classObject">{{horas[4].data}}</button> </td> ' +
+        ' <td> <button v-if="vacio(horas[5].data)" v-bind:class="horas[5].classObject">{{horas[5].data}}</button> </td> ' +
+        '</tr>',
+    methods: {
+        vacio: function (a) {
+            if (a != '') {
+                return true
 
-      }
-      else {
-        return false
-      }
+            } else {
+                return false
+            }
+        }
     }
-  }
 })
 var app = new Vue({
     el: '#app',
     data: {
         salones: [],
-        ver:1,
-        profesores:[],
-        prof:0,
-        horario:{}
+        ver: 1,
+        profesores: [],
+        prof: 0,
+        horario: {}
     },
     created: function () {
-      var mysql      = require('mysql');
-      var connection = mysql.createConnection({
-          host: 'localhost',
-          user: 'CECYTEM',
-          password: '100%CECYTEM',
-          database: 'CECYTEM',
-          port: 3306
-      })
+        var mysql = require('mysql');
+        var connection = mysql.createConnection({
+            host: 'localhost',
+            user: 'CECYTEM',
+            password: '100%CECYTEM',
+            database: 'CECYTEM',
+            port: 3306
+        })
 
-      connection.connect();
+        connection.connect();
 
-      connection.query('SELECT * FROM TBL_USER', function (error, result) {
-        if (error){
-          throw error;
-          console.log("hola");
-        }
+        connection.query('SELECT * FROM TBL_USER', function (error, result) {
+            if (error) {
+                throw error;
+                console.log("hola");
+            } else {
+                app.profesor = result
+            }
+        });
 
-        else{
-          app.profesor=result
-        }
-      });
-
-      connection.end();
+        connection.end();
     },
     methods: {
         close: function () {
             document.getElementById('delete').setAttribute("class", "modal")
             console.log(document.getElementById('text').removeChild(document.getElementById('text').lastChild))
+        },
+        cerrarPDF: function () {
+            document.getElementById('verPDF').setAttribute("class", "modal")
         },
         cupdate: function () {
             alertify.error("Se canceló la actualización de la información del profesor.");
@@ -100,101 +102,101 @@ var app = new Vue({
         },
         remove: function (id) {
             console.log(id)
-            alertify.confirm("Eliminar Profesor", "¿Desea eliminar al profesor ",function () {
-                              var mysql = require('mysql')
-                            var con = mysql.createConnection({
-                                host: 'localhost',
-                                user: 'CECYTEM',
-                                password: '100%CECYTEM',
-                                database: 'CECYTEM',
-                                port: 3306
-                            })
-                            var q = con.query('DELETE FROM TBL_USER WHERE INT_USER= ?',id, function (error, result) {
-                                if (error) {
-                                    throw error;
-                                } else {
-                                    alertify.success("¡El profesor se ha eliminado con éxito!");
-                                    setTimeout(function () {
-                                        location.href = "teacher.html";
-                                    }, 3000);
-                                }
-                            });
-                            con.end();
-                        },
-                        function () {
-                            alertify.error('Se canceló la petición.');
-                        });
+            alertify.confirm("Eliminar Profesor", "¿Desea eliminar al profesor ", function () {
+                    var mysql = require('mysql')
+                    var con = mysql.createConnection({
+                        host: 'localhost',
+                        user: 'CECYTEM',
+                        password: '100%CECYTEM',
+                        database: 'CECYTEM',
+                        port: 3306
+                    })
+                    var q = con.query('DELETE FROM TBL_USER WHERE INT_USER= ?', id, function (error, result) {
+                        if (error) {
+                            throw error;
+                        } else {
+                            alertify.success("¡El profesor se ha eliminado con éxito!");
+                            setTimeout(function () {
+                                location.href = "teacher.html";
+                            }, 3000);
+                        }
+                    });
+                    con.end();
+                },
+                function () {
+                    alertify.error('Se canceló la petición.');
+                });
         },
         update: function (element) {
-          this.horario= JSON.parse(element['TXT_HORARIO'])
+            this.horario = JSON.parse(element['TXT_HORARIO'])
 
             document.getElementById('update').setAttribute("class", "modal is-active")
             var fecha1 = null,
-                      fecha2 = null;
-                  if (element["DDT_NACIMIENTO"] != null) {
-                      fecha1 = element["DDT_NACIMIENTO"].getFullYear();
-                      if (element["DDT_NACIMIENTO"].getMonth() < 10)
-                          fecha1 = fecha1 + "-0" + (element["DDT_NACIMIENTO"].getMonth() + 1);
-                      else
-                          fecha1 = fecha1 + "-" + (element["DDT_NACIMIENTO"].getMonth() + 1);
-                      if (element["DDT_NACIMIENTO"].getDate() < 10)
-                          fecha1 = fecha1 + "-0" + element["DDT_NACIMIENTO"].getDate();
-                      else
-                          fecha1 = fecha1 + "-" + element["DDT_NACIMIENTO"].getDate();
-                  }
-                  document.getElementById('fechaN').value = fecha1
-                  if (element["DDT_FECHA_INI_ORG"] != null) {
-                      fecha2 = element["DDT_FECHA_INI_ORG"].getFullYear();
-                      if (element["DDT_FECHA_INI_ORG"].getMonth() < 10)
-                          fecha2 = fecha2 + "-0" + (element["DDT_FECHA_INI_ORG"].getMonth() + 1);
-                      else
-                          fecha2 = fecha2 + "-" + (element["DDT_FECHA_INI_ORG"].getMonth() + 1);
-                      if (element["DDT_FECHA_INI_ORG"].getDate() < 10)
-                          fecha2 = fecha2 + "-0" + element["DDT_FECHA_INI_ORG"].getDate();
-                      else
-                          fecha2 = fecha2 + "-" + element["DDT_FECHA_INI_ORG"].getDate();
-                  }
-                  document.getElementById('fechaI').value = fecha2
-                  document.getElementById('update').setAttribute("class", "is-active modal")
-                  document.getElementById('nombre').value = element['VCH_NAME'] == null ? ' ' : element['VCH_NAME']
-                  document.getElementById('apellidoP').value = element['VCH_A_PATERNO'] == null ? '' : element['VCH_A_PATERNO']
-                  document.getElementById('apellidoM').value = element['VCH_A_MATERNO'] == null ? '' : element['VCH_A_MATERNO']
+                fecha2 = null;
+            if (element["DDT_NACIMIENTO"] != null) {
+                fecha1 = element["DDT_NACIMIENTO"].getFullYear();
+                if (element["DDT_NACIMIENTO"].getMonth() < 10)
+                    fecha1 = fecha1 + "-0" + (element["DDT_NACIMIENTO"].getMonth() + 1);
+                else
+                    fecha1 = fecha1 + "-" + (element["DDT_NACIMIENTO"].getMonth() + 1);
+                if (element["DDT_NACIMIENTO"].getDate() < 10)
+                    fecha1 = fecha1 + "-0" + element["DDT_NACIMIENTO"].getDate();
+                else
+                    fecha1 = fecha1 + "-" + element["DDT_NACIMIENTO"].getDate();
+            }
+            document.getElementById('fechaN').value = fecha1
+            if (element["DDT_FECHA_INI_ORG"] != null) {
+                fecha2 = element["DDT_FECHA_INI_ORG"].getFullYear();
+                if (element["DDT_FECHA_INI_ORG"].getMonth() < 10)
+                    fecha2 = fecha2 + "-0" + (element["DDT_FECHA_INI_ORG"].getMonth() + 1);
+                else
+                    fecha2 = fecha2 + "-" + (element["DDT_FECHA_INI_ORG"].getMonth() + 1);
+                if (element["DDT_FECHA_INI_ORG"].getDate() < 10)
+                    fecha2 = fecha2 + "-0" + element["DDT_FECHA_INI_ORG"].getDate();
+                else
+                    fecha2 = fecha2 + "-" + element["DDT_FECHA_INI_ORG"].getDate();
+            }
+            document.getElementById('fechaI').value = fecha2
+            document.getElementById('update').setAttribute("class", "is-active modal")
+            document.getElementById('nombre').value = element['VCH_NAME'] == null ? ' ' : element['VCH_NAME']
+            document.getElementById('apellidoP').value = element['VCH_A_PATERNO'] == null ? '' : element['VCH_A_PATERNO']
+            document.getElementById('apellidoM').value = element['VCH_A_MATERNO'] == null ? '' : element['VCH_A_MATERNO']
 
-                  document.getElementById('lugarN').value = element['VCH_LUGAR_NACIMIENTO'] == null ? '' : element['VCH_LUGAR_NACIMIENTO']
-                  document.getElementById('horasA').value = element['INT_HORAS_ADICIONALES'] == null ? '' : element['INT_HORAS_ADICIONALES']
+            document.getElementById('lugarN').value = element['VCH_LUGAR_NACIMIENTO'] == null ? '' : element['VCH_LUGAR_NACIMIENTO']
+            document.getElementById('horasA').value = element['INT_HORAS_ADICIONALES'] == null ? '' : element['INT_HORAS_ADICIONALES']
 
-                  document.getElementById('genero').value = element['ENM_GENERO'] == null ? '' : element['ENM_GENERO']
-                  document.getElementById('estadoC').value = element['ENM_ESTADO_CIVIL'] == null ? '' : element['ENM_ESTADO_CIVIL']
+            document.getElementById('genero').value = element['ENM_GENERO'] == null ? '' : element['ENM_GENERO']
+            document.getElementById('estadoC').value = element['ENM_ESTADO_CIVIL'] == null ? '' : element['ENM_ESTADO_CIVIL']
 
-                  document.getElementById('status').value = element['ENM_STATUS'] == null ? '' : element['ENM_STATUS']
-                  document.getElementById('permiso').value = element['ENM_PERMISOS'] == null ? '' : element['ENM_PERMISOS']
+            document.getElementById('status').value = element['ENM_STATUS'] == null ? '' : element['ENM_STATUS']
+            document.getElementById('permiso').value = element['ENM_PERMISOS'] == null ? '' : element['ENM_PERMISOS']
 
-                  document.getElementById('horasB').value = element['INT_HORAS_BASE'] == null ? '' : element['INT_HORAS_BASE']
-                  document.getElementById('numeroN').value = element['INT_NUM_NOMINA'] == null ? '' : element['INT_NUM_NOMINA']
-                  document.getElementById('cedulaD').value = element['VCH_CEDULA_DOCTORADO'] == null ? '' : element['VCH_CEDULA_DOCTORADO']
-                  document.getElementById('cedulaL').value = element['VCH_CEDULA_LICENCIATURA'] == null ? '' : element['VCH_CEDULA_LICENCIATURA']
-                  document.getElementById('cedulaM').value = element['VCH_CEDULA_MAESTRIA'] == null ? '' : element['VCH_CEDULA_MAESTRIA']
-                  document.getElementById('colonia').value = element['VCH_COLONIA'] == null ? '' : element['VCH_COLONIA']
+            document.getElementById('horasB').value = element['INT_HORAS_BASE'] == null ? '' : element['INT_HORAS_BASE']
+            document.getElementById('numeroN').value = element['INT_NUM_NOMINA'] == null ? '' : element['INT_NUM_NOMINA']
+            document.getElementById('cedulaD').value = element['VCH_CEDULA_DOCTORADO'] == null ? '' : element['VCH_CEDULA_DOCTORADO']
+            document.getElementById('cedulaL').value = element['VCH_CEDULA_LICENCIATURA'] == null ? '' : element['VCH_CEDULA_LICENCIATURA']
+            document.getElementById('cedulaM').value = element['VCH_CEDULA_MAESTRIA'] == null ? '' : element['VCH_CEDULA_MAESTRIA']
+            document.getElementById('colonia').value = element['VCH_COLONIA'] == null ? '' : element['VCH_COLONIA']
 
-                  document.getElementById('mail').value = element['VCH_CORREO'] == null ? '' : element['VCH_CORREO']
+            document.getElementById('mail').value = element['VCH_CORREO'] == null ? '' : element['VCH_CORREO']
 
-                  document.getElementById('codigoP').value = element['VCH_CP'] == null ? '' : element['VCH_CP']
+            document.getElementById('codigoP').value = element['VCH_CP'] == null ? '' : element['VCH_CP']
 
-                  document.getElementById('curp').value = element['VCH_CURP'] == null ? '' : element['VCH_CURP']
+            document.getElementById('curp').value = element['VCH_CURP'] == null ? '' : element['VCH_CURP']
 
-                  document.getElementById('doctorado').value = element['VCH_DOCTORADO'] == null ? '' : element['VCH_DOCTORADO']
-                  document.getElementById('licenciatura').value = element['VCH_LICENCIATURA'] == null ? '' : element['VCH_LICENCIATURA']
-                  document.getElementById('maestria').value = element['VCH_MAESTRIA'] == null ? '' : element['VCH_MAESTRIA']
+            document.getElementById('doctorado').value = element['VCH_DOCTORADO'] == null ? '' : element['VCH_DOCTORADO']
+            document.getElementById('licenciatura').value = element['VCH_LICENCIATURA'] == null ? '' : element['VCH_LICENCIATURA']
+            document.getElementById('maestria').value = element['VCH_MAESTRIA'] == null ? '' : element['VCH_MAESTRIA']
 
-                  document.getElementById('nombramiento').value = element['VCH_NOMBRAMIENTO'] == null ? '' : element['VCH_NOMBRAMIENTO']
+            document.getElementById('nombramiento').value = element['VCH_NOMBRAMIENTO'] == null ? '' : element['VCH_NOMBRAMIENTO']
 
-                  document.getElementById('numeroC').value = element['VCH_NUMERO_CALLE'] == null ? '' : element['VCH_NUMERO_CALLE']
-                  document.getElementById('calle').value = element['VCH_CALLE'] == null ? '' : element['VCH_CALLE']
-                  document.getElementById('pass').value = element['VCH_PASS'] == null ? '' : element['VCH_PASS']
+            document.getElementById('numeroC').value = element['VCH_NUMERO_CALLE'] == null ? '' : element['VCH_NUMERO_CALLE']
+            document.getElementById('calle').value = element['VCH_CALLE'] == null ? '' : element['VCH_CALLE']
+            document.getElementById('pass').value = element['VCH_PASS'] == null ? '' : element['VCH_PASS']
 
-                  document.getElementById('rfc').value = element['VCH_RFC'] == null ? '' : element['VCH_RFC']
-                  document.getElementById('telefonoCe').value = element['VCH_TEL_CEL'] == null ? '' : element['VCH_TEL_CEL']
-                  document.getElementById('telefonoCa').value = element['VCH_TEL_LOCAL'] == null ? '' : element['VCH_TEL_LOCAL']
+            document.getElementById('rfc').value = element['VCH_RFC'] == null ? '' : element['VCH_RFC']
+            document.getElementById('telefonoCe').value = element['VCH_TEL_CEL'] == null ? '' : element['VCH_TEL_CEL']
+            document.getElementById('telefonoCa').value = element['VCH_TEL_LOCAL'] == null ? '' : element['VCH_TEL_LOCAL']
 
 
 
@@ -203,35 +205,84 @@ var app = new Vue({
         pdf: function (p) {
             console.log(p)
             /*************************PDF*****************/
+            alertify.success("Descargar PDF");
+//            html2canvas(document.getElementById("plantillaPDF"), {
+//                onrendered: function (canvas) {
+//                    var img = canvas;
+//                    var doc = new jspdf();
+//
+//                    doc.addImage(img, 'JPEG', -2, 0);
+//                    doc.setFontSize(12);
+//                    doc.text(70, 32, p.VCH_NAME)
+//                    doc.text(120, 32, p.VCH_A_PATERNO)
+//                    doc.text(170, 32, p.VCH_A_MATERNO)
+                    setTimeout(function () {
+                        location.href="pdfTeacher.html";
+                    }, 3000);
+   //             }
+  //          });
 
 
-              /***********************PDF*****************/
+            //            doc.save('profesor.pdf')
+            //            var url = '../visorPDF/web/varianza.pdf';
+            //            PDFJS.workerSrc = '../visorPDF/build/pdf.worker.js';
+            //            var loadingTask = PDFJS.getDocument(url);
+            //            loadingTask.promise.then(function (pdf) {
+            //                console.log('PDF loaded');
+            //
+            //                // Fetch the first page
+            //                var pageNumber = 1;
+            //                pdf.getPage(pageNumber).then(function (page) {
+            //                    console.log('Page loaded');
+            //
+            //                    var scale = 1.5;
+            //                    var viewport = page.getViewport(scale);
+            //
+            //                    // Prepare canvas using PDF page dimensions
+            //                    var canvas = document.getElementById('cuerpoPDF');
+            //                    var context = canvas.getContext('2d');
+            //
+            //                    // Render PDF page into canvas context
+            //                    var renderContext = {
+            //                        canvasContext: context,
+            //                        viewport: viewport
+            //                    };
+            //                    var renderTask = page.render(renderContext);
+            //                    renderTask.then(function () {
+            //                        console.log('Page rendered');
+            //                    });
+            //                });
+            //            }, function (reason) {
+            //                // PDF loading error
+            //                console.error(reason);
+            //            });
+            /***********************PDF*****************/
         },
         view: function () {
 
         }
     },
-    created:function(){
+    created: function () {
 
-          var mysql = require('mysql')
-          var connection = mysql.createConnection({
-              host: 'localhost',
-              user: 'CECYTEM',
-              password: '100%CECYTEM',
-              database: 'CECYTEM',
-              port: 3306
-          })
-          var query2 = connection.query('SELECT * FROM TBL_USER ', function (error, result) {
-              if (error) {
-                  throw error
-              } else {
-                  //console.log(result)
-                  app.profesores=result
+        var mysql = require('mysql')
+        var connection = mysql.createConnection({
+            host: 'localhost',
+            user: 'CECYTEM',
+            password: '100%CECYTEM',
+            database: 'CECYTEM',
+            port: 3306
+        })
+        var query2 = connection.query('SELECT * FROM TBL_USER ', function (error, result) {
+            if (error) {
+                throw error
+            } else {
+                //console.log(result)
+                app.profesores = result
 
-              }
-          });
+            }
+        });
 
-          connection.end();
+        connection.end();
 
     }
 })

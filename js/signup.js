@@ -242,12 +242,36 @@ function registrarUsuario() {
     if (mail === "") {
         alertify.error("Falta llenar el campo del CORREO");
         document.getElementById("mail").setAttribute("class", "input is-danger");
+        document.getElementById("errorCorreoRepetido").setAttribute("style", "display: none");
         document.getElementById("errorCorreo").setAttribute("style", "display: block");
         return 0;
     } else {
-        document.getElementById("mail").setAttribute("class", "input is-success");
         document.getElementById("errorCorreo").setAttribute("style", "display: none");
+        var mail2 = con.query("SELECT VCH_CORREO FROM TBL_USER WHERE VCH_CORREO = ?", [mail], function (error, result) {
+            console.log(result[0]);
+            validarCorreo = result[0];
+            if (error) {
+                throw error;
+            } else {
+                if (result.length > 0) {
+                    document.getElementById("mail").setAttribute("class", "input is-danger");
+                    document.getElementById("errorCorreoRepetido").setAttribute("style", "display: block");
+                    document.getElementById("errorPass").setAttribute("style", "display: none");
+                    document.getElementById("pass").setAttribute("class", "input");
+                    alertify.error("Este correo ya está registrado. Intente con otro diferente.");
+                    return 0;
+                } else {
+                    document.getElementById("mail").setAttribute("class", "input is-success");
+                    document.getElementById("errorCorreoRepetido").setAttribute("style", "display: none");
+                }
+            }
+        });
+        if (document.getElementById("errorCorreoRepetido").getAttribute("style") === "display: block") {
+            return 0;
+        }
+        document.getElementById("mail").setAttribute("class", "input is-success");
     }
+
     if (pass === "") {
         alertify.error("Falta llenar el campo de CONTRASEÑA");
         document.getElementById("pass").setAttribute("class", "input is-danger");
@@ -277,7 +301,7 @@ function registrarUsuario() {
 
     alertify.success("¡Usuario creado con éxito!");
     setTimeout(function () {
-        location.href = "index.html";
+        location.href = "signin.html";
     }, 3000);
 
 
