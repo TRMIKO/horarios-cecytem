@@ -32,7 +32,7 @@ app.on('ready', () => {
 })
 
 ipc.on('print-to-pdf', function(event) {
-    const pdfPath = path.join(os.tmpdir(), 'profesor.pdf');
+    const pdfPath = path.join(os.tmpdir(), 'CECYTEM.pdf');
     const win = BrowserWindow.fromWebContents(event.sender);
     
     win.webContents.printToPDF({}, function(error, data) {
