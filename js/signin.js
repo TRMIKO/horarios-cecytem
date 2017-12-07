@@ -1,5 +1,35 @@
 var alertify = require("alertifyjs");
+Vue.component('horario', {
+    props: ['horas', 'hora'],
 
+    template: '<tr >' +
+        '<td> <span>{{horas[0]}}</span> </td>' +
+        ' <td> <button v-if="vacio(horas[1].data)" v-bind:class="horas[1].classObject">{{horas[1].data}}</button> </td> ' +
+        ' <td> <button v-if="vacio(horas[2].data)" v-bind:class="horas[2].classObject">{{horas[2].data}}</button> </td> ' +
+        ' <td> <button v-if="vacio(horas[3].data)" v-bind:class="horas[3].classObject">{{horas[3].data}}</button> </td> ' +
+        ' <td> <button v-if="vacio(horas[4].data)" v-bind:class="horas[4].classObject">{{horas[4].data}}</button> </td> ' +
+        ' <td> <button v-if="vacio(horas[5].data)" v-bind:class="horas[5].classObject">{{horas[5].data}}</button> </td> ' +
+        '</tr>',
+    methods: {
+        vacio: function (a) {
+            if (a != '') {
+                return true
+
+            } else {
+                return false
+            }
+        }
+    }
+})
+var app = new Vue({
+  el: '#app',
+  data: {
+    message: 'Hello Vue!',
+    info:[]
+  },created:function(){
+
+  }
+})
 function Verificar() {
     var mysql = require('mysql');
     var connection = mysql.createConnection({
@@ -11,6 +41,7 @@ function Verificar() {
     });
     var mail = document.getElementById("email").value;
     var pass = document.getElementById("password").value;
+    console.log(mail,pass);
     connection.connect(function (error) {
         if (error) {
             throw error;
@@ -134,6 +165,27 @@ function Verificar() {
 }
 
 function Actualizar() {
+  var mysql = require('mysql')
+var con = mysql.createConnection({
+  host: 'localhost',
+  user: 'CECYTEM',
+  password: '100%CECYTEM',
+  database: 'CECYTEM',
+  port: 3306
+})
+var mail = document.getElementById("email").value;
+var pass = document.getElementById("password").value;
+q = con.query('SELECT * FROM TBL_USER WHERE VCH_CORREO=? AND VCH_PASS=?', [mail, pass],function(error, result) {
+  if (error) {
+    throw error;
+  } else {
+    app.info=result
+    console.log(result)
+
+
+  }
+});
+con.end();
     var mysql = require('mysql');
     var connection = mysql.createConnection({
         host: 'localhost',

@@ -31,11 +31,77 @@ Vue.component('horario', {
 
     }
 })
+
+Vue.component('hour', {
+  props: ['horas', 'hora'],
+
+  template: '<tr >' +
+    '<td> </span>   <span>{{horas[0]}}</span>' +
+    ' <td>{{horas[1]["nombre"]}}</td> ' +
+    ' <td>{{horas[2]["nombre"]}}</td> ' +
+    ' <td>{{horas[3]["nombre"]}}</td> ' +
+    ' <td>{{horas[4]["nombre"]}}</td> ' +
+    ' <td>{{horas[5]["nombre"]}}</td> ' +
+    '</tr>',
+  methods: {
+    emit: function(index, day) {
+      this.$emit('remove-class', index, day)
+    },
+    vacio:function(a){
+      if (a!=''){
+        return true
+
+      }
+      else {
+        return false
+      }
+    }
+  }
+})
+Vue.component('grupo', {
+  props: ['horas', 'hora'],
+
+  template: '<tr >' +
+    '<td>{{horas[0]}}</td>' +
+    ' <td>{{horas[1]["nombre"]}}</td> ' +
+    ' <td>{{horas[2]["nombre"]}}</td> ' +
+    ' <td>{{horas[3]["nombre"]}}</td> ' +
+    ' <td>{{horas[4]["nombre"]}}</td> ' +
+    ' <td>{{horas[5]["nombre"]}}</td> ' +
+    '</tr>',
+  methods: {
+    emit: function(index, day) {
+      this.$emit('remove-class', index, day)
+    }
+  }
+})
+Vue.component('relacion', {
+  props: ['horas', 'hora'],
+
+  template: '<tr >' +
+    '<td>{{horas[0]}}</td>' +
+    ' <td>{{horas[1]}}</td> ' +
+    ' <td>{{horas[2]}}</td> ' +
+    ' <td>{{horas[3]}}</td> ' +
+    ' <td>{{horas[4]}}</td> ' +
+    ' <td>{{horas[5]["nombre"]}}</td> ' +
+    '</tr>',
+  methods: {
+    emit: function(subject) {
+      this.$emit('remove-subject',subject)
+    }
+  }
+})
 var app = new Vue({
   el: '#app',
   data: {
     message: 'Hello Vue!',
     dbHorario:[],
+    horarioUp:{
+      horas:[],
+      salones:[],
+      relacion:[]
+    },
     todo:{},
     hora: '',
     hini: '',
@@ -67,7 +133,7 @@ var app = new Vue({
       database: 'CECYTEM',
       port: 3306
     })
-    var q = con.query('SELECT N.VCH_NOMBRE AS GEN,N.INT_GENERACION AS IDG,G.ENM_TURNO AS TURNO,G.VCH_ESPACIALIDAD AS ESP,G.VCH_NOMBRE AS GRUPO,G.INT_GRUPO IDGR FROM  (TBL_HORARIO H JOIN TBL_GRUPO G ON H.INT_GRUPO=G.INT_GRUPO JOIN TBL_GENERACION N ON N.INT_GENERACION=H.INT_GENERACION)  GROUP BY G.VCH_NOMBRE,N.VCH_NOMBRE,G.ENM_TURNO,G.VCH_ESPACIALIDAD,N.INT_GENERACION,G.INT_GRUPO ORDER BY N.VCH_NOMBRE DESC', function(error, result) {
+    var q = con.query('SELECT N.VCH_NOMBRE AS GEN,N.INT_GENERACION AS IDG,G.ENM_TURNO AS TURNO,G.VCH_ESPACIALIDAD AS ESP,G.VCH_NOMBRE AS GRUPO,G.INT_GRUPO AS IDGR,  H.TXT_JSON AS JSON FROM  (TBL_HORARIO H JOIN TBL_GRUPO G ON H.INT_GRUPO=G.INT_GRUPO JOIN TBL_GENERACION N ON N.INT_GENERACION=H.INT_GENERACION)  GROUP BY G.VCH_NOMBRE,N.VCH_NOMBRE,G.ENM_TURNO,G.VCH_ESPACIALIDAD,N.INT_GENERACION,G.INT_GRUPO,H.TXT_JSON ORDER BY N.VCH_NOMBRE DESC', function(error, result) {
       if (error) {
         throw error;
       } else {
@@ -200,7 +266,9 @@ var app = new Vue({
           if (error) {
             throw error;
           } else {
-               console.log(result);
+               app.horarioUp=JSON.parse(result['0']['TXT_JSON'])
+
+               console.log(app.horarioUp);
 
           }
         });

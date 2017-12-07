@@ -282,7 +282,7 @@ var app = new Vue({
           for (var j = 1; j <6; j++) {
             if (this.todo.salones[i][j]['id']==undefined || this.todo.salones[i][j]['id']==undefined) continue
 
-            console.log("prof :" ,"grupo" +this.todo.grupo,"materias"+this.todo.horario[i][j].id,"salone :"+this.todo.salones[i][j]['id'],"periodo :" +this.todo.periodo,"horario :"+this.todo.horario[i]['0']);
+            //console.log("prof :" ,"grupo" +this.todo.grupo,"materias"+this.todo.horario[i][j].id,"salone :"+this.todo.salones[i][j]['id'],"periodo :" +this.todo.periodo,"horario :"+this.todo.horario[i]['0']);
             for(let k=0;k<this.todo.relacion.length;k++){
               //console.log(this.todo.relacion[k]['1'],this.todo.horario[i][j]['nombre']);
               console.log(this.todo.relacion[k]['5']['id']);
@@ -295,12 +295,12 @@ var app = new Vue({
                   database: 'CECYTEM',
                   port: 3306
                 })
-                var q = con.query('INSERT INTO TBL_HORARIO VALUES(NULL,?,?,?,?,?,?,?)',[this.todo.relacion[k]['5']['id'],this.todo.grupo,this.todo.horario[i][j].id,this.todo.salones[i][j]['id'],this.todo.periodo,this.todo.horario[i]['0'],j], function(error, result) {
+                var q = con.query('INSERT INTO TBL_HORARIO VALUES(NULL,?,?,?,?,?,?,?,?)',[this.todo.relacion[k]['5']['id'],this.todo.grupo,this.todo.horario[i][j].id,this.todo.salones[i][j]['id'],this.todo.periodo,this.todo.horario[i]['0'],j,JSON.stringify(this.todo)], function(error, result) {
                   if (error) {
                     throw error;
                   } else {
 
-                    console.log("AHUEVO PAPI QUE LO HAS LOGRADO")
+                     alertify.success('Success message');
 
                   }
                 });

@@ -469,29 +469,27 @@
                         </select>
                     </div>
                     <button class="button is-success" style="margin-top: 10px;">Agregar</button>
-                    
-                    
-                    <table class="table is-fullwidth is-striped">
+
+
+                    <table id="app" class="table table is-fullwidth table is-hoverable">
                         <thead>
                             <tr>
-                                <th>Lunes</th>
-                                <th>Martes</th>
-                                <th>Miércoles</th>
-                                <th>Jueves</th>
-                                <th>Viernes</th>
+                                <td>hora</td>
+                                <td>Lunes</td>
+                                <td>Martes</td>
+                                <td>Miercoles</td>
+                                <td>Jueves</td>
+                                <td>Viernes</td>
+
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody is="info" v-for="(h,index) in info" v-bind:key="h.id" v-bind:horas="h" v-bind:hora="index">
 
                         </tbody>
                     </table>
 
 
-                    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis earum dolorem velit, quibusdam numquam quas ipsa dolores amet nostrum eveniet incidunt, quos, nemo expedita error ab aliquid nisi deleniti soluta.</div>
-                    <div>Inventore sunt libero ipsam vitae provident sequi voluptatum voluptatibus corrupti, reprehenderit facere quia. Nesciunt iusto impedit incidunt ab laudantium ratione, deleniti magnam qui obcaecati! Voluptatum culpa iste dicta soluta error.</div>
-                    <div>Qui temporibus, aperiam minus. Sequi, autem! Mollitia esse, at nulla molestiae a blanditiis voluptas voluptate minima, modi quam error accusamus amet quod provident dolor odit eos! Quo quia doloremque, voluptate.</div>
-                    <div>Incidunt perspiciatis magni rerum, nisi quis nobis maiores at reiciendis quasi sapiente exercitationem magnam quidem debitis corporis culpa similique ratione voluptatum non in voluptas ad dignissimos deserunt eligendi cumque. Eveniet.</div>
-                    <div>Natus alias, dolor. Ut maxime, pariatur repudiandae saepe sunt consequuntur optio, quos odit nesciunt expedita facere eveniet distinctio totam quia sed cum quis. Repellat ratione magni animi dolorum laboriosam rem?</div>
+                
                 </div>
 
             </section>
@@ -503,7 +501,7 @@
         </div>
     </div>
 
-
+        <script src="../node_modules/vue/dist/vue.js"></script>
     <script src="../js/signin.js"></script>
 
 </body>
