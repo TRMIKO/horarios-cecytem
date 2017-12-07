@@ -276,23 +276,30 @@ var app = new Vue({
     },
     remove:function(h){
       console.log(h);
-      var mysql = require('mysql')
-      var con = mysql.createConnection({
-        host: 'localhost',
-        user: 'CECYTEM',
-        password: '100%CECYTEM',
-        database: 'CECYTEM',
-        port: 3306
-      })
-      var q = con.query('DELETE FROM TBL_HORARIO WHERE INT_GENERACION= ? AND INT_GRUPO = ?',[h['IDG'],h['IDGR']] ,function(error, result) {
-        if (error) {
-          throw error;
-        } else {
-             alertify.success('Eliminado');
-
-        }
-      });
-      con.end();
+      alertify.confirm("Eliminar Horario", "¿Desea eliminar el horario?", function () {
+        var mysql = require('mysql')
+        var con = mysql.createConnection({
+            host: 'localhost',
+            user: 'CECYTEM',
+            password: '100%CECYTEM',
+            database: 'CECYTEM',
+            port: 3306
+        })
+        var q = con.query('DELETE FROM TBL_HORARIO WHERE INT_GENERACION= ? AND INT_GRUPO = ?',[h['IDG'],h['IDGR']] ,function(error, result) {
+            if (error) {
+                throw error;
+            } else {
+                alertify.success("¡El horario se ha eliminado con éxito!");
+                setTimeout(function () {
+                    location.href = "schedule.html";
+                }, 3000);
+            }
+        });
+        con.end();
+        },
+        function () {
+            alertify.error('Se canceló la petición.');
+        });
     },
     pdf:function(h){
       console.log(h);
