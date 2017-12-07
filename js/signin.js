@@ -433,14 +433,22 @@ function Actualizar() {
             if (cedulaD === "")
                 cedulaD = null;
 
-            var query = con.query("UPDATE TBL_USER SET VCH_NAME=?, VCH_A_PATERNO=?, VCH_A_MATERNO=?, INT_NUM_NOMINA=?, ENM_ESTADO_CIVIL=?, ENM_GENERO=?, VCH_LUGAR_NACIMIENTO=?, DDT_NACIMIENTO=?, VCH_CURP=?, VCH_RFC=?, VCH_CORREO=?, DDT_FECHA_INI_ORG=?, VCH_NOMBRAMIENTO=?, ENM_STATUS=?, INT_HORAS_BASE=?, INT_HORAS_ADICIONALES=?, VCH_LICENCIATURA=?, VCH_CEDULA_LICENCIATURA=?, VCH_MAESTRIA=?, VCH_CEDULA_MAESTRIA=?, VCH_DOCTORADO=?, VCH_CEDULA_DOCTORADO=?, VCH_CP=?, VCH_COLONIA=?, VCH_CALLE=?, VCH_NUMERO_CALLE=?, VCH_TEL_LOCAL=?, VCH_TEL_CEL=?, VCH_PASS=? WHERE INT_USER=?", [nombre, apellidoP, apellidoM, numeroN, estadoC, genero, lugarN, fechaN, curp, rfc, mail, fechaI, nombramiento, status, horasB, horasA, licenciatura, cedulaL, maestria, cedulaM, doctorado, cedulaD, codigoP, colonia, calle, numeroC, telefonoCa, telefonoCe, pass, result[0]["INT_USER"]], function (err, result) {
-                if (err)
-                    throw err;
+            var connection = mysql.createConnection({
+                host: 'localhost',
+                user: 'CECYTEM',
+                password: '100%CECYTEM',
+                database: 'CECYTEM',
+                port: 3306
+            })
+
+            var upload = connection.query("UPDATE TBL_USER SET VCH_NAME=?, VCH_A_PATERNO=?, VCH_A_MATERNO=?, INT_NUM_NOMINA=?, ENM_ESTADO_CIVIL=?, ENM_GENERO=?, VCH_LUGAR_NACIMIENTO=?, DDT_NACIMIENTO=?, VCH_CURP=?, VCH_RFC=?, VCH_CORREO=?, DDT_FECHA_INI_ORG=?, VCH_NOMBRAMIENTO=?, ENM_STATUS=?, INT_HORAS_BASE=?, INT_HORAS_ADICIONALES=?, VCH_LICENCIATURA=?, VCH_CEDULA_LICENCIATURA=?, VCH_MAESTRIA=?, VCH_CEDULA_MAESTRIA=?, VCH_DOCTORADO=?, VCH_CEDULA_DOCTORADO=?, VCH_CP=?, VCH_COLONIA=?, VCH_CALLE=?, VCH_NUMERO_CALLE=?, VCH_TEL_LOCAL=?, VCH_TEL_CEL=?, VCH_PASS=? WHERE INT_USER=?", [nombre, apellidoP, apellidoM, numeroN, estadoC, genero, lugarN, fechaN, curp, rfc, mail, fechaI, nombramiento, status, horasB, horasA, licenciatura, cedulaL, maestria, cedulaM, doctorado, cedulaD, codigoP, colonia, calle, numeroC, telefonoCa, telefonoCe, pass, result[0]["INT_USER"]], function (error, result) {
+                if (error)
+                    throw error;
                 else {
                     alertify.success("¡Información actualizada con éxito!");
-                    //    setTimeout(function () {
-                    //        location.href = "signin.html";
-                    //    }, 3000);
+                    setTimeout(function () {
+                        location.href = "signin.html";
+                    }, 3000);
                 }
             });
 

@@ -72,7 +72,8 @@ var app = new Vue({
         },
         remove:function(g){
           console.log(g);
-          alertify.confirm("This is a confirm dialog.",
+            
+          alertify.confirm("Eliminar Grupo", "¿Desea eliminar el grupo?",
             function(){
               var mysql = require('mysql')
               var con = mysql.createConnection({
@@ -86,15 +87,17 @@ var app = new Vue({
                 if (error) {
                   throw error;
                 } else {
-                       alertify.success('eliminado');
-
+                       alertify.success('¡Grupo eliminado con éxito!');
+                        setTimeout(function() {
+                            location.href="group.html";
+                        }), 3000;
                 }
               });
               con.end();
 
             },
             function(){
-              alertify.error('Cancel');
+              alertify.error('Se canceló la petición.');
             });
         },
         update:function(g){
