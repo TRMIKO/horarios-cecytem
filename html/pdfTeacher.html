@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Imprimir PDF Profesor</title>
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../node_modules/bulma/css/bulma.css">
+    <link rel="stylesheet" href="../node_modules/alertifyjs/build/css/alertify.css">
+    <link rel="stylesheet" href="../node_modules/alertifyjs/build/css/themes/default.css">
+</head>
+
+<body>
+    <div id="plantillaPDF" style="width: 810px;">
+        <table class=" is-bordered is-fullwidth table is-hoverable ">
+            <thead>
+                <tr>
+                    <th><img src="../images/logoestado.png " width="1260px " height="420px " alt=" "></th>
+                    <th colspan="9 " style="text-align: center "><small>HORARIO DE TRABAJO PARA EL PERSONAL ACADÉMICO</small></th>
+                    <th><img src="../images/minilogo.jpg " alt=" "></th>
+                </tr>
+                <tr>
+                    <td colspan="11 ">
+                        <div class="field ">
+                            <div class="control has-icons-left has-icons-right ">
+                                <input class="input " type="email " value="NOMBRE DEL PROFESOR: ">
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="11 "><small style="font-size: 10px ">CON BASE EN LO DISPUESTO POR EL REGLAMENTO INTERIOR DE TRABAJO DEL PERSONAL ACADEMICO DEL CECYTEM, SE LE HA DESIGNADO A USTED COMO "PROFESOR DE ASIGNATURA ", EN EL PLANTEL TEQUIXQUIAC, CUBRIENDO UN TOTAL DE __ HORAS  SEMANA MES, DURANTE EL SEMESTRE _________ QUE COMPRENDE DEL ________________________  AL _____________________, DE ACUERDO AL SIGUIENTE HORARIO Y CON UN SUELDO BASE  MENSUAL DE:  __________</small></th>
+                </tr>
+                <tr>
+                    <th class="is-light " colspan="3 "><small>ASIGNATURA QUE IMPARTE</small></th>
+                    <th class="is-light " colspan="2 "><small>GRUPO</small></th>
+                    <th class="is-light " colspan="3 "><small>ESPECIALIDAD</small></th>
+                    <th class="is-light " colspan="2 "><small>TURNO</small></th>
+                    <th class="is-light "><small>HORAS</small></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="3 ">&nbsp;</td>
+                    <td colspan="2 "></td>
+                    <td colspan="3 "></td>
+                    <td colspan="2 "></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="3 ">&nbsp;</td>
+                    <td colspan="2 "></td>
+                    <td colspan="3 "></td>
+                    <td colspan="2 "></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="3 ">&nbsp;</td>
+                    <td colspan="2 "></td>
+                    <td colspan="3 "></td>
+                    <td colspan="2 "></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="3 ">&nbsp;</td>
+                    <td colspan="2 "></td>
+                    <td colspan="3 "></td>
+                    <td colspan="2 "></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="3 ">&nbsp;</td>
+                    <td colspan="2 "></td>
+                    <td colspan="3 "></td>
+                    <td colspan="2 " style="font-size: 12px "><small>TOTAL DE HORAS</small></td>
+                    <td></td>
+                </tr>
+
+            </tbody>
+
+            <thead>
+                <tr>
+                    <th class="is-light ">&nbsp;</th>
+                    <th class="is-light " colspan="2 "><small>LUNES</small></th>
+                    <th class="is-light " colspan="2 "><small>MARTES</small></th>
+                    <th class="is-light " colspan="2 "><small>MIÉRCOLES</small></th>
+                    <th class="is-light " colspan="2 "><small>JUEVES</small></th>
+                    <th class="is-light " colspan="2 "><small>VIERNES</small></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><small>HORA</small></td>
+                    <td><small>GRUPO</small></td>
+                    <td><small>AULA</small></td>
+                    <td><small>GRUPO</small></td>
+                    <td><small>AULA</small></td>
+                    <td><small>GRUPO</small></td>
+                    <td><small>AULA</small></td>
+                    <td><small>GRUPO</small></td>
+                    <td><small>AULA</small></td>
+                    <td><small>GRUPO</small></td>
+                    <td><small>AULA</small></td>
+                </tr>
+                <tr>
+                    <td style="font-size: 12px "><small>7:00-7:50</small></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="font-size: 12px "><small>7:50-8:40</small></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="font-size: 12px "><small>8:40-9:30</small></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="font-size: 12px "><small>9:30-10:20</small></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="is-light " style="font-size: 12px ">&nbsp;</td>
+                    <td class="is-light "></td>
+                    <td class="is-light "></td>
+                    <td class="is-light "></td>
+                    <td class="is-light "></td>
+                    <td class="is-light "></td>
+                    <td class="is-light "></td>
+                    <td class="is-light "></td>
+                    <td class="is-light "></td>
+                    <td class="is-light "></td>
+                    <td class="is-light "></td>
+                </tr>
+                <tr>
+                    <td style="font-size: 12px "><small>10:40-11:30</small></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="font-size: 12px "><small>11:30-12:20</small></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="font-size: 12px "><small>12:20-13:10</small></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="font-size: 12px "><small>13:10-14:00</small></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="font-size: 12px "><small>14:00-14:50</small></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="font-size: 12px "><small>14:50-15:40</small></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="is-light " style="font-size: 12px ">&nbsp;</td>
+                    <td class="is-light "></td>
+                    <td class="is-light "></td>
+                    <td class="is-light "></td>
+                    <td class="is-light "></td>
+                    <td class="is-light "></td>
+                    <td class="is-light "></td>
+                    <td class="is-light "></td>
+                    <td class="is-light "></td>
+                    <td class="is-light "></td>
+                    <td class="is-light "></td>
+                </tr>
+                <tr>
+                    <td style="font-size: 12px "><small>16:00-16:50</small></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="font-size: 12px "><small>16:50-17:40</small></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="font-size: 12px "><small>17:40-18:30</small></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+            <tr>
+                <td colspan="3 ">PROFESOR <br><br><br><br><br></td>
+                <td colspan="4 ">SUBDIRECTOR</td>
+                <td colspan="4 ">DIRECTOR</td>
+            </tr>
+        </table>
+    </div>
+    <div id="btns">
+        <button class="button is-success" onclick="descargar()">Descargar PDF</button>
+        <button class="button is-danger" onclick="regresar()">Regresar</button>
+    </div>
+
+    <script src="../js/pdfTeacher.js"></script>
+</body>
+
+</html>
