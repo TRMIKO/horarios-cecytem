@@ -304,6 +304,19 @@ var app = new Vue({
     pdf:function(h){
       console.log(h);
       /*+++++++++++++++++++++++++pdf+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+      var mysql = require('mysql');
+      var connection = mysql.createConnection({
+          host: 'localhost',
+          user: 'CECYTEM',
+          password: '100%CECYTEM',
+          database: 'CECYTEM',
+          port: 3306
+      });
+
+      var queryPDF = connection.query("UPDATE TBL_PDF SET VCH_VALOR=? WHERE VCH_NOMBRE='PROFESOR'", [h['IDG']+","+h['IDGR']]);
+
+
       alertify.success("Descargar PDF");
       setTimeout(function () {
         location.href="pdfSchedule.html";

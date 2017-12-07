@@ -7,10 +7,6 @@ function salir() {
     }, 3000);
 }
 
-Vue.component('my-component', {
-    template: '<div>A custom component!</div>',
-    props: ['salones']
-})
 var app = new Vue({
     el: '#app',
     data: {

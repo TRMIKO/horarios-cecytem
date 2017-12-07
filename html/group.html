@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Materias</title>
+    <title>Salones</title>
     <link rel="stylesheet" href="../css/font-awesome.min.css">
     <link rel="stylesheet" href="../node_modules/bulma/css/bulma.css">
     <link rel="stylesheet" href="../node_modules/alertifyjs/build/css/alertify.css">
@@ -12,6 +12,8 @@
 </head>
 
 <body>
+
+
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <!-- navbar items, navbar burger... -->
@@ -27,13 +29,13 @@
             <a class="navbar-item" href="teacher.html">
             Profesores
             </a>
-            <a class="navbar-item is-active" href="#">
+            <a class="navbar-item" href="subject.html">
             Materias
             </a>
             <a class="navbar-item" href="classroom.html">
             Salones
             </a>
-            <a class="navbar-item is-active" href="group.html">
+            <a class="navbar-item is-active" href="#">
             Grupos
             </a>
         </div>
@@ -41,6 +43,7 @@
             <!-- navbar items, navbar burger... -->
             <div class="navbar-item">
                 <div class="field is-grouped" onclick="salir()">
+
                     <p class="control">
                         <a class="button is-danger" href="#">
                               <span class="icon">
@@ -57,43 +60,43 @@
         <div class="hero-body">
             <div class="container">
                 <h1 class="title">
-                    Administrar Materias
+                    Administrar Grupos
                 </h1>
             </div>
         </div>
         <div class="tabs is-boxed">
             <ul>
                 <li class="is-active"><a href="#">Administar</a></li>
-                <li><a href="createsubject.html">Crear</a></li>
+                <li><a href="creategroup.html">Crear</a></li>
             </ul>
         </div>
     </section>
     <br>
     <section id="app">
         <div class="container">
-            <div class="field" style="display: none">
+            <div class="field">
                 <p class="control has-icons-left has-icons-right">
                     <input class="input" type="email" placeholder="Buscar">
                     <span class="icon is-small is-left">
-                  <i class="fa fa-info-circle"></i>
-                  </span>
+               <i class="fa fa-info-circle"></i>
+               </span>
                 </p>
             </div>
+
+            <br>
+
             <table class="table table is-fullwidth table is-hoverable">
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>Id</th>
                         <th>Nombre</th>
-                        <th>Semestre</th>
-                        <th>Horas Practicas</th>
-                        <th>Horas Teoricas</th>
+                        <th>Especialidad</th>
+                        <th>Turno</th>
                         <th></th>
                         <th></th>
                     </tr>
                 </thead>
-                <tbody id="content">
-
-
+                <tbody is="grupo" v-for="g in salones" v-bind:g="g" v-on:update="update" v-on:remove="remove">
                 </tbody>
             </table>
         </div>
@@ -101,7 +104,7 @@
             <div class="modal-background"></div>
             <div class="modal-card">
                 <header class="modal-card-head">
-                    <p class="modal-card-title" id="text">Eliminar Materia </p>
+                    <p class="modal-card-title" id="text">Eliminar salón </p>
                     <button class="delete" aria-label="close" v-on:click="close()"></button>
                 </header>
                 <section class="modal-card-body">
@@ -109,65 +112,71 @@
                 </section>
                 <footer class="modal-card-foot">
                     <button id="delete-btn" class="button is-success">Eliminar</button>
-                    <button v-on:click="close()" class="button">Cancelar</button>
+                    <button class="button is-danger" v-on:click="close()">Cancelar</button>
                 </footer>
             </div>
         </div>
-
         <div class="modal" id="update">
-            <div class="modal-background"></div>
-            <div class="modal-card">
-                <header class="modal-card-head">
-                    <p class="modal-card-title">Actualizar Información de Materia</p>
-                    <button class="delete" v-on:click="cupdate()" aria-label="close"></button>
-                </header>
-                <section class="modal-card-body">
-                    <!-- Content ... -->
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Actualizar Grupo</p>
+      <button class="delete" v-on:click="close" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body">
+      <!-- Content ... -->
+      <div class="field">
+  <label class="label">Nombre del grupo</label>
+  <div class="control has-icons-left has-icons-right">
+    <input class="input" type="text" placeholder="Text input" v-model="infoGrupo['VCH_NOMBRE']">
+    <span class="icon is-small is-left">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="icon is-small is-right">
+      <i class="fa fa-check"></i>
+    </span>
+  </div>
 
-                    <div class="field">
-                        <label class="label">Nombre</label>
-                        <div class="control">
-                            <input class="input" type="text" id="materia" placeholder="Nombre de la Materia">
-                        </div>
-                        <p class="help is-danger" id="errorMateria" style="display: none;">Falta llenar este campo.</p>
-                    </div>
+</div>
+<div class="field">
+  <label class="label">Especialidad</label>
+  <div class="control has-icons-left has-icons-right">
+    <input class="input is-success" type="text" placeholder="Text input" v-model="infoGrupo['VCH_ESPACIALIDAD']">
+    <span class="icon is-small is-left">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="icon is-small is-right">
+      <i class="fa fa-check"></i>
+    </span>
+  </div>
 
-
-                    <div class="field">
-                        <label class="label">Semestre</label>
-                        <div class="control">
-                            <input class="input" type="number" id="semestre" min="1" placeholder="Semestre en el que se Impartirá">
-                        </div>
-                        <p class="help is-danger" id="errorSemestre" style="display: none;">Falta llenar este campo.</p>
-                    </div>
-
-
-                    <div class="field">
-                        <label class="label">Horas Practicas</label>
-                        <div class="control">
-                            <input class="input" type="number" id="horap" min="1" placeholder="Hora en la que se Impartirá">
-                        </div>
-                        <p class="help is-danger" id="errorPra" style="display: none;">Falta llenar este campo.</p>
-                    </div>
-
-                    <div class="field">
-                        <label class="label">Horas Teoricas</label>
-                        <div class="control">
-                            <input class="input" type="number" id="horat" min="1" placeholder="Hora en la que se Impartirá">
-                        </div>
-                        <p class="help is-danger" id="errorTeo" style="display: none;">Falta llenar este campo.</p>
-                    </div>
-
-                </section>
-                <footer class="modal-card-foot">
-                    <button class="button is-success" id="update-btn">Guardar cambios</button>
-                    <button v-on:click="cupdate()" class="button is-danger">Cancelar</button>
-                </footer>
-            </div>
-        </div>
+</div>
+<div class="field">
+  <label class="label">Subject</label>
+  <div class="control">
+    <div class="select">
+      <select   v-model="infoGrupo['ENM_TURNO']">
+        <option value="MIXTO">MIXTO</option>
+        <option value="MATUTINO">MATUTINO</option>
+      </select>
+    </div>
+  </div>
+</div>
     </section>
+    <footer class="modal-card-foot">
+      <button v-on:click="actualiza" class="button is-success">Save changes</button>
+      <button v-on:click="close" class="button">Cancel</button>
+    </footer>
+  </div>
+</div>
+    </section>
+
+
+
     <script src="../node_modules/vue/dist/vue.js"></script>
-    <script src="../js/subject.js"></script>
+    <script src="../js/group.js"></script>
+    <script src="../js/html2canvas.js"></script>
+    <script src="../js/jspdf.min.js"></script>
 </body>
 
 </html>
