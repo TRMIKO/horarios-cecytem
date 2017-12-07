@@ -1,5 +1,12 @@
 var alertify = require("alertifyjs")
 
+function cancelar() {
+    alertify.error("¡Creación de Horario Cancelado!");
+    setTimeout(function () {
+        location.href = "schedule.html";
+    }, 3000);
+}
+
 function salir() {
     alertify.error("¡Nos vemos pronto!");
     setTimeout(function () {
@@ -300,7 +307,10 @@ var app = new Vue({
                     throw error;
                   } else {
 
-                     alertify.success('Success message');
+                     alertify.success('¡Horario creado con éxito!');
+                      setTimeout(function () {
+                        location.href = "schedule.html";
+                    }, 3000);
 
                   }
                 });
