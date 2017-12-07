@@ -229,6 +229,10 @@ var app = new Vue({
     pdf:function(h){
       console.log(h);
       /*+++++++++++++++++++++++++pdf+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+      alertify.success("Descargar PDF");
+      setTimeout(function () {
+        location.href="pdfSchedule.html";
+      }, 3000);
 
 
       /*+++++++++++++++++++++++++pdf*/
